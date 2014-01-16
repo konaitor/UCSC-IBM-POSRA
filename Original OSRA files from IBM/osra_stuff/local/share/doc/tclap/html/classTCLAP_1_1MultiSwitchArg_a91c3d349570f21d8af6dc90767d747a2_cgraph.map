@@ -1,0 +1,11 @@
+<map id="TCLAP::MultiSwitchArg::processArg" name="TCLAP::MultiSwitchArg::processArg">
+<area shape="rect" id="node3" href="$classTCLAP_1_1Arg.html#aa963d0d4c8cb297e1f4cf74143bf6d1b" title="Performs the special handling described by the Vistitor. " alt="" coords="219,5,432,32"/>
+<area shape="rect" id="node7" href="$classTCLAP_1_1Arg.html#aac37b1b734b477e5d16f2037dba9c125" title="A method that tests whether a string matches this argument. " alt="" coords="237,56,413,83"/>
+<area shape="rect" id="node13" href="$classTCLAP_1_1SwitchArg.html#af5fbd44d462539941b09e960034d692c" title="Checks a string to see if any of the chars in the string match the flag for this Switch. " alt="" coords="224,107,427,149"/>
+<area shape="rect" id="node21" href="$classTCLAP_1_1Arg.html#a4d412155b8f9b4956e64e91c48e55a3b" title="Whether to ignore the rest. " alt="" coords="240,173,411,200"/>
+<area shape="rect" id="node5" href="$classTCLAP_1_1Visitor.html#a08625664637579a24ba2f0ab3e713670" title="Does nothing. " alt="" coords="510,5,653,32"/>
+<area shape="rect" id="node9" href="$classTCLAP_1_1Arg.html#af8e739295b0f75028e7bff6d670d97a1" title="TCLAP::Arg::flagStartString" alt="" coords="486,107,677,133"/>
+<area shape="rect" id="node11" href="$classTCLAP_1_1Arg.html#a1df2134870528b80f9f35347fef6fd14" title="TCLAP::Arg::nameStartString" alt="" coords="480,56,683,83"/>
+<area shape="rect" id="node17" href="$classTCLAP_1_1Arg.html#aadef6ca7e40f5b3d3fd03186976aea7e" title="The delimiter that separates an argument flag/name from the value. " alt="" coords="504,208,659,235"/>
+<area shape="rect" id="node19" href="$classTCLAP_1_1Arg.html#a0abd38f46dbf7d267078134a4817fbb2" title="The char used as a place holder when SwitchArgs are combined. " alt="" coords="499,157,664,184"/>
+</map>

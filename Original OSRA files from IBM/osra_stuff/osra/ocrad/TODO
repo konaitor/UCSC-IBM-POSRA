@@ -1,0 +1,11 @@
+Find a better binarization method for color images.
+
+Produce HTML output.
+
+Deal with broken characters.
+
+Make a better layout detector.
+
+Separate (more) merged characters.
+
+Deal better with frames, lines, pictures, noisy characters, etc.

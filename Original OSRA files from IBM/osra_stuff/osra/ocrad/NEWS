@@ -1,0 +1,7 @@
+Changes in version 0.21:
+
+Some internal errors triggered by noisy input have been fixed.
+
+The chapter "OCR Results File" has been added to the manual.
+
+Stdin and stdout are now set in binary mode on MSVC and OS2.

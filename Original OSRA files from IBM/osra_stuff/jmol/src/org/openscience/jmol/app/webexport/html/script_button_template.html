@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Jmol, see http://www.jmol.org" />
+  <meta name ="author" content = "@AUTHOR@"/>
+  <meta name ="keywords" content = "generated_by_Jmol_Webexport"/>
+  <title>@TITLE@</title>
+  <style type="text/css">
+  #visible_page_wrapper{
+      position:absolute;
+      top:0px;
+      height:100%;
+      width:100%;
+      overflow:hidden;
+  }
+  #JSmol_loading_msg{
+      color:orange;
+  }
+  .JmolTextPane {
+      float: left;
+      width:@LEFTPERCENT@%;
+      height:99%;
+      overflow:scroll;
+      border:1px solid;
+      display:inline;
+  }
+  .JmolPane {
+      float: right;
+      width:@WIDTHPERCENT@%;
+      height:99%;
+      overflow:hidden;
+      /*border:1px solid green;*/
+  }
+  .JmolViewerPane{
+      width:98%;
+      height:85%;
+      overflow:hidden;
+      /*border:1px solid grey;*/
+  }
+  .JmolWidgetPane {
+      width:98%;
+      height:14.5%;
+      overflow:scroll;
+      /*border:1px solid blue;*/
+  }
+  .JmolButtonDiv{
+      width:99%;
+      /*border:1px solid blue;*/
+      text-align:center;
+      /*min-height:8px;*/
+  }
+  .update-info{
+      text-align:right;
+      font-size: small;
+      font-style: italic;
+  }
+  </style>
+  <!-- Below is used locally but not on server. May generate warnings. -->
+  <script type="text/javascript" src="@LOCALAPPLETPATH@/JSmol.min.js"></script>
+  <script src="JmolPopIn.js" type="text/javascript"></script>
+  @WIDGETJSFILES@
+  
+  <!-- Below is used on server, but not locally. May generate warnings.-->
+  <script type="text/javascript" src="@REMOTEAPPLETPATH@/j2s/JSmol.min.js"></script>
+  <script type="text/javascript">
+  var jmolApplet; //our viewer
+  var jmolInfo; //setup parameters
+  ;(function() {
+
+// Developers: The debugCode flag is checked in j2s/java/core.z.js, 
+// and, if TRUE, skips loading the core methods, forcing those
+// to be read from their individual directories. Set this
+// true if you want to do some code debugging by inserting
+// System.out.println, document.title, or alert commands
+// anywhere in the Java or Jmol code.
+
+var s = document.location.search;
+Jmol.debugCode = (s.indexOf("debugcode") >= 0);
+
+
+jmol_isReady = function(jmolApplet) {
+    elem = document.getElementById("JSmol_loading_msg");
+    elem.style.visibility="hidden";
+    elem.style.height="0";
+    elem.style.border="none";
+ }		
+
+
+jmolInfo = {
+	width: "100%",
+	height: "100%",
+	debug: false,
+	color: "white",
+	addSelectionOptions: false,
+	serverURL: "http://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php", //you can change this to your own server.
+	use: "HTML5",
+    coverImage: "@APPLETNAME0@.png",        // initial image instead of applet
+    coverScript: "",	// special script for click of cover image (otherwise equal to script)
+    deferApplet: false,                  // wait to load applet until click
+    deferUncover: true,                 // wait to uncover applet until script completed
+    //The paths below assume your server is set up with standard JSmol directory.  If not
+    //they will need modification for the page to work.
+    jarPath: "@REMOTEAPPLETPATH@/java", //path to applet .jar files on server.
+	j2sPath: "@REMOTEAPPLETPATH@/j2s",//path to javascript version.
+	makeLiveImg:"@REMOTEAPPLETPATH@/j2s/img/play_make_live.jpg",//path to activate 3-D image.
+	jarFile: "JmolAppletSigned0.jar",
+	isSigned: true,
+	//disableJ2SLoadMonitor: true,
+	disableInitialConsole: true,
+	readyFunction: jmol_isReady,
+	//defaultModel: "ethylene/ethylene.xyz",
+	script: "load @APPLETNAME0@.spt"
+}
+
+// ?_USE=JAVA   ?_USE=SIGNED   ?_USE=HTML5
+   if (s.indexOf("USE=") >= 0)
+     jmolInfo.use = s.split("USE=")[1].split("&")[0]
+   else if (s.indexOf("JAVA") >= 0)
+     jmolInfo.use = "JAVA"
+   else if (s.indexOf("IMAGE") >= 0)
+     jmolInfo.use = "IMAGE"
+   else if (s.indexOf("NOWEBGL") >= 0)
+     jmolInfo.use = "JAVA IMAGE"
+   else if (s.indexOf("WEBGL") >= 0)
+     jmolInfo.use = "WEBGL HTML5"
+   if (s.indexOf("NOWEBGL") >= 0)
+     jmolInfo.use = use.replace(/WEBGL/,"")
+   var useSignedApplet = (s.indexOf("SIGNED") >= 0);
+   if(useSignedApplet && jmolInfo.use == "HTML5") jmolInfo.use = "JAVA";
+
+   var protocol = window.location.protocol.toLowerCase();
+   if (protocol == "file:") { 
+    jmolInfo.jarPath = "@LOCALAPPLETPATH@/java";
+    jmolInfo.j2sPath = "@LOCALAPPLETPATH@/j2s";
+    jmolInfo.makeLiveImg = "@LOCALAPPLETPATH@/j2s/img/play_make_live.jpg";
+    jmolInfo.jarFile = "JmolAppletSigned.jar";
+    jmolInfo.isSigned= "true";
+  }
+})();
+
+Jmol.setDocument(document);
+
+// notice that we are using no document.write() function here. All DOM-based.
+// Jmol.getAppletHtml is working.
+
+$(document).ready(function(){
+    $("#Jmol1").html(Jmol.getAppletHtml("jmolApplet", jmolInfo));
+    $("#make_live_icon").attr('src',jmolInfo.makeLiveImg);
+});
+  </script>
+
+</head>
+<body>
+  <div id="visible_page_wrapper">
+    <div id="Text_Buttons" class="JmolTextPane">
+      <div id="JSmol_loading_msg">
+        GT_script_button_template.html_LOADING
+        <img id="make_live_icon" src="" height="15px"> 
+        GT_script_button_template.html_DISAPPEAR<hr/>
+      </div>
+      <div id="HeaderInfo" style="text-align:center;"><span style="font-weight:bold">
+        GT_pop_in_template.html_INSERTTITLE
+      </span></div>
+      GT_pop_in_template.html_INSERTINTRO<br/>
+      @APPLETDEFS@<br />
+      GT_script_button_template.html_VIEWAGAIN
+      <div id="authordiv" class="update-info">
+        @AUTHORDATA@
+       </div>
+       <div id="creationdiv" class="update-info">
+       @CREATIONDATA@
+       </div>
+       <div id="logdiv" style="display:none">
+         @LOGDATA@
+       </div>    
+    </div>
+    <div id="Viewer_and_Widgets" class="JmolPane">
+      <div id="Jmol1" class="JmolViewerPane">This will be the viewer
+           <img src="@APPLETNAME0@.png" alt="still of jmol image" style="height:100%; width:100%"/>
+      </div>
+      <div id="JmolWidgets1" class="JmolWidgetPane">GT_script_button_template.html_JAVACAPABLE 
+      <a href="?use=JAVA">GT_script_button_template.html_USEJAVA</a>
+        <div id="JmolCntl"></div>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+fixScriptButtonWidgets(@NBUTTONS@);
+</script>
+</body>
+</html>
