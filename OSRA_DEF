@@ -1,0 +1,9 @@
+# Definitions for OSRA #
+
+osra.cpp
+      main
+            TCLAP - Super GetOpt
+            osra_process_image - Where the magic Happens
+
+osra_lib.cpp
+      osra_process_image  - Kind of a mess, couple hundred lines of no comments
