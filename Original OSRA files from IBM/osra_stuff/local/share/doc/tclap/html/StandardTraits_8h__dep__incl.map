@@ -1,0 +1,15 @@
+<map id="StandardTraits.h" name="StandardTraits.h">
+<area shape="rect" id="node3" href="$Arg_8h.html" title="Arg.h" alt="" coords="509,80,563,107"/>
+<area shape="rect" id="node5" href="$DocBookOutput_8h.html" title="DocBookOutput.h" alt="" coords="352,229,481,256"/>
+<area shape="rect" id="node7" href="$IgnoreRestVisitor_8h.html" title="IgnoreRestVisitor.h" alt="" coords="602,155,744,181"/>
+<area shape="rect" id="node11" href="$MultiArg_8h.html" title="MultiArg.h" alt="" coords="774,155,857,181"/>
+<area shape="rect" id="node16" href="$StdOutput_8h.html" title="StdOutput.h" alt="" coords="182,229,276,256"/>
+<area shape="rect" id="node19" href="$SwitchArg_8h.html" title="SwitchArg.h" alt="" coords="937,155,1033,181"/>
+<area shape="rect" id="node25" href="$ValueArg_8h.html" title="ValueArg.h" alt="" coords="117,155,208,181"/>
+<area shape="rect" id="node30" href="$XorHandler_8h.html" title="XorHandler.h" alt="" coords="365,155,469,181"/>
+<area shape="rect" id="node35" href="$ZshCompletionOutput_8h.html" title="ZshCompletionOutput.h" alt="" coords="507,229,676,256"/>
+<area shape="rect" id="node9" href="$CmdLine_8h.html" title="CmdLine.h" alt="" coords="670,304,759,331"/>
+<area shape="rect" id="node13" href="$UnlabeledMultiArg_8h.html" title="UnlabeledMultiArg.h" alt="" coords="752,229,899,256"/>
+<area shape="rect" id="node22" href="$MultiSwitchArg_8h.html" title="MultiSwitchArg.h" alt="" coords="923,229,1048,256"/>
+<area shape="rect" id="node27" href="$UnlabeledValueArg_8h.html" title="UnlabeledValueArg.h" alt="" coords="5,229,157,256"/>
+</map>

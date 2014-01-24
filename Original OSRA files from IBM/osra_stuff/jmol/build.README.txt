@@ -1,0 +1,42 @@
+Jmol building notes
+
+Building Jmol properly requires three projects:
+
+Jmol
+JSmol
+JSpecView
+
+- JSpecView: Jmol needs JSpecView's jar file, so if there are changes, to JSpecView, start there.
+  The build.xml in JSpecView will copy files to Jmol (to appletfiles/ and jars/).
+
+- Jmol: update org.jmol.viewer.Jmol.properties and check it in so that it gets a new time stamp.
+        Jmol.properties is also used by JSmol (along with all the Jmol java files).
+
+- JSmol: run:
+
+			 build_01_fromjmol.xml
+			 build_02_fromjspecview.xml
+			 build_03a_tojstest.xml
+			 
+			 This is a fast build because it does not create the minified versions. 
+			 Test files are in site/jsmol.
+			 
+			 
+         Test test test!  (test2.htm, testjsv.htm, etc)
+         
+- JSmol: run:
+
+			 build_01_fromjmol.xml
+			 build_02_fromjspecview.xml
+			 build_03b_tojs.xml
+			 
+    		 This produces the minified files. Test files are in site/jsmol.
+    
+         Test test test!  (jsmol.htm, simple2.htm, supersimple.htm)
+	     
+- JSmol: Update and check in jsmol files
+
+- Jmol: run buildjsmolzip.xml
+
+- Jmol: Update and check in jmol files
+

@@ -1,0 +1,9 @@
+<map id="MultiSwitchArg.h" name="MultiSwitchArg.h">
+<area shape="rect" id="node7" href="$SwitchArg_8h.html" title="tclap/SwitchArg.h" alt="" coords="703,80,832,107"/>
+<area shape="rect" id="node11" href="$Arg_8h.html" title="tclap/Arg.h" alt="" coords="723,155,812,181"/>
+<area shape="rect" id="node25" href="$ArgException_8h.html" title="tclap/ArgException.h" alt="" coords="870,229,1020,256"/>
+<area shape="rect" id="node30" href="$Visitor_8h.html" title="tclap/Visitor.h" alt="" coords="99,229,205,256"/>
+<area shape="rect" id="node32" href="$CmdLineInterface_8h.html" title="tclap/CmdLineInterface.h" alt="" coords="616,229,795,256"/>
+<area shape="rect" id="node40" href="$ArgTraits_8h.html" title="tclap/ArgTraits.h" alt="" coords="229,229,355,256"/>
+<area shape="rect" id="node42" href="$StandardTraits_8h.html" title="tclap/StandardTraits.h" alt="" coords="379,229,540,256"/>
+</map>
