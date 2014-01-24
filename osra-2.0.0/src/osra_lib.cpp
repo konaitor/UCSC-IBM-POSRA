@@ -552,19 +552,29 @@ int osra_process_image(
   //if (global_init_state != 0)
   // return global_init_state;
 
+  // 1/23/14 Nick
+  // Applies ::tolower to the vectors, as they supply their beg / end iterators
   std::transform(output_format.begin(), output_format.end(), output_format.begin(), ::tolower);
   std::transform(embedded_format.begin(), embedded_format.end(), embedded_format.begin(), ::tolower);
 
+  
+  // 1/23/14 Nick
+  // Unknown: spelling / superatom -- Something about loading files into maps
   map<string, string> spelling, superatom;
   int err = load_superatom_spelling_maps(spelling, superatom, osra_dir, spelling_file, superatom_file, verbose);
   if (err != 0) return err;
 
   string type;
 
+  
+  // 1/23/14 Nick
+  // Lots of #defines, ugh
 #ifdef OSRA_LIB
   Blob blob(image_data, image_length);
 #endif
 
+  // 1/23/14 Nick
+  // Try to open image file with GraphicsMagick
   try
     {
       Image image_typer;
