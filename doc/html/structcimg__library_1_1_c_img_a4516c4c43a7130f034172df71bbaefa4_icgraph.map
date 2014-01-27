@@ -1,0 +1,14 @@
+<map id="cimg_library::CImg::draw_image" name="cimg_library::CImg::draw_image">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#ab87f88c855c8e9191942a3cc9c8b3db8" title="Return a 2D representation of a 3D image, with three slices. " alt="" coords="188,39,322,83"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a1bcea27e8a451f4b287fc7d7a4272f39" title="Draw a sprite image in the instance image (masked version). " alt="" coords="188,141,321,185"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#ac2e3a649006d1984a2559c30cd742080" title="Draw a text into the instance image. " alt="" coords="188,209,321,253"/>
+<area shape="rect" id="node11" href="$namespacecimg__library_1_1cimg.html#a62805bf0845c650a457cd78b3cd6488a" title="Display a dialog box, where a user can click standard buttons. " alt="" coords="373,277,502,321"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#ae1fe96df1ca8aaf7165b2e66fe798839" title="Draw a 3D object in the instance image. " alt="" coords="188,341,321,385"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a1af55bb5241e53c989ee037b6443951b" title="In&#45;place version of the previous function. " alt="" coords="371,5,504,49"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#ac12c8f45e022ad0fa3bed46aee54ee48" title="Draw a text into the instance image. " alt="" coords="371,73,504,117"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a27bc230085f4e303b0d16a24df534802" title="Draw a labeled horizontal axis on the instance image. " alt="" coords="371,141,504,185"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a44be2b8159a1706c1d7625b4d7a34d3d" title="High&#45;level interface for displaying a 3d object. " alt="" coords="371,209,504,253"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a51d3f13753cc1b69c8250441dad0fb20" title="Draw a labeled horizontal+vertical axis on the instance image. " alt="" coords="552,141,685,185"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a08ace5215b345a7efd284a1de8f954e7" title="High&#45;level interface for displaying a 3d object. " alt="" coords="552,209,685,253"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a453c4ba21c7985ba19f8936865e4f9f4" title="Draw a 3D object in the instance image. " alt="" coords="371,345,504,389"/>
+</map>

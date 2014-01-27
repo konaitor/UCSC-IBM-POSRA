@@ -1,0 +1,17 @@
+<map id="cimg_library::CImg::cubic_pix2d" name="cimg_library::CImg::cubic_pix2d">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#aaa91237f26c67cf66f6eda7c415f78ae" title="Return a rotated image. " alt="" coords="187,39,320,83"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#ababc8a96d142815637c32afbd9df9e48" title="Return a resized image. " alt="" coords="187,175,320,219"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a49cf43e728c25716e3882fc6968552c1" title="In&#45;place version of the previous function. " alt="" coords="384,5,517,49"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a84970d569f01fc5f9370d9cc84428903" title="In&#45;place version of the previous function. " alt="" coords="384,73,517,117"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a539206399cdbe7b6a960af0972d9a335" title="Return a resized image. " alt="" coords="384,141,517,185"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#a893d2fb4605e9033d1824d7de429a656" title="Estimate displacement field between instance image and given reference image. " alt="" coords="368,209,533,253"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a44be2b8159a1706c1d7625b4d7a34d3d" title="High&#45;level interface for displaying a 3d object. " alt="" coords="384,277,517,321"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img.html#ab969a669eb42be2895154c4859875de2" title="Save OFF files (GeomView 3D object files) " alt="" coords="384,369,517,413"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a1409b618eb28c852f8bf8f971ef2949b" title="In&#45;place version of the previous function. " alt="" coords="592,39,725,83"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="592,107,725,151"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#aaa7358f1301586d38e99c0c46977623d" title="cimg_library::CImg\l::display" alt="" coords="784,74,917,118"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a9a8bb0d6ca24878b4ec6cf645f51ec12" title="High&#45;level interface to select features in images. " alt="" coords="784,142,917,186"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#a3e393fd1f7b42451f4bb1ade1bcabddc" title="In&#45;place version of the previous function. " alt="" coords="589,209,728,253"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#a08ace5215b345a7efd284a1de8f954e7" title="High&#45;level interface for displaying a 3d object. " alt="" coords="592,277,725,321"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img_list.html#a4797a3f06678f05b3820b1e721b2190c" title="Save an image list into a OFF file. " alt="" coords="582,369,735,413"/>
+</map>

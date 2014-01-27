@@ -1,0 +1,8 @@
+<map id="cimg_library::cimg::medcon_path" name="cimg_library::cimg::medcon_path">
+<area shape="rect" id="node2" href="$namespacecimg__library_1_1cimg.html#aca9c244dc4cff3bc596ed8b0cd7570ee" title="Print informations about CImg environement variables. " alt="" coords="186,5,315,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#ad442714fe10a5135688f023b2a00cb29" title="Save an image as a Dicom file (need &#39;(X)Medcon&#39; : http://xmedcon.sourceforge.net ) ..." alt="" coords="184,73,317,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a593d3d4f5eae665e93c3f551b2da3f03" title="Save the image as a file. " alt="" coords="366,73,498,117"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="547,73,680,117"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aaa7358f1301586d38e99c0c46977623d" title="cimg_library::CImg\l::display" alt="" coords="728,38,861,82"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a9a8bb0d6ca24878b4ec6cf645f51ec12" title="High&#45;level interface to select features in images. " alt="" coords="728,106,861,150"/>
+</map>

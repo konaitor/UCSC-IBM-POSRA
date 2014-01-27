@@ -1,0 +1,4 @@
+<map id="cimg_library::CImg::cubic_pix1d" name="cimg_library::CImg::cubic_pix1d">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#ab5ef0ea3ac3076504ff33c098abd27ab" title="Read a pixel value with Dirichlet or Neumann boundary conditions. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="368,5,501,49"/>
+</map>

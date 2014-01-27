@@ -1,0 +1,4 @@
+<map id="cimg_library::CImg::operator()" name="cimg_library::CImg::operator()">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a53ee85b82244ff16acd428e5ad655540" title="Fast access to pixel value for reading or writing, using an offset to the image pixel. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a9fe3b98715c7e946498a301a273fa25b" title="Return a reference to the last image value. " alt="" coords="187,73,320,117"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="cimg_library::CImgList::save_cimg" name="cimg_library::CImgList::save_cimg">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="208,5,341,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="208,73,341,117"/>
+<area shape="rect" id="node4" href="$namespacecimg__library_1_1cimg.html#ac01790460808876967d2ba371a000cee" title="Return false for little endian CPUs (Intel), true for big endian CPUs (Motorola). ..." alt="" coords="210,141,339,185"/>
+</map>

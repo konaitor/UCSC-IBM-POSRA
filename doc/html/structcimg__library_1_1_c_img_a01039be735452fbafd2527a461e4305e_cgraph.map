@@ -1,0 +1,7 @@
+<map id="cimg_library::CImg::marching_cubes" name="cimg_library::CImg::marching_cubes">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$namespacecimg__library_1_1cimg.html#a8525683abfacf4175a8887da5c9a97e4" title="Polygonize an implicit function. " alt="" coords="189,73,318,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="187,141,320,185"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="187,209,320,253"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aba56e96a615d71ed9a71009768fc4b75" title="Return the number of slices of the instance image (size along the Z&#45;axis). " alt="" coords="187,277,320,321"/>
+</map>

@@ -1,0 +1,26 @@
+var struct__greycstoration__params =
+[
+    [ "_greycstoration_params", "struct__greycstoration__params.html#abf4b90d979a81add50c13bf66ff10a4a", null ],
+    [ "alpha", "struct__greycstoration__params.html#aa38998065e46e72aef6afc81252ef0d9", null ],
+    [ "amplitude", "struct__greycstoration__params.html#a55ed63c4963f130a93a5997c6fc15644", null ],
+    [ "anisotropy", "struct__greycstoration__params.html#a4fcc10e360e2e2960139035e014e5b36", null ],
+    [ "counter", "struct__greycstoration__params.html#af648c43df356ea031c6695eca0ba0a6f", null ],
+    [ "da", "struct__greycstoration__params.html#ae69c05bc5d7f4c699199f625e89cdfb5", null ],
+    [ "dl", "struct__greycstoration__params.html#a801f48f4af3840f14e32dfc45c051abc", null ],
+    [ "fast_approx", "struct__greycstoration__params.html#afa01334fd27bde4c6ce77239fa8294a4", null ],
+    [ "gauss_prec", "struct__greycstoration__params.html#aca03839b4725b9d9981d8775d936615b", null ],
+    [ "gfact", "struct__greycstoration__params.html#af66010459b28409ba3e6e6ab569bbc5e", null ],
+    [ "interpolation", "struct__greycstoration__params.html#a34a36247924b9698ac3852b02566d3e1", null ],
+    [ "is_running", "struct__greycstoration__params.html#aded9a5da746bb5418a9457384109aa61", null ],
+    [ "mask", "struct__greycstoration__params.html#a877f6302eb82945daf2cf7279a3fe259", null ],
+    [ "mutex", "struct__greycstoration__params.html#a054902814e998e1ae7c241bdd1855e43", null ],
+    [ "sharpness", "struct__greycstoration__params.html#afed015b7f8dc6789164b1887ae3d6e49", null ],
+    [ "sigma", "struct__greycstoration__params.html#acc0e3141df46a19a54a4c9c6cb24fe64", null ],
+    [ "source", "struct__greycstoration__params.html#a11f2e05188e7c72cee789ea7fbdaa2ea", null ],
+    [ "stop_request", "struct__greycstoration__params.html#a159e65601d204ad1870f70a8c11ea888", null ],
+    [ "temporary", "struct__greycstoration__params.html#a14d2d3cd3382ebd35a415c920a59c279", null ],
+    [ "thread", "struct__greycstoration__params.html#a15a916e3f115cc6d9f1cf535dea3e109", null ],
+    [ "threads", "struct__greycstoration__params.html#adb908c2742df3d870b4d73e26bcb5ed5", null ],
+    [ "tile", "struct__greycstoration__params.html#ac3cef513e45fa39ee879337fd17de28c", null ],
+    [ "tile_border", "struct__greycstoration__params.html#a51081ff8b949bbaee73518042d8de185", null ]
+];

@@ -1,0 +1,14 @@
+<map id="cimg_library::CImg::get_haar" name="cimg_library::CImg::get_haar">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="599,11,732,55"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="599,160,732,204"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#abaeeed53c26e52bb8f518242df202267" title="In&#45;place version of the previous function. " alt="" coords="187,117,320,161"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a22c7685eaf6d61e3e25186f702cc89d0" title="In&#45;place version of the previous function. " alt="" coords="386,57,518,101"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a4909523f4b0c661e3e23b8805c9ac5c2" title="Return the determinant of the current matrix. " alt="" coords="373,125,531,153"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a9c2dfbf251eb406230b0523555a9a024" title="Compute the SVD of a general matrix. " alt="" coords="368,280,536,308"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="599,79,732,123"/>
+<area shape="rect" id="node9" href="$namespacecimg__library_1_1cimg.html#ad94384d3e36da5cb180e58c3daee5a21" title="Return the minimum between a and b. " alt="" coords="587,228,744,256"/>
+<area shape="rect" id="node10" href="$namespacecimg__library_1_1cimg.html#ae84548c45d9e5878954602914d34babe" title="Return the maximum between a and b. " alt="" coords="585,280,746,308"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="599,332,732,376"/>
+<area shape="rect" id="node12" href="$namespacecimg__library_1_1cimg.html#a94c6e14129933f3c261ccf9de7a6f299" title="Return the absolute value of a. " alt="" coords="586,400,744,428"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="599,452,732,496"/>
+</map>

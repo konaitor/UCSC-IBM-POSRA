@@ -1,0 +1,4 @@
+<map id="cimg_library::CImg::get_deriche" name="cimg_library::CImg::get_deriche">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a53660ab8bc322716aafa5abe1d45072d" title="Return a list of images, corresponding to the XY&#45;gradients of an image. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a36b8fa873f7331293c1eea8e610cd37e" title="Return a list of images, corresponding to the XYZ&#45;gradients of an image. " alt="" coords="187,73,320,117"/>
+</map>

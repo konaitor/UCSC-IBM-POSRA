@@ -1,0 +1,11 @@
+<map id="cimg_library::CImgList::save" name="cimg_library::CImgList::save">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="592,6,725,50"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="592,149,725,193"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a34e0be5beb5d91caa5ae59ee2e039aa4" title="Save the image as a .cimg file. " alt="" coords="208,91,341,135"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a90f48e7931d33b70a970ba4a93b02c62" title="Save the image as a YUV video sequence file. " alt="" coords="208,237,341,281"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img_list.html#af0a1d766b2ad5acff467cddb8d108475" title="Save an image list into a .cimg file. " alt="" coords="390,66,543,110"/>
+<area shape="rect" id="node6" href="$namespacecimg__library_1_1cimg.html#ac01790460808876967d2ba371a000cee" title="Return false for little endian CPUs (Intel), true for big endian CPUs (Motorola). ..." alt="" coords="594,74,723,118"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img_list.html#aede555bb2df9d7128286e7605f806e43" title="Save an image sequence into a YUV file. " alt="" coords="390,237,543,281"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="592,298,725,342"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="592,230,725,274"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="cimg_library::cimg::mod" name="cimg_library::cimg::mod">
+<area shape="rect" id="node2" href="$namespacecimg__library_1_1cimg.html#aea674560ff8416d8f1753271865f3d65" title="Return a rounded number. " alt="" coords="218,38,347,82"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#ac44cf1f894565de9abc1cc4b9c079d81" title="In&#45;place modulo. " alt="" coords="216,106,349,150"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#aaa91237f26c67cf66f6eda7c415f78ae" title="Return a rotated image. " alt="" coords="216,174,349,218"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#acc1fc108afa5fcd0f334ba0c854a5481" title="In&#45;place version of the previous function. " alt="" coords="216,242,349,286"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#afc006e53ed308a776803d07d66eb5af8" title="Draw grid on the instance image. " alt="" coords="216,310,349,354"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#afc1a4ffb591540103f80b06f6a4faf84" title="In&#45;place version of the previous function. " alt="" coords="398,38,530,82"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a13739baf4ed5d92e03463127a7e14768" title="Compute image with rounded pixel values. " alt="" coords="579,5,712,49"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a0fa9fad3f494231a4570ba7908731b1f" title="Draw a labeled horizontal+vertical axis on the instance image. " alt="" coords="579,73,712,117"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a49cf43e728c25716e3882fc6968552c1" title="In&#45;place version of the previous function. " alt="" coords="398,174,530,218"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#af8c9f6ca06e378ada0bfd7516ae4b69d" title="Translate the image. " alt="" coords="398,242,530,286"/>
+</map>

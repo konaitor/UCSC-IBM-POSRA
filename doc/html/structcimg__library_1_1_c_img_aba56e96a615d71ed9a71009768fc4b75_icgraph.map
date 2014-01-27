@@ -1,0 +1,51 @@
+<map id="cimg_library::CImg::dimz" name="cimg_library::CImg::dimz">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a947e22cc453c54c0a0b0590e64d2095f" title="Read a pixel value with Dirichlet or Neumann boundary conditions for the three first coordinates (x..." alt="" coords="187,310,320,354"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a306c987ece8d66ce92d739a828aa82ea" title="In&#45;place version of the previous function. " alt="" coords="563,38,696,82"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a5f72fb96161e300a423242c75b6cb655" title="Compute the correlation of the instance image by a mask. " alt="" coords="370,209,502,253"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a6937993b35e8ed4d10638a14a6cc95a5" title="Return the erosion of the image by a structuring element. " alt="" coords="370,310,502,354"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a613fe0267450a4a7218c10f53f0934b5" title="Return the dilatation of the image by a structuring element. " alt="" coords="370,411,502,455"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img.html#af366238596df572d60f361a49cbfa22c" title="Read a pixel value with Dirichlet or Neumann boundary conditions. " alt="" coords="187,563,320,607"/>
+<area shape="rect" id="node18" href="$structcimg__library_1_1_c_img.html#aa9c7b716b8e131422b7b9dc32690ed0c" title="Return a square region of the image, as a new image. " alt="" coords="370,683,502,727"/>
+<area shape="rect" id="node21" href="$structcimg__library_1_1_c_img.html#a630db2b45e12cecc5074abcd5af08a6a" title="Return a set of columns. " alt="" coords="563,514,696,558"/>
+<area shape="rect" id="node24" href="$structcimg__library_1_1_c_img.html#a0d393319ea3287de4296a0fcb00d7ad6" title="Get a copy of a set of lines of the instance image. " alt="" coords="563,922,696,966"/>
+<area shape="rect" id="node28" href="$structcimg__library_1_1_c_img.html#a9a5652257b71feb82108388cee00813b" title="Return a copy of a set of channels of the instance image. " alt="" coords="563,990,696,1034"/>
+<area shape="rect" id="node32" href="$structcimg__library_1_1_c_img.html#a9f31f9c2980b27d89c5df322807a7a3e" title="Apply a median filter. " alt="" coords="563,1058,696,1102"/>
+<area shape="rect" id="node34" href="$structcimg__library_1_1_c_img.html#acc1fc108afa5fcd0f334ba0c854a5481" title="In&#45;place version of the previous function. " alt="" coords="187,905,320,949"/>
+<area shape="rect" id="node36" href="$structcimg__library_1_1_c_img.html#a73dc80c05a06a996ad49bf878036c5cb" title="Get a triangulation of an implicit function defined by the instance image. " alt="" coords="187,973,320,1017"/>
+<area shape="rect" id="node37" href="$structcimg__library_1_1_c_img.html#a6688c2dbbdd2e404279680be1721828c" title="Draw a colored point (pixel) in the instance image (for volumetric images). " alt="" coords="187,1041,320,1085"/>
+<area shape="rect" id="node38" href="$structcimg__library_1_1_c_img.html#a1e4ced0b3527565e460348e4efd25db7" title="Draw a colored line in the instance image (for volumetric images). " alt="" coords="187,1109,320,1153"/>
+<area shape="rect" id="node39" href="$structcimg__library_1_1_c_img.html#a4516c4c43a7130f034172df71bbaefa4" title="Draw a sprite image in the instance image. " alt="" coords="187,1177,320,1221"/>
+<area shape="rect" id="node45" href="$structcimg__library_1_1_c_img.html#ad05cf69b3e05554a549aef4d76996739" title="Draw a 4D filled rectangle in the instance image, at coordinates (x0,y0,z0,v0)&#45;(x1,y1,z1,v1). " alt="" coords="187,1297,320,1341"/>
+<area shape="rect" id="node48" href="$structcimg__library_1_1_c_img.html#a2c01ad505b191c9ca94f1847f3493965" title="Draw a 3D filled region starting from a point (x,y,\ z) in the instance image. " alt="" coords="187,1365,320,1409"/>
+<area shape="rect" id="node50" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="187,1433,320,1477"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a99af7b06c856fffc82a8872f2ebd5e8c" title="Read a pixel value using linear interpolation for the three first coordinates (cx,cy,cz). " alt="" coords="370,119,502,163"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a2d676233cf4d136fb286a0c488a8211d" title="Get a blurred version of an image following a field of diffusion tensors. " alt="" coords="755,5,904,49"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a2dc5a2c97f4e3c7b38869e39b500e97d" title="In&#45;place version of the previous function. " alt="" coords="763,73,896,117"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#ae84b4de1f37ffc8ba9121194cd1be361" title="In&#45;place version of the previous function. " alt="" coords="563,106,696,150"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a737c500f103b890a821a7d347e99ac41" title="Return the convolution of the image by a mask. " alt="" coords="563,174,696,218"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#a82146668c6b9c66f3f4bb9542f9766e1" title="In&#45;place version of the previous function. " alt="" coords="563,242,696,286"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#aca876e6dbc38df15c944ee60903742ef" title="Erode the image by a square structuring element of size n. " alt="" coords="563,310,696,354"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#a093d140e06d642c9087bb9686c3abb59" title="Dilate the image by a square structuring element of size n. " alt="" coords="563,378,696,422"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img.html#abb250fc736ffe2f047e8750ecaef5b3a" title="In&#45;place version of the previous function. " alt="" coords="563,446,696,490"/>
+<area shape="rect" id="node17" href="$structcimg__library_1_1_c_img.html#ad201bbecc0caabbe566ea7507cd657cf" title="Read a pixel value using linear interpolation. " alt="" coords="370,563,502,607"/>
+<area shape="rect" id="node19" href="$structcimg__library_1_1_c_img.html#a5d8383dda3f02868a2d4d4766575bdab" title="In&#45;place version of the previous function. " alt="" coords="563,582,696,626"/>
+<area shape="rect" id="node20" href="$structcimg__library_1_1_c_img.html#a6427803ba86b2a75950dd7ec2c76a52b" title="Return a square region of the image, as a new image. " alt="" coords="563,650,696,694"/>
+<area shape="rect" id="node27" href="$structcimg__library_1_1_c_img.html#a9843f41876a24140412075a8c711bfd3" title="Get a set of slices. " alt="" coords="563,718,696,762"/>
+<area shape="rect" id="node31" href="$structcimg__library_1_1_c_img.html#a4c5863135f8535b0603cd5e5f9eb48df" title="Split image into a list. " alt="" coords="563,786,696,830"/>
+<area shape="rect" id="node33" href="$structcimg__library_1_1_c_img_list.html#a625b4a9c8940a92a22b43ddd3ea4ee0a" title="In&#45;place version of the previous function. " alt="" coords="553,854,706,898"/>
+<area shape="rect" id="node22" href="$structcimg__library_1_1_c_img.html#a8eccc5addf3a52ead3d21dfa44193e06" title="In&#45;place version of the previous function. " alt="" coords="763,479,896,523"/>
+<area shape="rect" id="node23" href="$structcimg__library_1_1_c_img.html#a935b82fb5ca9df5f120954480c83d75f" title="Return one column. " alt="" coords="763,547,896,591"/>
+<area shape="rect" id="node25" href="$structcimg__library_1_1_c_img.html#a2eccc05034e6f91bcb82aa0b1b580a25" title="In&#45;place version of the previous function. " alt="" coords="763,854,896,898"/>
+<area shape="rect" id="node26" href="$structcimg__library_1_1_c_img.html#aa26c97d13f11c389f4822795e83d5ba5" title="Get a copy of a line of the instance image. " alt="" coords="763,922,896,966"/>
+<area shape="rect" id="node29" href="$structcimg__library_1_1_c_img.html#a4697340cb41537695c29037889042413" title="In&#45;place version of the previous function. " alt="" coords="763,990,896,1034"/>
+<area shape="rect" id="node30" href="$structcimg__library_1_1_c_img.html#a9a96c001ff0f5ecd35ac1d1a3230c03b" title="Return a copy of a channel of the instance image. " alt="" coords="763,1058,896,1102"/>
+<area shape="rect" id="node35" href="$structcimg__library_1_1_c_img.html#af8c9f6ca06e378ada0bfd7516ae4b69d" title="Translate the image. " alt="" coords="370,905,502,949"/>
+<area shape="rect" id="node40" href="$structcimg__library_1_1_c_img.html#ab87f88c855c8e9191942a3cc9c8b3db8" title="Return a 2D representation of a 3D image, with three slices. " alt="" coords="369,981,503,1025"/>
+<area shape="rect" id="node41" href="$structcimg__library_1_1_c_img.html#a1bcea27e8a451f4b287fc7d7a4272f39" title="Draw a sprite image in the instance image (masked version). " alt="" coords="370,1049,502,1093"/>
+<area shape="rect" id="node42" href="$structcimg__library_1_1_c_img.html#ac2e3a649006d1984a2559c30cd742080" title="Draw a text into the instance image. " alt="" coords="370,1169,502,1213"/>
+<area shape="rect" id="node43" href="$namespacecimg__library_1_1cimg.html#a62805bf0845c650a457cd78b3cd6488a" title="Display a dialog box, where a user can click standard buttons. " alt="" coords="565,1169,694,1213"/>
+<area shape="rect" id="node44" href="$structcimg__library_1_1_c_img.html#ae1fe96df1ca8aaf7165b2e66fe798839" title="Draw a 3D object in the instance image. " alt="" coords="370,1237,502,1281"/>
+<area shape="rect" id="node46" href="$structcimg__library_1_1_c_img.html#a20f6a3ae25994d475c397127c0c2e516" title="Draw a 3D filled colored rectangle in the instance image, at coordinates (x0,y0,z0)&#45;(x1,y1,z1). " alt="" coords="370,1357,502,1401"/>
+<area shape="rect" id="node47" href="$structcimg__library_1_1_c_img.html#a25913106bea95e3eb8f9f380cccfda82" title="Draw a 1D graph on the instance image. " alt="" coords="370,1425,502,1469"/>
+<area shape="rect" id="node49" href="$structcimg__library_1_1_c_img.html#a65c311df00fb50f612f84da7242a5a96" title="Draw a 3D filled region starting from a point (x,y,\ z) in the instance image. " alt="" coords="370,1493,502,1537"/>
+</map>

@@ -1,0 +1,51 @@
+<map id="cimg_library::CImg::display" name="cimg_library::CImg::display">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="1027,621,1160,665"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="1027,998,1160,1042"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a79c910f70e49d74484d76d64c2302bf3" title="Display informations about the image on the standard error output. " alt="" coords="390,2180,522,2224"/>
+<area shape="rect" id="node11" href="$namespacecimg__library_1_1cimg.html#ad94384d3e36da5cb180e58c3daee5a21" title="Return the minimum between a and b. " alt="" coords="377,2065,535,2093"/>
+<area shape="rect" id="node12" href="$namespacecimg__library_1_1cimg.html#ae84548c45d9e5878954602914d34babe" title="Return the maximum between a and b. " alt="" coords="817,1058,978,1086"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img_display.html#a333627dc25d0416c30a0c55982d293b1" title="In&#45;place version of the destructor. " alt="" coords="592,1656,768,1700"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="187,1400,320,1444"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aa602135848e9603913f4cda976b0c42d" title="Compute a statistics vector (min,max,mean,variance,offmin,offmax). " alt="" coords="614,2252,746,2296"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="1027,2252,1160,2296"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a4631fac1a1d17e6702c4c5ca4315bcbd" title="Return true if pixel (x,y,z,v) is inside the image boundaries. " alt="" coords="614,1776,746,1820"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#ac8f214991f5b67f4b9d3aef103e1bb6c" title="In&#45;place version of the previous function. " alt="" coords="831,2252,964,2296"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a34e498eaf7ce5d83df329953e54f4292" title="In&#45;place version of the default constructor. " alt="" coords="1027,2098,1160,2142"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#ad30f8300f32a94a80e1e06c84a45de49" title="Return the number of vector channels of the instance image (size along the V&#45;axis). " alt="" coords="831,1569,964,1613"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img_display.html#a8feb37e22985238253582a658b8f8e81" title="Show a closed display. " alt="" coords="368,905,544,949"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="831,1178,964,1222"/>
+<area shape="rect" id="node17" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="831,1110,964,1154"/>
+<area shape="rect" id="node18" href="$structcimg__library_1_1_c_img_display.html#a271d7ef4f15453cc0cabed68c3e42229" title="Test if any key has been pressed. " alt="" coords="368,973,544,1017"/>
+<area shape="rect" id="node19" href="$structcimg__library_1_1_c_img_display.html#a4e6138906a037d73e90b7525861f0058" title="Toggle fullscreen mode. " alt="" coords="368,1588,544,1632"/>
+<area shape="rect" id="node20" href="$structcimg__library_1_1_c_img_display.html#a3202518cfea76bfee4e2368603480aa7" title="Resize a display window with the size of an image. " alt="" coords="368,1093,544,1137"/>
+<area shape="rect" id="node21" href="$structcimg__library_1_1_c_img_display.html#a8365439b21d8cdf9624b2f208b563e83" title="Return the width of the screen resolution. " alt="" coords="368,1264,544,1308"/>
+<area shape="rect" id="node22" href="$structcimg__library_1_1_c_img_display.html#ac8b1cad117a01ad3d939892d1314e0d7" title="Return the height of the screen resolution. " alt="" coords="368,1332,544,1376"/>
+<area shape="rect" id="node23" href="$structcimg__library_1_1_c_img.html#a593d3d4f5eae665e93c3f551b2da3f03" title="Save the image as a file. " alt="" coords="390,837,522,881"/>
+<area shape="rect" id="node40" href="$structcimg__library_1_1_c_img.html#aba56e96a615d71ed9a71009768fc4b75" title="Return the number of slices of the instance image (size along the Z&#45;axis). " alt="" coords="390,1400,522,1444"/>
+<area shape="rect" id="node41" href="$structcimg__library_1_1_c_img.html#a910439b3bf66d2f01a6c7516d504faa6" title="Return a shared&#45;memory image referencing a set of channels (v0&#45;&gt;v1) of the instance image..." alt="" coords="602,2081,758,2125"/>
+<area shape="rect" id="node44" href="$structcimg__library_1_1_c_img.html#a84970d569f01fc5f9370d9cc84428903" title="In&#45;place version of the previous function. " alt="" coords="831,2013,964,2057"/>
+<area shape="rect" id="node45" href="$structcimg__library_1_1_c_img.html#a1fe7b3d3438708eecd0978ee7df2db1b" title="Draw a colored line in the instance image. " alt="" coords="614,1213,746,1257"/>
+<area shape="rect" id="node46" href="$namespacecimg__library_1_1cimg.html#a94c6e14129933f3c261ccf9de7a6f299" title="Return the absolute value of a. " alt="" coords="818,1757,976,1785"/>
+<area shape="rect" id="node47" href="$structcimg__library_1_1_c_img.html#aba2d6203e2f75b854edfee0376f9f561" title="Draw an outlined ellipse. " alt="" coords="390,1468,522,1512"/>
+<area shape="rect" id="node48" href="$structcimg__library_1_1_c_img.html#a9e085d33be58bdfb6733a8ebbb7cc9fd" title="Return the norm of the current vector/matrix. ntype = norm type (0=L2, 1=L1, &#45;1=Linf). " alt="" coords="614,1844,746,1888"/>
+<area shape="rect" id="node49" href="$structcimg__library_1_1_c_img_display.html#a8d14dda87c19a6c6766ce4cbf21c87ee" title="Display an image list CImgList&lt;T&gt; into a display window. " alt="" coords="368,1656,544,1700"/>
+<area shape="rect" id="node50" href="$structcimg__library_1_1_c_img_display.html#a96efe590da16f2e5b4510b2fde423c67" title="Synchronized waiting function. Same as cimg::wait(). " alt="" coords="368,769,544,813"/>
+<area shape="rect" id="node24" href="$structcimg__library_1_1_c_img.html#a0347f20f842430c63ddc0ff39fd62ddf" title="Save the image as an ASCII file (ASCII Raw + simple header). " alt="" coords="831,786,964,830"/>
+<area shape="rect" id="node25" href="$structcimg__library_1_1_c_img.html#a189616455ee879a3372a13b860bab05c" title="Save the image as a DLM file. " alt="" coords="614,957,746,1001"/>
+<area shape="rect" id="node26" href="$structcimg__library_1_1_c_img.html#a1ca63e722e7ad2993bd04c24f29ad9e4" title="Save the image as an INRIMAGE&#45;4 file. " alt="" coords="831,718,964,762"/>
+<area shape="rect" id="node27" href="$structcimg__library_1_1_c_img.html#a29f58c110f5e216e4fa457bbb343aab2" title="Save the image as an ANALYZE7.5 or NIFTI file. " alt="" coords="831,1689,964,1733"/>
+<area shape="rect" id="node28" href="$structcimg__library_1_1_c_img.html#ad442714fe10a5135688f023b2a00cb29" title="Save an image as a Dicom file (need &#39;(X)Medcon&#39; : http://xmedcon.sourceforge.net ) ..." alt="" coords="614,1536,746,1580"/>
+<area shape="rect" id="node29" href="$structcimg__library_1_1_c_img.html#a7930700a82a0939576a91e6c4cf6c248" title="Save the image as a PANDORE&#45;5 file. " alt="" coords="831,154,964,198"/>
+<area shape="rect" id="node30" href="$structcimg__library_1_1_c_img.html#a505479a53dd6ee630d0c8c8a2bd24357" title="Save the image as a BMP file. " alt="" coords="614,837,746,881"/>
+<area shape="rect" id="node31" href="$structcimg__library_1_1_c_img.html#ad9fa47a9f824507ce8feb7d9f6e76b06" title="Save an image to a PNG file. " alt="" coords="614,1025,746,1069"/>
+<area shape="rect" id="node32" href="$structcimg__library_1_1_c_img.html#ac15df3e33a1ec6c37e26329f84ae0e13" title="Save a file in TIFF format. " alt="" coords="614,1337,746,1381"/>
+<area shape="rect" id="node33" href="$structcimg__library_1_1_c_img.html#aab6eba0352abb4ccfbc03bcb756d4c0b" title="Save a file in JPEG format. " alt="" coords="831,222,964,266"/>
+<area shape="rect" id="node34" href="$structcimg__library_1_1_c_img.html#a133af6a59ecc79219f1b2f68bee475bb" title="Save the image as a RGBA file. " alt="" coords="831,342,964,386"/>
+<area shape="rect" id="node35" href="$structcimg__library_1_1_c_img.html#a05f2988b7be539403f308b06389f2767" title="Save the image as a RGB file. " alt="" coords="831,410,964,454"/>
+<area shape="rect" id="node36" href="$structcimg__library_1_1_c_img.html#ae70ac83cf3ce759eb61133e84f2cea24" title="Save the image as a RAW file. " alt="" coords="831,1501,964,1545"/>
+<area shape="rect" id="node37" href="$structcimg__library_1_1_c_img.html#a34e0be5beb5d91caa5ae59ee2e039aa4" title="Save the image as a .cimg file. " alt="" coords="831,530,964,574"/>
+<area shape="rect" id="node38" href="$structcimg__library_1_1_c_img.html#a5449e3262d461016ac4eb767963a231d" title="Save the image as a PNM file. " alt="" coords="831,650,964,694"/>
+<area shape="rect" id="node39" href="$structcimg__library_1_1_c_img.html#a90f48e7931d33b70a970ba4a93b02c62" title="Save the image as a YUV video sequence file. " alt="" coords="614,1093,746,1137"/>
+<area shape="rect" id="node42" href="$structcimg__library_1_1_c_img.html#a266ad9e6e5d13058af75966b7d7e3ad9" title="Return the offset of the pixel coordinates (x,y,z,v) with respect to the data pointer data..." alt="" coords="831,2081,964,2125"/>
+<area shape="rect" id="node43" href="$structcimg__library_1_1_c_img.html#a2583162076af8bfeed05f8f01d31ae05" title="Return an iterator to the last image pixel. " alt="" coords="816,2320,978,2348"/>
+</map>

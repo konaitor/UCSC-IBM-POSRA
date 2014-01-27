@@ -1,0 +1,360 @@
+\hypertarget{mcdlutil_8cpp}{\section{mcdlutil.\-cpp File Reference}
+\label{mcdlutil_8cpp}\index{mcdlutil.\-cpp@{mcdlutil.\-cpp}}
+}
+{\ttfamily \#include $<$openbabel/babelconfig.\-h$>$}\\*
+{\ttfamily \#include $<$openbabel/mol.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}mcdlutil.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$openbabel/data.\-h$>$}\\*
+{\ttfamily \#include $<$openbabel/obconversion.\-h$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+Include dependency graph for mcdlutil.\-cpp\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mcdlutil_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_open_babel_1_1adjustedlist}{Open\-Babel\-::adjustedlist}
+\item 
+class \hyperlink{class_open_babel_1_1_rect}{Open\-Babel\-::\-Rect}
+\item 
+class \hyperlink{class_open_babel_1_1_point}{Open\-Babel\-::\-Point}
+\item 
+class \hyperlink{class_open_babel_1_1_t_single_atom}{Open\-Babel\-::\-T\-Single\-Atom}
+\item 
+class \hyperlink{class_open_babel_1_1_t_single_bond}{Open\-Babel\-::\-T\-Single\-Bond}
+\item 
+class \hyperlink{class_open_babel_1_1_t_simple_molecule}{Open\-Babel\-::\-T\-Simple\-Molecule}
+\item 
+class \hyperlink{class_open_babel_1_1_t_edited_molecule}{Open\-Babel\-::\-T\-Edited\-Molecule}
+\item 
+class \hyperlink{class_open_babel_1_1_part_fragment_definition}{Open\-Babel\-::\-Part\-Fragment\-Definition}
+\item 
+class \hyperlink{class_open_babel_1_1_template_redraw}{Open\-Babel\-::\-Template\-Redraw}
+\item 
+class \hyperlink{class_open_babel_1_1_stereo_bond_store}{Open\-Babel\-::\-Stereo\-Bond\-Store}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{mcdlutil_8cpp_a4bfa89565b1dbd7abbdc5bb80f2177f0}{\#define {\bfseries C\-O\-N\-N\-M\-A\-X}~15}\label{mcdlutil_8cpp_a4bfa89565b1dbd7abbdc5bb80f2177f0}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a2eb2802292e057fb58bf2b9ae0500b18}{\#define {\bfseries N\-A\-T\-O\-M\-S\-M\-A\-X}~255}\label{mcdlutil_8cpp_a2eb2802292e057fb58bf2b9ae0500b18}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a119065d097ec15b8fcfb939f2b69f10d}{\#define {\bfseries N\-B\-O\-N\-D\-S\-M\-A\-X}~255}\label{mcdlutil_8cpp_a119065d097ec15b8fcfb939f2b69f10d}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a598a3330b3c21701223ee0ca14316eca}{\#define {\bfseries P\-I}~3.\-141592653589793238462}\label{mcdlutil_8cpp_a598a3330b3c21701223ee0ca14316eca}
+
+\item 
+\hypertarget{mcdlutil_8cpp_ae0208b3534f6cbbfb946a4dd1151250f}{\#define {\bfseries bl\-Denominator}~4.\-0}\label{mcdlutil_8cpp_ae0208b3534f6cbbfb946a4dd1151250f}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a8f1cd8ea16d288d7622a75073aa53e83}{\#define {\bfseries n\-Rot\-Bonds\-Max}~20}\label{mcdlutil_8cpp_a8f1cd8ea16d288d7622a75073aa53e83}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a7ffe7fc7e736af081960c465f69ef483}{\#define {\bfseries N\-E\-X\-A\-C\-T\-A\-T\-O\-M\-S}~21}\label{mcdlutil_8cpp_a7ffe7fc7e736af081960c465f69ef483}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a48e4435fb9f690b15622b29bc8dedd0c}{\#define {\bfseries N\-A\-L\-K\-A\-L\-Y\-A\-T\-O\-M\-S}~5}\label{mcdlutil_8cpp_a48e4435fb9f690b15622b29bc8dedd0c}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a872205065d27bc64f10fb497c818c8a7}{\#define {\bfseries N\-A\-L\-K\-A\-L\-Y\-E\-A\-R\-T\-H\-A\-T\-O\-M\-S}~5}\label{mcdlutil_8cpp_a872205065d27bc64f10fb497c818c8a7}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a58a7e37667a2f3a678d1e59b2a2111f9}{\#define {\bfseries N\-T\-R\-I\-V\-A\-L\-E\-N\-T\-A\-T\-O\-M\-S}~31}\label{mcdlutil_8cpp_a58a7e37667a2f3a678d1e59b2a2111f9}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a5508a6cb46c0b6cc2ea64303849fd4a5}{\#define {\bfseries N\-T\-I\-T\-A\-N\-A\-T\-O\-M\-S}~3}\label{mcdlutil_8cpp_a5508a6cb46c0b6cc2ea64303849fd4a5}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a82fbde161179ca7f0617c5fefd2a071c}{\#define {\bfseries N\-V\-A\-N\-A\-D\-I\-U\-M\-A\-T\-O\-M\-S}~3}\label{mcdlutil_8cpp_a82fbde161179ca7f0617c5fefd2a071c}
+
+\item 
+\hypertarget{mcdlutil_8cpp_aa67c30859a368ea1defae5565b50f3e0}{\#define {\bfseries N\-C\-H\-R\-O\-M\-I\-U\-M\-A\-T\-O\-M\-S}~3}\label{mcdlutil_8cpp_aa67c30859a368ea1defae5565b50f3e0}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a501e6d1bd9f7873d1bb72f2a71cc15ce}{\#define {\bfseries N\-M\-A\-N\-G\-A\-N\-E\-S\-E\-A\-T\-O\-M\-S}~3}\label{mcdlutil_8cpp_a501e6d1bd9f7873d1bb72f2a71cc15ce}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a36acc5511debbea03e32f1ae03a17b48}{\#define {\bfseries N\-L\-I\-K\-E\-F\-E\-A\-T\-O\-M\-S}~2}\label{mcdlutil_8cpp_a36acc5511debbea03e32f1ae03a17b48}
+
+\item 
+\hypertarget{mcdlutil_8cpp_ac786f1cc241f058986478cfb37f50b57}{\#define {\bfseries N\-P\-L\-A\-T\-I\-N\-U\-M\-A\-T\-O\-M\-S}~6}\label{mcdlutil_8cpp_ac786f1cc241f058986478cfb37f50b57}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a451ca54d622a1cc0d32fdc103ff77338}{\#define {\bfseries N\-C\-O\-P\-P\-E\-R\-A\-T\-O\-M\-S}~3}\label{mcdlutil_8cpp_a451ca54d622a1cc0d32fdc103ff77338}
+
+\item 
+\hypertarget{mcdlutil_8cpp_ac8284cff038b3455ed115bcf74bb0122}{\#define {\bfseries N\-Z\-I\-N\-K\-A\-T\-O\-M\-S}~2}\label{mcdlutil_8cpp_ac8284cff038b3455ed115bcf74bb0122}
+
+\item 
+\hypertarget{mcdlutil_8cpp_ad07d3b873121463218a991d53512e49b}{\#define {\bfseries N\-M\-E\-T\-A\-L\-S}~78}\label{mcdlutil_8cpp_ad07d3b873121463218a991d53512e49b}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a02988c313a14255f7b3de2da2829297d}{\#define {\bfseries N\-H\-A\-L\-O\-G\-E\-N\-S}~5}\label{mcdlutil_8cpp_a02988c313a14255f7b3de2da2829297d}
+
+\item 
+\hypertarget{mcdlutil_8cpp_aa2ef2f0ee4eac39c772a2a7c1206a48a}{\#define {\bfseries N\-H\-E\-T\-E\-R\-O}~10}\label{mcdlutil_8cpp_aa2ef2f0ee4eac39c772a2a7c1206a48a}
+
+\item 
+\hypertarget{mcdlutil_8cpp_af66f1fab611680bd48537fb317d9c225}{\#define {\bfseries N\-A\-R\-O\-M\-M\-A\-X}~9}\label{mcdlutil_8cpp_af66f1fab611680bd48537fb317d9c225}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a557a6e4a20d0daa8b65d48d2ef425c78}{\#define {\bfseries N\-L\-I\-G\-H\-T\-\_\-\-M\-E\-T\-A\-L\-S}~20}\label{mcdlutil_8cpp_a557a6e4a20d0daa8b65d48d2ef425c78}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a655e49a57b3dae59dbe998a069ff04a3}{\#define {\bfseries N\-H\-E\-A\-V\-Y\-\_\-\-M\-E\-T\-A\-L\-S}~58}\label{mcdlutil_8cpp_a655e49a57b3dae59dbe998a069ff04a3}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a8b3d4db7c130a342045f2529b4f5d5ef}{\#define {\bfseries D\-E\-U\-T\-E\-R\-I\-U\-M\-\_\-\-A\-T\-O\-M}~104}\label{mcdlutil_8cpp_a8b3d4db7c130a342045f2529b4f5d5ef}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a9545e8af5de2650eb197450c43f6fceb}{\#define {\bfseries M\-E\-T\-A\-L\-L\-\_\-\-A\-T\-O\-M}~111}\label{mcdlutil_8cpp_a9545e8af5de2650eb197450c43f6fceb}
+
+\item 
+\hypertarget{mcdlutil_8cpp_aa27e296081ce3729a60e9730ecc0cc0a}{\#define {\bfseries H\-A\-L\-O\-G\-E\-N\-\_\-\-A\-T\-O\-M}~112}\label{mcdlutil_8cpp_aa27e296081ce3729a60e9730ecc0cc0a}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a30c46dd936dc612116b4e53443b81e60}{\#define {\bfseries A\-N\-Y\-\_\-\-A\-T\-O\-M}~113}\label{mcdlutil_8cpp_a30c46dd936dc612116b4e53443b81e60}
+
+\item 
+\hypertarget{mcdlutil_8cpp_aee2b0b6b8f5adcce54aacc558c652e31}{\#define {\bfseries H\-E\-T\-E\-R\-O\-\_\-\-A\-T\-O\-M}~114}\label{mcdlutil_8cpp_aee2b0b6b8f5adcce54aacc558c652e31}
+
+\item 
+\hypertarget{mcdlutil_8cpp_ad8b24003149e30d3018a77e30cfcb52c}{\#define {\bfseries A\-N\-Y\-\_\-\-B\-O\-N\-D}~8}\label{mcdlutil_8cpp_ad8b24003149e30d3018a77e30cfcb52c}
+
+\item 
+\hypertarget{mcdlutil_8cpp_a34c3054ec30f4d569fdd613cb737b858}{\#define {\bfseries R\-U\-N\-D\-E\-F}~-\/1.\-2345678\-E9}\label{mcdlutil_8cpp_a34c3054ec30f4d569fdd613cb737b858}
+
+\item 
+\hypertarget{mcdlutil_8cpp_aa236fb6ac2ea594837ec15b824121ff7}{\#define {\bfseries D\-E\-F\-A\-U\-L\-T\-B\-O\-N\-D\-L\-E\-N\-G\-T\-H}~1.\-44}\label{mcdlutil_8cpp_aa236fb6ac2ea594837ec15b824121ff7}
+
+\item 
+\hypertarget{mcdlutil_8cpp_aa063d5a8bb171f7d93a12d6b76170b52}{\#define {\bfseries N\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-M\-O\-L\-E\-C\-U\-L\-E\-S}~147}\label{mcdlutil_8cpp_aa063d5a8bb171f7d93a12d6b76170b52}
+
+\item 
+\hypertarget{mcdlutil_8cpp_ac4b0fa8174febff48a34ee9992350051}{\#define {\bfseries N\-B\-O\-N\-D\-T\-Y\-P\-E\-S}~11}\label{mcdlutil_8cpp_ac4b0fa8174febff48a34ee9992350051}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespace_open_babel_a25246cee649fb3d820a1bccedbf888db}{typedef struct \\*
+\hyperlink{struct_open_babel_1_1adjustedlist}{Open\-Babel\-::adjustedlist} {\bfseries Open\-Babel\-::adjustedlist}}\label{namespace_open_babel_a25246cee649fb3d820a1bccedbf888db}
+
+\item 
+\hypertarget{namespace_open_babel_ab8dd3a9a90f52c4008b180b156e2dd37}{typedef adjustedlist {\bfseries Open\-Babel\-::neigbourlist} \mbox{[}N\-A\-T\-O\-M\-S\-M\-A\-X\mbox{]}}\label{namespace_open_babel_ab8dd3a9a90f52c4008b180b156e2dd37}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespace_open_babel_ae4c78efdf4d582451d8d0c323d98f205}{string {\bfseries Open\-Babel\-::int\-To\-Str} (int k)}\label{namespace_open_babel_ae4c78efdf4d582451d8d0c323d98f205}
+
+\item 
+\hypertarget{namespace_open_babel_a5eeac49565ab1fdcb863f31f41ec2f5f}{double {\bfseries Open\-Babel\-::x\-Dist\-Point} (double x1, double y1, double x2, double y2, double x0, double y0)}\label{namespace_open_babel_a5eeac49565ab1fdcb863f31f41ec2f5f}
+
+\item 
+\hypertarget{namespace_open_babel_acb3b0f424f25beb57a312c1a679f3b0c}{bool {\bfseries Open\-Babel\-::overlapped} (double x1\-A, double y1\-A, double x2\-A, double y2\-A, double x1\-B, double y1\-B, double x2\-B, double y2\-B, double delta)}\label{namespace_open_babel_acb3b0f424f25beb57a312c1a679f3b0c}
+
+\item 
+\hypertarget{namespace_open_babel_ac6d5144b33c27a6dce66dff86c4ebdde}{bool {\bfseries Open\-Babel\-::compare\-Atoms} (int a1, int a2, const std\-::vector$<$ std\-::vector$<$ int $>$ $\ast$ $>$ aeq\-List)}\label{namespace_open_babel_ac6d5144b33c27a6dce66dff86c4ebdde}
+
+\item 
+\hypertarget{namespace_open_babel_a1c632244490414023578336c8528c613}{bool {\bfseries Open\-Babel\-::increment\-Values} (std\-::vector$<$ int $>$ \&current\-Values, const std\-::vector$<$ int $>$ max\-Values)}\label{namespace_open_babel_a1c632244490414023578336c8528c613}
+
+\item 
+\hypertarget{namespace_open_babel_a95f6327fcb8303f8d4fbb309a20e3f2b}{void {\bfseries Open\-Babel\-::delete\-Int\-Element} (std\-::vector$<$ int $>$ $\ast$source, int index)}\label{namespace_open_babel_a95f6327fcb8303f8d4fbb309a20e3f2b}
+
+\item 
+\hypertarget{namespace_open_babel_a7f9d8f4e3b4fdd7165dc1d2800354207}{int {\bfseries Open\-Babel\-::hydrogen\-Valency} (int na)}\label{namespace_open_babel_a7f9d8f4e3b4fdd7165dc1d2800354207}
+
+\item 
+\hypertarget{namespace_open_babel_a18a570cadf377803dd9c87ea57d6c2f1}{int {\bfseries Open\-Babel\-::max\-Valency} (int na)}\label{namespace_open_babel_a18a570cadf377803dd9c87ea57d6c2f1}
+
+\item 
+\hypertarget{namespace_open_babel_a5e431be4a6556fffbbb59bfe27dd2c55}{int {\bfseries Open\-Babel\-::alternate} (const std\-::vector$<$ int $>$ a\-Position, const std\-::vector$<$ int $>$ a\-Charge, const std\-::vector$<$ int $>$ a\-Rad, const std\-::vector$<$ int $>$ n\-Hydr, const std\-::vector$<$ int $>$ i\-A1, const std\-::vector$<$ int $>$ i\-A2, std\-::vector$<$ int $>$ \&bond\-Orders, int n\-Atoms, int n\-Bonds)}\label{namespace_open_babel_a5e431be4a6556fffbbb59bfe27dd2c55}
+
+\item 
+\hypertarget{namespace_open_babel_a656a12d74df6452be30fd76d3860bca6}{int {\bfseries Open\-Babel\-::alternate} (O\-B\-Mol $\ast$pmol, const std\-::vector$<$ int $>$ n\-H, std\-::vector$<$ int $>$ \&bond\-Orders)}\label{namespace_open_babel_a656a12d74df6452be30fd76d3860bca6}
+
+\item 
+\hypertarget{namespace_open_babel_ab8184977f057db3afea953ff0d97355d}{bool {\bfseries Open\-Babel\-::pt\-In\-Rect} (const Rect r, const Point p)}\label{namespace_open_babel_ab8184977f057db3afea953ff0d97355d}
+
+\item 
+\hypertarget{namespace_open_babel_afce32e08bf4dfe98d9135b54548b91a4}{void {\bfseries Open\-Babel\-::generate\-Diagram} (O\-B\-Mol $\ast$pmol, std\-::ostream \&ofs)}\label{namespace_open_babel_afce32e08bf4dfe98d9135b54548b91a4}
+
+\item 
+\hypertarget{namespace_open_babel_ab3ba7768176a9bdbefae0b00eea858a3}{void {\bfseries Open\-Babel\-::generate\-Diagram} (O\-B\-Mol $\ast$pmol)}\label{namespace_open_babel_ab3ba7768176a9bdbefae0b00eea858a3}
+
+\item 
+\hypertarget{namespace_open_babel_abb74037bbf58a231e6a99e0a27e56615}{void {\bfseries Open\-Babel\-::generate\-Diagram} (const std\-::vector$<$ int $>$ i\-A1, const std\-::vector$<$ int $>$ i\-A2, std\-::vector$<$ double $>$ \&rx, std\-::vector$<$ double $>$ \&ry, int n\-Atoms, int n\-Bonds)}\label{namespace_open_babel_abb74037bbf58a231e6a99e0a27e56615}
+
+\item 
+\hypertarget{namespace_open_babel_a7d0de048a5914dcbbf6c72280ffed0e5}{bool {\bfseries Open\-Babel\-::fragment\-Search} (O\-B\-Mol $\ast$query, O\-B\-Mol $\ast$structure)}\label{namespace_open_babel_a7d0de048a5914dcbbf6c72280ffed0e5}
+
+\item 
+\hypertarget{namespace_open_babel_a17069b8961553ba4bb4cb423cdc21bf0}{bool {\bfseries Open\-Babel\-::fragment\-Search} (const std\-::vector$<$ int $>$ a\-Position\-Query, const std\-::vector$<$ int $>$ i\-A1\-Query, const std\-::vector$<$ int $>$ i\-A2\-Query, const std\-::vector$<$ int $>$ bond\-Types\-Query, const std\-::vector$<$ int $>$ a\-Position\-Structure, const std\-::vector$<$ int $>$ i\-A1\-Structure, const std\-::vector$<$ int $>$ i\-A2\-Structure, const std\-::vector$<$ int $>$ bond\-Types\-Structure, int n\-Atoms\-Query, int n\-Bonds\-Query, int n\-Atoms\-Structure, int n\-Bonds\-Structure)}\label{namespace_open_babel_a17069b8961553ba4bb4cb423cdc21bf0}
+
+\item 
+\hypertarget{namespace_open_babel_a9b2fedd6afeadb7f1aee3201720471f2}{void {\bfseries Open\-Babel\-::equivalence\-List} (const std\-::vector$<$ int $>$ a\-Position, const std\-::vector$<$ int $>$ a\-Charge, const std\-::vector$<$ int $>$ a\-Rad, const std\-::vector$<$ int $>$ i\-A1, const std\-::vector$<$ int $>$ i\-A2, const std\-::vector$<$ int $>$ bond\-Types, std\-::vector$<$ int $>$ \&eq\-List, int n\-Atoms, int n\-Bonds)}\label{namespace_open_babel_a9b2fedd6afeadb7f1aee3201720471f2}
+
+\item 
+\hypertarget{namespace_open_babel_a5a81f0d3e282dfe722d2ae5965e0304d}{void {\bfseries Open\-Babel\-::equivalence\-List} (O\-B\-Mol $\ast$pmol, std\-::vector$<$ int $>$ \&eq\-List)}\label{namespace_open_babel_a5a81f0d3e282dfe722d2ae5965e0304d}
+
+\begin{DoxyCompactList}\small\item\em Equivalence list generation. \end{DoxyCompactList}\item 
+\hypertarget{namespace_open_babel_aa36d3be180829e44c2d7db353adcd572}{void {\bfseries Open\-Babel\-::add\-Fragment} (O\-B\-Mol $\ast$molecule, O\-B\-Mol $\ast$fragment, int mol\-A\-N, int frag\-A\-N, int mol\-B\-N, int frag\-B\-N, bool is\-Addition)}\label{namespace_open_babel_aa36d3be180829e44c2d7db353adcd572}
+
+\item 
+\hypertarget{namespace_open_babel_a5cbae89b728a855e31bff283f04253cd}{void {\bfseries Open\-Babel\-::create\-Stereo\-Lists} (O\-B\-Mol $\ast$pmol, std\-::vector$<$ int $>$ \&bond\-Stereo\-List, std\-::vector$<$ int $>$ \&atom\-Stereo\-List, std\-::vector$<$ int $>$ \&eq\-List)}\label{namespace_open_babel_a5cbae89b728a855e31bff283f04253cd}
+
+\item 
+\hypertarget{namespace_open_babel_af3acf0818f209ed2426163c90b6d1440}{int {\bfseries Open\-Babel\-::compare\-Strings\-Numbers} (string s1, string s2)}\label{namespace_open_babel_af3acf0818f209ed2426163c90b6d1440}
+
+\item 
+std\-::string {\bfseries Open\-Babel\-::get\-Atom\-Symbol} (T\-Simple\-Molecule \&sm, int at\-Atom, int at\-Ex, int priority, string nd\-Data)
+\item 
+\hypertarget{namespace_open_babel_a49950c5bac5703c9a3c7efea3d4a41f4}{std\-::string {\bfseries Open\-Babel\-::get\-Atom\-Symbol} (T\-Simple\-Molecule \&sm, int at\-Atom)}\label{namespace_open_babel_a49950c5bac5703c9a3c7efea3d4a41f4}
+
+\item 
+\hypertarget{namespace_open_babel_aa5a5e94e5040b9aa439f4f658f0741d4}{int {\bfseries Open\-Babel\-::index\-Of} (const string instring, const string substring, int from\-Pos=0)}\label{namespace_open_babel_aa5a5e94e5040b9aa439f4f658f0741d4}
+
+\item 
+\hypertarget{namespace_open_babel_ac2c0520f21b12e9bfae93e4e425e26c9}{std\-::string {\bfseries Open\-Babel\-::remove\-Zeroeth} (std\-::string instring)}\label{namespace_open_babel_ac2c0520f21b12e9bfae93e4e425e26c9}
+
+\item 
+\hypertarget{namespace_open_babel_a79d8fe626950346aaaeabec7cfdce123}{int {\bfseries Open\-Babel\-::analize\-Parity} (string data)}\label{namespace_open_babel_a79d8fe626950346aaaeabec7cfdce123}
+
+\item 
+\hypertarget{namespace_open_babel_ac6b2a0b35248f073b86a96fbef99f461}{int {\bfseries Open\-Babel\-::analize\-Parity\-Bond} (string data)}\label{namespace_open_babel_ac6b2a0b35248f073b86a96fbef99f461}
+
+\item 
+\hypertarget{namespace_open_babel_a53b6e688d17496385f69834ed1014dc8}{std\-::string {\bfseries Open\-Babel\-::change\-Parity} (std\-::string data)}\label{namespace_open_babel_a53b6e688d17496385f69834ed1014dc8}
+
+\item 
+\hypertarget{namespace_open_babel_af2ed9f300b95cff9ffc0fbc34cacc578}{std\-::string {\bfseries Open\-Babel\-::change\-Parity\-Bond} (std\-::string data)}\label{namespace_open_babel_af2ed9f300b95cff9ffc0fbc34cacc578}
+
+\item 
+\hypertarget{namespace_open_babel_ae2e136757c1b6b486b28afb1149f1ce1}{std\-::string {\bfseries Open\-Babel\-::get\-Atom\-M\-C\-D\-L} (O\-B\-Mol $\ast$pmol, int ntatoms, const std\-::vector$<$ int $>$ ix, const std\-::vector$<$ int $>$ a\-Number, const std\-::vector$<$ int $>$ atom\-Stereo\-List, const std\-::vector$<$ int $>$ eq\-List)}\label{namespace_open_babel_ae2e136757c1b6b486b28afb1149f1ce1}
+
+\item 
+\hypertarget{namespace_open_babel_a1da27ac0556550ed29812976e41e97b9}{int {\bfseries Open\-Babel\-::sproduct} (T\-Simple\-Molecule \&sm, int br, int i1, int i2)}\label{namespace_open_babel_a1da27ac0556550ed29812976e41e97b9}
+
+\item 
+\hypertarget{namespace_open_babel_aee1209411864c8c11729145e25e4bd2c}{bool {\bfseries Open\-Babel\-::bond\-Equivalent} (int bn1, int bn2, const std\-::vector$<$ int $>$ eq\-List, T\-Simple\-Molecule \&sm)}\label{namespace_open_babel_aee1209411864c8c11729145e25e4bd2c}
+
+\item 
+\hypertarget{namespace_open_babel_ace4ed884057fb5583326f70feb86c7ad}{std\-::string {\bfseries Open\-Babel\-::get\-Bond\-M\-C\-D\-L} (O\-B\-Mol $\ast$pmol, int nb\-Store, int ntatoms, const std\-::vector$<$ int $>$ ix, const std\-::vector$<$ int $>$ a\-Number, int bonds\mbox{[}M\-A\-X\-B\-O\-N\-D\-S\mbox{]}\mbox{[}4\mbox{]}, const std\-::vector$<$ int $>$ bond\-Stereo\-List, const std\-::vector$<$ int $>$ eq\-List)}\label{namespace_open_babel_ace4ed884057fb5583326f70feb86c7ad}
+
+\item 
+\hypertarget{namespace_open_babel_ae55766527e16c454a28332c2b9f51bab}{std\-::string {\bfseries Open\-Babel\-::add\-Zeroeth} (std\-::string instring, std\-::string string\-Add)}\label{namespace_open_babel_ae55766527e16c454a28332c2b9f51bab}
+
+\item 
+void {\bfseries Open\-Babel\-::set\-Up\-Down\-Bonds} (int atom\-No, int parity, T\-Simple\-Molecule \&sm, std\-::vector$<$ int $>$ \&i\-A1, std\-::vector$<$ int $>$ \&i\-A2, std\-::vector$<$ int $>$ \&stereo\-Bonds)
+\item 
+\hypertarget{namespace_open_babel_a3b6cfdd9feb9f835b7dbcec896b58577}{void {\bfseries Open\-Babel\-::implement\-Atom\-Stereo} (std\-::vector$<$ int $>$ \&i\-A1, std\-::vector$<$ int $>$ \&i\-A2, std\-::vector$<$ int $>$ \&stereo\-Bonds, const std\-::vector$<$ double $>$rx, const std\-::vector$<$ double $>$ ry, int acount, int bcount, std\-::string astereo)}\label{namespace_open_babel_a3b6cfdd9feb9f835b7dbcec896b58577}
+
+\item 
+\hypertarget{namespace_open_babel_a5a49760466bc6b29e02197ca301c7ff2}{bool {\bfseries Open\-Babel\-::restore\-Double\-Bonds} (T\-Edited\-Molecule \&sm, bool put\-Either)}\label{namespace_open_babel_a5a49760466bc6b29e02197ca301c7ff2}
+
+\item 
+\hypertarget{namespace_open_babel_a74c58fc6ff9d75fbd087e9fccb41f11a}{void {\bfseries Open\-Babel\-::implement\-Bond\-Stereo} (const std\-::vector$<$ int $>$ i\-A1, const std\-::vector$<$ int $>$ i\-A2, std\-::vector$<$ double $>$ \&rx, std\-::vector$<$ double $>$ \&ry, int acount, int bcount, std\-::string bstereo)}\label{namespace_open_babel_a74c58fc6ff9d75fbd087e9fccb41f11a}
+
+\item 
+\hypertarget{namespace_open_babel_a91022042a80beadaad4cc1dc3510ccb6}{int {\bfseries Open\-Babel\-::group\-Redraw} (O\-B\-Mol $\ast$pmol, int bond\-N, int atom\-N, bool atom\-N\-In\-Group)}\label{namespace_open_babel_a91022042a80beadaad4cc1dc3510ccb6}
+
+\item 
+\hypertarget{namespace_open_babel_a2c7af747f9b7613c891e361b4b3c711b}{bool {\bfseries Open\-Babel\-::parse\-Formula} (const std\-::string formula\-String, std\-::vector$<$ int $>$ \&enumber, int \&valency)}\label{namespace_open_babel_a2c7af747f9b7613c891e361b4b3c711b}
+
+\item 
+\hypertarget{namespace_open_babel_a7023bace94f0b3cd71f859f9ffb5100e}{int {\bfseries Open\-Babel\-::canonize\-M\-C\-D\-L} (const std\-::string atom\-Block, std\-::vector$<$ std\-::string $>$ \&structure\-List)}\label{namespace_open_babel_a7023bace94f0b3cd71f859f9ffb5100e}
+
+\item 
+\hypertarget{namespace_open_babel_ae6763d6e84485987d6e8d008323ecf22}{void {\bfseries Open\-Babel\-::prepare\-Test} (O\-B\-Mol $\ast$pmol, std\-::ostream \&ofs)}\label{namespace_open_babel_ae6763d6e84485987d6e8d008323ecf22}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int {\bfseries Open\-Babel\-::h\-Val} \mbox{[}N\-E\-L\-E\-M\-M\-C\-D\-L\mbox{]}
+\item 
+const int {\bfseries Open\-Babel\-::max\-Val} \mbox{[}N\-E\-L\-E\-M\-M\-C\-D\-L\mbox{]}
+\item 
+const int {\bfseries Open\-Babel\-::charge\-Val} \mbox{[}N\-E\-L\-E\-M\-M\-C\-D\-L\mbox{]}
+\item 
+const string {\bfseries Open\-Babel\-::a\-Symb} \mbox{[}N\-E\-L\-E\-M\-M\-C\-D\-L\mbox{]}
+\item 
+\hypertarget{namespace_open_babel_a095eecaa696a7dc03b9232538406ab12}{const int {\bfseries Open\-Babel\-::exact\-Atom} \mbox{[}N\-E\-X\-A\-C\-T\-A\-T\-O\-M\-S\mbox{]} = \{6,14,5,50,82,8,16,34,52,7,15,33,51,9,17,35,53,32,13,26,80\}}\label{namespace_open_babel_a095eecaa696a7dc03b9232538406ab12}
+
+\item 
+\hypertarget{namespace_open_babel_a5dd9a9b5e27bcfead3d96e0add803392}{const int {\bfseries Open\-Babel\-::alkaly} \mbox{[}N\-A\-L\-K\-A\-L\-Y\-A\-T\-O\-M\-S\mbox{]} = \{3,11,19,37,55\}}\label{namespace_open_babel_a5dd9a9b5e27bcfead3d96e0add803392}
+
+\item 
+\hypertarget{namespace_open_babel_a6bd7ca7b00ed8a133e6d10ac131fa1c9}{const int {\bfseries Open\-Babel\-::alkaly\-Earth} \mbox{[}N\-A\-L\-K\-A\-L\-Y\-E\-A\-R\-T\-H\-A\-T\-O\-M\-S\mbox{]} = \{4,12,20,38,56\}}\label{namespace_open_babel_a6bd7ca7b00ed8a133e6d10ac131fa1c9}
+
+\item 
+\hypertarget{namespace_open_babel_aebd099890d7eace5c8ddb6c14c1457bd}{const int {\bfseries Open\-Babel\-::trivalent} \mbox{[}N\-T\-R\-I\-V\-A\-L\-E\-N\-T\-A\-T\-O\-M\-S\mbox{]} = \{21,31,39,49,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,81,89,90,91,92,93,94,95,96,97,98,99\}}\label{namespace_open_babel_aebd099890d7eace5c8ddb6c14c1457bd}
+
+\item 
+\hypertarget{namespace_open_babel_a1f8d45b42f3c31591256206874199572}{const int {\bfseries Open\-Babel\-::titan} \mbox{[}N\-T\-I\-T\-A\-N\-A\-T\-O\-M\-S\mbox{]} = \{22,40,72\}}\label{namespace_open_babel_a1f8d45b42f3c31591256206874199572}
+
+\item 
+\hypertarget{namespace_open_babel_a205880982ec4fe3fd6982155dd9cee08}{const int {\bfseries Open\-Babel\-::vanadium} \mbox{[}N\-V\-A\-N\-A\-D\-I\-U\-M\-A\-T\-O\-M\-S\mbox{]} = \{23,41,73\}}\label{namespace_open_babel_a205880982ec4fe3fd6982155dd9cee08}
+
+\item 
+\hypertarget{namespace_open_babel_a64de79654d830f694dc89d2e06a2c49c}{const int {\bfseries Open\-Babel\-::cromium} \mbox{[}N\-C\-H\-R\-O\-M\-I\-U\-M\-A\-T\-O\-M\-S\mbox{]} = \{24,42,74\}}\label{namespace_open_babel_a64de79654d830f694dc89d2e06a2c49c}
+
+\item 
+\hypertarget{namespace_open_babel_ad2ff93d442383c23b5c76dc85324f654}{const int {\bfseries Open\-Babel\-::manganeze} \mbox{[}N\-M\-A\-N\-G\-A\-N\-E\-S\-E\-A\-T\-O\-M\-S\mbox{]} = \{25,43,75\}}\label{namespace_open_babel_ad2ff93d442383c23b5c76dc85324f654}
+
+\item 
+\hypertarget{namespace_open_babel_a8ea621e7e6de4b6c503f4757833dd461}{const int {\bfseries Open\-Babel\-::like\-Fe} \mbox{[}N\-L\-I\-K\-E\-F\-E\-A\-T\-O\-M\-S\mbox{]} = \{27,28\}}\label{namespace_open_babel_a8ea621e7e6de4b6c503f4757833dd461}
+
+\item 
+\hypertarget{namespace_open_babel_aba060760bf5c045db8f230424988a1e7}{const int {\bfseries Open\-Babel\-::platinum} \mbox{[}N\-P\-L\-A\-T\-I\-N\-U\-M\-A\-T\-O\-M\-S\mbox{]} = \{44,45,46,76,77,78\}}\label{namespace_open_babel_aba060760bf5c045db8f230424988a1e7}
+
+\item 
+\hypertarget{namespace_open_babel_ae32fca020dcf5a305041136102d28121}{const int {\bfseries Open\-Babel\-::copper} \mbox{[}N\-C\-O\-P\-P\-E\-R\-A\-T\-O\-M\-S\mbox{]} = \{29,47,79\}}\label{namespace_open_babel_ae32fca020dcf5a305041136102d28121}
+
+\item 
+\hypertarget{namespace_open_babel_a04abb4a13fa0b6f589969267bafde72f}{const int {\bfseries Open\-Babel\-::zink} \mbox{[}N\-Z\-I\-N\-K\-A\-T\-O\-M\-S\mbox{]} = \{30,48\}}\label{namespace_open_babel_a04abb4a13fa0b6f589969267bafde72f}
+
+\item 
+\hypertarget{namespace_open_babel_a81af9d2718e90dcc9baae3352f7fb405}{const int {\bfseries Open\-Babel\-::possible\-Aromatic} \mbox{[}N\-A\-R\-O\-M\-M\-A\-X\mbox{]} = \{7,8,15,16,33,34,51,52,H\-E\-T\-E\-R\-O\-\_\-\-A\-T\-O\-M\}}\label{namespace_open_babel_a81af9d2718e90dcc9baae3352f7fb405}
+
+\item 
+const int {\bfseries Open\-Babel\-::metals} \mbox{[}N\-M\-E\-T\-A\-L\-S\mbox{]}
+\item 
+const int {\bfseries Open\-Babel\-::light\-Metals} \mbox{[}N\-L\-I\-G\-H\-T\-\_\-\-M\-E\-T\-A\-L\-S\mbox{]}
+\item 
+const int {\bfseries Open\-Babel\-::heavy\-Metals} \mbox{[}N\-H\-E\-A\-V\-Y\-\_\-\-M\-E\-T\-A\-L\-S\mbox{]}
+\item 
+\hypertarget{namespace_open_babel_a0d3ea3066312f3940b18bbf6b839df25}{const int {\bfseries Open\-Babel\-::halogens} \mbox{[}N\-H\-A\-L\-O\-G\-E\-N\-S\mbox{]} = \{9,17,35,53,85\}}\label{namespace_open_babel_a0d3ea3066312f3940b18bbf6b839df25}
+
+\item 
+\hypertarget{namespace_open_babel_ac93108378049e1d6616e565e2e1bfbab}{const int {\bfseries Open\-Babel\-::hetero} \mbox{[}N\-H\-E\-T\-E\-R\-O\mbox{]} = \{7,8,14,15,16,33,34,51,52,84\}}\label{namespace_open_babel_ac93108378049e1d6616e565e2e1bfbab}
+
+\item 
+\hypertarget{namespace_open_babel_a0d55350dda69250ae2246eaaa19daaca}{const string {\bfseries Open\-Babel\-::str\-Data} \mbox{[}N\-D\-A\-T\-A\-B\-A\-S\-E\-\_\-\-M\-O\-L\-E\-C\-U\-L\-E\-S\mbox{]}}\label{namespace_open_babel_a0d55350dda69250ae2246eaaa19daaca}
+
+\item 
+\hypertarget{namespace_open_babel_aee310eb9d268481cbc9b398b08131ada}{const int {\bfseries Open\-Babel\-::bond\-Valence} \mbox{[}N\-B\-O\-N\-D\-T\-Y\-P\-E\-S\mbox{]} = \{1,2,3,1,1,0,0,0,1,1,1\}}\label{namespace_open_babel_aee310eb9d268481cbc9b398b08131ada}
+
+\item 
+\hypertarget{namespace_open_babel_af30e1309ca6dc8255e655d2dc4e24247}{const string {\bfseries Open\-Babel\-::fsastart} =\char`\"{}\{S\-A\-:\char`\"{}}\label{namespace_open_babel_af30e1309ca6dc8255e655d2dc4e24247}
+
+\item 
+\hypertarget{namespace_open_babel_ab79f8062c112c47655fd1c4ac85f19a6}{const string {\bfseries Open\-Babel\-::fsbstart} =\char`\"{}\{S\-B\-:\char`\"{}}\label{namespace_open_babel_ab79f8062c112c47655fd1c4ac85f19a6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+for mcdl format, might be useful for another 

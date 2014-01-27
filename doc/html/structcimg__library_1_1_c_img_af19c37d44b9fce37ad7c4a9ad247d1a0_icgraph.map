@@ -1,0 +1,51 @@
+<map id="cimg_library::CImg::ptr" name="cimg_library::CImg::ptr">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a4ed81efb50c6fc79bbc4980d501b87d1" title="Return a reference to the maximum pixel value of the instance image. " alt="" coords="221,81,387,109"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a6f6b87ed92f562c901433d794a15054a" title="Return a reference to the minimum pixel value of the instance image. " alt="" coords="223,182,385,210"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#ac4a25509b9d16b2529ae59b23811e191" title="Return a reference to the minimum pixel value and return also the maximum pixel value. " alt="" coords="238,298,370,342"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#a4c74efea5ee5a59b941b9c5d0fb4df6c" title="Return a reference to the maximum pixel value and return also the minimum pixel value. " alt="" coords="238,601,370,645"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img.html#a5449e3262d461016ac4eb767963a231d" title="Save the image as a PNM file. " alt="" coords="456,669,589,713"/>
+<area shape="rect" id="node17" href="$structcimg__library_1_1_c_img.html#ad9fa47a9f824507ce8feb7d9f6e76b06" title="Save an image to a PNG file. " alt="" coords="456,737,589,781"/>
+<area shape="rect" id="node18" href="$structcimg__library_1_1_c_img.html#acd9c40e2d6889b9eae6b330a5045371d" title="Return the sum of all the pixel values in an image. " alt="" coords="221,790,387,818"/>
+<area shape="rect" id="node20" href="$structcimg__library_1_1_c_img.html#ac8f214991f5b67f4b9d3aef103e1bb6c" title="In&#45;place version of the previous function. " alt="" coords="238,842,370,886"/>
+<area shape="rect" id="node22" href="$structcimg__library_1_1_c_img.html#ada4165dffe31b750b8b51a25b07351c8" title="In&#45;place version of the previous function. " alt="" coords="225,910,383,938"/>
+<area shape="rect" id="node24" href="$structcimg__library_1_1_c_img.html#a067f4006eacbc322ce61bafebe7bd340" title="In&#45;place version of the previous function. " alt="" coords="222,962,386,990"/>
+<area shape="rect" id="node26" href="$structcimg__library_1_1_c_img.html#a37dff69737b46ebe38ef21df83ff283c" title="In&#45;place version of the previous function. " alt="" coords="238,1014,370,1058"/>
+<area shape="rect" id="node27" href="$structcimg__library_1_1_c_img.html#a0dddf2bd640a2b4c8a1218bf73f116bb" title="In&#45;place version of the previous function. " alt="" coords="238,1082,370,1126"/>
+<area shape="rect" id="node29" href="$structcimg__library_1_1_c_img.html#acc1fc108afa5fcd0f334ba0c854a5481" title="In&#45;place version of the previous function. " alt="" coords="238,1150,370,1194"/>
+<area shape="rect" id="node31" href="$structcimg__library_1_1_c_img.html#a9e6fae555e0e868420b11c2cb9060697" title="Get a label map of disconnected regions with same intensities. " alt="" coords="237,1218,371,1262"/>
+<area shape="rect" id="node32" href="$structcimg__library_1_1_c_img.html#ab34cbfa4cf4062a42e027de3e94d9878" title="Convert a (R,G,B) image to a Bayer&#45;coded representation. " alt="" coords="238,1286,370,1330"/>
+<area shape="rect" id="node33" href="$structcimg__library_1_1_c_img.html#a6688c2dbbdd2e404279680be1721828c" title="Draw a colored point (pixel) in the instance image (for volumetric images). " alt="" coords="238,1354,370,1398"/>
+<area shape="rect" id="node34" href="$structcimg__library_1_1_c_img.html#a1fe7b3d3438708eecd0978ee7df2db1b" title="Draw a colored line in the instance image. " alt="" coords="238,1422,370,1466"/>
+<area shape="rect" id="node35" href="$structcimg__library_1_1_c_img.html#a4516c4c43a7130f034172df71bbaefa4" title="Draw a sprite image in the instance image. " alt="" coords="238,1490,370,1534"/>
+<area shape="rect" id="node36" href="$structcimg__library_1_1_c_img.html#ad05cf69b3e05554a549aef4d76996739" title="Draw a 4D filled rectangle in the instance image, at coordinates (x0,y0,z0,v0)&#45;(x1,y1,z1,v1). " alt="" coords="238,1558,370,1602"/>
+<area shape="rect" id="node37" href="$structcimg__library_1_1_c_img.html#a18f1e6e2064b5ab2b657daf10533dbbd" title="Draw a 2D Gouraud&#45;filled triangle in the instance image, at coordinates (x0,y0)&#45;(x1,y1)&#45;(x2,y2). " alt="" coords="238,1626,370,1670"/>
+<area shape="rect" id="node38" href="$structcimg__library_1_1_c_img.html#ab5ef73b2bf38b55dbd20e1fa5e180391" title="Draw a 1D gaussian function in the instance image. " alt="" coords="238,1694,370,1738"/>
+<area shape="rect" id="node39" href="$structcimg__library_1_1_c_img.html#a01df2f3a9b1a02c244a0736b29a83356" title="In&#45;place version of the previous function. " alt="" coords="238,1762,370,1806"/>
+<area shape="rect" id="node40" href="$structcimg__library_1_1_c_img.html#a0d2b8a72f62d8e15722f9c4c97c33ebf" title="Return a new image corresponding to the vector located at (x,y,z) of the current vector&#45;valued image..." alt="" coords="238,1830,370,1874"/>
+<area shape="rect" id="node41" href="$structcimg__library_1_1_c_img.html#a579ab2aa53e0a77379f6af5c94185eb3" title="Set the image vec as the vector valued pixel located at (x,y,z) of the current vector&#45;valued image..." alt="" coords="238,1898,370,1942"/>
+<area shape="rect" id="node42" href="$structcimg__library_1_1_c_img.html#a505479a53dd6ee630d0c8c8a2bd24357" title="Save the image as a BMP file. " alt="" coords="238,1966,370,2010"/>
+<area shape="rect" id="node43" href="$structcimg__library_1_1_c_img.html#aab6eba0352abb4ccfbc03bcb756d4c0b" title="Save a file in JPEG format. " alt="" coords="238,2034,370,2078"/>
+<area shape="rect" id="node44" href="$structcimg__library_1_1_c_img.html#a91529d80bd21a08ab9314fc132138f9c" title="Save the image using built&#45;in ImageMagick++ library. " alt="" coords="238,2102,370,2146"/>
+<area shape="rect" id="node45" href="$structcimg__library_1_1_c_img.html#a133af6a59ecc79219f1b2f68bee475bb" title="Save the image as a RGBA file. " alt="" coords="238,2170,370,2214"/>
+<area shape="rect" id="node46" href="$structcimg__library_1_1_c_img.html#a05f2988b7be539403f308b06389f2767" title="Save the image as a RGB file. " alt="" coords="238,2238,370,2282"/>
+<area shape="rect" id="node47" href="$structcimg__library_1_1_c_img_list.html#a3ddf4bf5d3c7a8304c6614c37d1c9dc0" title="Return a reference to the maximum pixel value of the instance image. " alt="" coords="211,2306,397,2334"/>
+<area shape="rect" id="node48" href="$structcimg__library_1_1_c_img_list.html#a3c8465a865679f4838390767a4e80f00" title="Return a reference to the minimum pixel value of the instance image. " alt="" coords="213,2358,395,2386"/>
+<area shape="rect" id="node49" href="$structcimg__library_1_1_c_img_list.html#a095c38fc989e7f09d74145a467644811" title="Return a reference to the minimum pixel value of the instance image. " alt="" coords="227,2410,381,2454"/>
+<area shape="rect" id="node50" href="$structcimg__library_1_1_c_img_list.html#aca5051a5f64dc8206003c9429495b15a" title="Return a reference to the minimum pixel value of the instance image. " alt="" coords="227,2478,381,2522"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a1b97f216e233b5c40079d5290243547c" title="Pointwise max operator between two images. " alt="" coords="456,5,589,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a5f9e9fa1b27d6de91703cd57f4cf2275" title="In&#45;place version of the previous function. " alt="" coords="456,73,589,117"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#ab561edb5b711e65c67dc419e9910e106" title="Pointwise min operator between two images. " alt="" coords="456,141,589,185"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img_list.html#af84da99fe436b471b62663373111fd45" title="Operator&#45;=. " alt="" coords="446,209,599,253"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#ae6ea8ae7a52aee89eb399b891487dc37" title="Return the image histogram. " alt="" coords="456,329,589,373"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a386c5bfabae28bf303b5aba88e73b974" title="In&#45;place version of the previous function. " alt="" coords="648,299,792,343"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#aebe5488b504aa1e9f331d63efa6d578b" title="In&#45;place version of the previous function. " alt="" coords="456,533,589,577"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a7baf94a72db832d96cb8186b8898b0e2" title="In&#45;place version of the previous function. " alt="" coords="456,601,589,645"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#ababc8a96d142815637c32afbd9df9e48" title="Return a resized image. " alt="" coords="456,397,589,441"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img.html#ae409a74bd30e2f16e4731572bc2e2153" title="In&#45;place version of the previous function. " alt="" coords="456,465,589,509"/>
+<area shape="rect" id="node19" href="$structcimg__library_1_1_c_img.html#a3dbc3a0638243338884cb8e6d860f1c8" title="In&#45;place version of the previous function. " alt="" coords="456,805,589,849"/>
+<area shape="rect" id="node21" href="$structcimg__library_1_1_c_img.html#aa602135848e9603913f4cda976b0c42d" title="Compute a statistics vector (min,max,mean,variance,offmin,offmax). " alt="" coords="456,873,589,917"/>
+<area shape="rect" id="node23" href="$structcimg__library_1_1_c_img.html#afd1d0b6bfa7bb898a1e390f68d9b1eef" title="Compute the square of each pixel value. " alt="" coords="456,941,589,985"/>
+<area shape="rect" id="node25" href="$structcimg__library_1_1_c_img.html#aeb1f02ad71828cf54020c27e8e8921e4" title="Compute the power by p of each pixel value. " alt="" coords="456,1009,589,1053"/>
+<area shape="rect" id="node28" href="$structcimg__library_1_1_c_img.html#aa30247a4338d50b394c47b3a7eeeab48" title="Mirror an image along the specified axis. " alt="" coords="456,1082,589,1126"/>
+<area shape="rect" id="node30" href="$structcimg__library_1_1_c_img.html#af8c9f6ca06e378ada0bfd7516ae4b69d" title="Translate the image. " alt="" coords="456,1150,589,1194"/>
+</map>

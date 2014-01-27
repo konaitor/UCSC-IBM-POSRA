@@ -1,0 +1,5 @@
+<map id="cimg_library::CImg::get_correlate" name="cimg_library::CImg::get_correlate">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#ae84b4de1f37ffc8ba9121194cd1be361" title="In&#45;place version of the previous function. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a737c500f103b890a821a7d347e99ac41" title="Return the convolution of the image by a mask. " alt="" coords="187,73,320,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a08a91a519c1f2b9b384e87e983ebd127" title="In&#45;place version of the previous function. " alt="" coords="368,73,501,117"/>
+</map>

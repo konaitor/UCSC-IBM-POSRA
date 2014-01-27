@@ -1,0 +1,5 @@
+<map id="cimg_library::CImg::draw_arrow" name="cimg_library::CImg::draw_arrow">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a86670dddc872143ddc00db53d51ff3aa" title="Draw a vector field in the instance image, using a colormap. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a27bc230085f4e303b0d16a24df534802" title="Draw a labeled horizontal axis on the instance image. " alt="" coords="187,73,320,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a51d3f13753cc1b69c8250441dad0fb20" title="Draw a labeled horizontal+vertical axis on the instance image. " alt="" coords="368,73,501,117"/>
+</map>

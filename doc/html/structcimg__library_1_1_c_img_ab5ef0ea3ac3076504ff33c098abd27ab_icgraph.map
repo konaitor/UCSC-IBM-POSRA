@@ -1,0 +1,4 @@
+<map id="cimg_library::CImg::pix1d" name="cimg_library::CImg::pix1d">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a510052a861eff8b05a02ba2f4427ed62" title="Read a pixel value using linear interpolation for the first coordinate cx. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#ad344a30f3cdc6d089ef2267a86d4847f" title="Read a pixel value using cubic interpolation for the first coordinate cx. " alt="" coords="187,73,320,117"/>
+</map>

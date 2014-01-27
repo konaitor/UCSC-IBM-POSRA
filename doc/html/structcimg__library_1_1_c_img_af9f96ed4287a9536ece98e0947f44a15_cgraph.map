@@ -1,0 +1,6 @@
+<map id="cimg_library::CImg::marching_squares" name="cimg_library::CImg::marching_squares">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="195,5,328,49"/>
+<area shape="rect" id="node3" href="$namespacecimg__library_1_1cimg.html#ad0cb1d5a7a211bd292d1d91719ec6828" title="Polygonize an implicit 2D function by the marching squares algorithm. " alt="" coords="192,73,331,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="195,141,328,185"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="195,209,328,253"/>
+</map>

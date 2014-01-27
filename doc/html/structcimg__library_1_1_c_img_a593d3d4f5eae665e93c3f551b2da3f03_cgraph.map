@@ -1,0 +1,31 @@
+<map id="cimg_library::CImg::save" name="cimg_library::CImg::save">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="583,804,716,848"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="776,890,909,934"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a0347f20f842430c63ddc0ff39fd62ddf" title="Save the image as an ASCII file (ASCII Raw + simple header). " alt="" coords="379,28,512,72"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a189616455ee879a3372a13b860bab05c" title="Save the image as a DLM file. " alt="" coords="379,1408,512,1452"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a1ca63e722e7ad2993bd04c24f29ad9e4" title="Save the image as an INRIMAGE&#45;4 file. " alt="" coords="379,319,512,363"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a29f58c110f5e216e4fa457bbb343aab2" title="Save the image as an ANALYZE7.5 or NIFTI file. " alt="" coords="379,626,512,670"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#ad442714fe10a5135688f023b2a00cb29" title="Save an image as a Dicom file (need &#39;(X)Medcon&#39; : http://xmedcon.sourceforge.net ) ..." alt="" coords="187,626,320,670"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a7930700a82a0939576a91e6c4cf6c248" title="Save the image as a PANDORE&#45;5 file. " alt="" coords="379,490,512,534"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#a505479a53dd6ee630d0c8c8a2bd24357" title="Save the image as a BMP file. " alt="" coords="379,1340,512,1384"/>
+<area shape="rect" id="node18" href="$structcimg__library_1_1_c_img.html#ad9fa47a9f824507ce8feb7d9f6e76b06" title="Save an image to a PNG file. " alt="" coords="187,1356,320,1400"/>
+<area shape="rect" id="node21" href="$structcimg__library_1_1_c_img.html#ac15df3e33a1ec6c37e26329f84ae0e13" title="Save a file in TIFF format. " alt="" coords="379,1647,512,1691"/>
+<area shape="rect" id="node22" href="$structcimg__library_1_1_c_img.html#aab6eba0352abb4ccfbc03bcb756d4c0b" title="Save a file in JPEG format. " alt="" coords="379,898,512,942"/>
+<area shape="rect" id="node23" href="$structcimg__library_1_1_c_img.html#a133af6a59ecc79219f1b2f68bee475bb" title="Save the image as a RGBA file. " alt="" coords="379,1034,512,1078"/>
+<area shape="rect" id="node24" href="$structcimg__library_1_1_c_img.html#a05f2988b7be539403f308b06389f2767" title="Save the image as a RGB file. " alt="" coords="379,1170,512,1214"/>
+<area shape="rect" id="node25" href="$structcimg__library_1_1_c_img.html#ae70ac83cf3ce759eb61133e84f2cea24" title="Save the image as a RAW file. " alt="" coords="379,966,512,1010"/>
+<area shape="rect" id="node26" href="$structcimg__library_1_1_c_img.html#a34e0be5beb5d91caa5ae59ee2e039aa4" title="Save the image as a .cimg file. " alt="" coords="187,259,320,303"/>
+<area shape="rect" id="node28" href="$structcimg__library_1_1_c_img.html#a5449e3262d461016ac4eb767963a231d" title="Save the image as a PNM file. " alt="" coords="187,816,320,860"/>
+<area shape="rect" id="node29" href="$structcimg__library_1_1_c_img.html#a90f48e7931d33b70a970ba4a93b02c62" title="Save the image as a YUV video sequence file. " alt="" coords="187,1288,320,1332"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="583,1551,716,1595"/>
+<area shape="rect" id="node8" href="$namespacecimg__library_1_1cimg.html#ac01790460808876967d2ba371a000cee" title="Return false for little endian CPUs (Intel), true for big endian CPUs (Motorola). ..." alt="" coords="585,259,714,303"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="776,1067,909,1111"/>
+<area shape="rect" id="node12" href="$namespacecimg__library_1_1cimg.html#a9ab62b36cd320543e0b0ab830252cb10" title="Return path of the XMedcon tool. " alt="" coords="381,558,510,602"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="583,1479,716,1523"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img.html#af19c37d44b9fce37ad7c4a9ad247d1a0" title="Return a pointer to the pixel value located at (x,y,z,v). " alt="" coords="572,1178,727,1206"/>
+<area shape="rect" id="node17" href="$structcimg__library_1_1_c_img.html#a266ad9e6e5d13058af75966b7d7e3ad9" title="Return the offset of the pixel coordinates (x,y,z,v) with respect to the data pointer data..." alt="" coords="776,1170,909,1214"/>
+<area shape="rect" id="node19" href="$structcimg__library_1_1_c_img.html#a4c74efea5ee5a59b941b9c5d0fb4df6c" title="Return a reference to the maximum pixel value and return also the minimum pixel value. " alt="" coords="379,1102,512,1146"/>
+<area shape="rect" id="node20" href="$structcimg__library_1_1_c_img.html#ad30f8300f32a94a80e1e06c84a45de49" title="Return the number of vector channels of the instance image (size along the V&#45;axis). " alt="" coords="583,1695,716,1739"/>
+<area shape="rect" id="node27" href="$structcimg__library_1_1_c_img_list.html#af0a1d766b2ad5acff467cddb8d108475" title="Save an image list into a .cimg file. " alt="" coords="369,199,522,243"/>
+<area shape="rect" id="node30" href="$structcimg__library_1_1_c_img_list.html#aede555bb2df9d7128286e7605f806e43" title="Save an image sequence into a YUV file. " alt="" coords="369,1476,522,1520"/>
+</map>

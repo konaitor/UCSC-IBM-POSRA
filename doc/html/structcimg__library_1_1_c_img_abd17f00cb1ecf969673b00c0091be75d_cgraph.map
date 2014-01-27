@@ -1,0 +1,4 @@
+<map id="cimg_library::CImg::get_dijkstra" name="cimg_library::CImg::get_dijkstra">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a0232d8fbf4a5f2cc70c6b52fdb4fe6cf" title="Return minimal path in a graph, using the Dijkstra algorithm. " alt="" coords="187,73,320,117"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="cimg_library::CImg::linear_pix2d" name="cimg_library::CImg::linear_pix2d">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#aaa91237f26c67cf66f6eda7c415f78ae" title="Return a rotated image. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a306c987ece8d66ce92d739a828aa82ea" title="In&#45;place version of the previous function. " alt="" coords="187,73,320,117"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a49cf43e728c25716e3882fc6968552c1" title="In&#45;place version of the previous function. " alt="" coords="376,5,509,49"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a2d676233cf4d136fb286a0c488a8211d" title="Get a blurred version of an image following a field of diffusion tensors. " alt="" coords="368,73,517,117"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a2dc5a2c97f4e3c7b38869e39b500e97d" title="In&#45;place version of the previous function. " alt="" coords="376,141,509,185"/>
+</map>

@@ -1,0 +1,84 @@
+\hypertarget{structcimg__library_1_1_c_img_exception}{\section{cimg\-\_\-library\-:\-:C\-Img\-Exception Struct Reference}
+\label{structcimg__library_1_1_c_img_exception}\index{cimg\-\_\-library\-::\-C\-Img\-Exception@{cimg\-\_\-library\-::\-C\-Img\-Exception}}
+}
+
+
+Class which is thrown when an error occured during a C\-Img library function call.  
+
+
+
+
+{\ttfamily \#include $<$C\-Img.\-h$>$}
+
+
+
+Inheritance diagram for cimg\-\_\-library\-:\-:C\-Img\-Exception\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structcimg__library_1_1_c_img_exception__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structcimg__library_1_1_c_img_exception_af363fbdd7832f611d3da5c14befe2d25}{{\bfseries C\-Img\-Exception} (const char $\ast$format,...)}\label{structcimg__library_1_1_c_img_exception_af363fbdd7832f611d3da5c14befe2d25}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{structcimg__library_1_1_c_img_exception_a0d6ea22499e9e0fd52c5995ecb99cba2}{char \hyperlink{structcimg__library_1_1_c_img_exception_a0d6ea22499e9e0fd52c5995ecb99cba2}{message} \mbox{[}1024\mbox{]}}\label{structcimg__library_1_1_c_img_exception_a0d6ea22499e9e0fd52c5995ecb99cba2}
+
+\begin{DoxyCompactList}\small\item\em Message associated with the error that thrown the exception. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class which is thrown when an error occured during a C\-Img library function call. 
+
+\hypertarget{structcimg__library_1_1_c_img_exception_ex1}{}\subsection{Overview}\label{structcimg__library_1_1_c_img_exception_ex1}
+\hyperlink{structcimg__library_1_1_c_img_exception}{C\-Img\-Exception} is the base class of C\-Img exceptions. Exceptions are thrown by the C\-Img Library when an error occured in a C\-Img library function call. \hyperlink{structcimg__library_1_1_c_img_exception}{C\-Img\-Exception} is seldom thrown itself. Children classes that specify the kind of error encountered are generally used instead. These sub-\/classes are \-:
+
+
+\begin{DoxyItemize}
+\item {\bfseries \hyperlink{structcimg__library_1_1_c_img_instance_exception}{C\-Img\-Instance\-Exception}} \-: Thrown when the instance associated to the called C\-Img function is not correctly defined. Generally, this exception is thrown when one tries to process {\itshape empty} images. The example below will throw a {\itshape \hyperlink{structcimg__library_1_1_c_img_instance_exception}{C\-Img\-Instance\-Exception}}. 
+\begin{DoxyCode}
+CImg<float> img;        \textcolor{comment}{// Construct an empty image.}
+img.blur(10);           \textcolor{comment}{// Try to blur the image.}
+\end{DoxyCode}
+
+\item {\bfseries \hyperlink{structcimg__library_1_1_c_img_argument_exception}{C\-Img\-Argument\-Exception}} \-: Thrown when one of the arguments given to the called C\-Img function is not correct. Generally, this exception is thrown when arguments passed to the function are outside an admissible range of values. The example below will throw a {\itshape \hyperlink{structcimg__library_1_1_c_img_argument_exception}{C\-Img\-Argument\-Exception}}. 
+\begin{DoxyCode}
+CImg<float> img(100,100,1,3);   \textcolor{comment}{// Define a 100x100 color image with float pixels.}
+img = 0;                     \textcolor{comment}{// Try to fill pixels from the 0 pointer (invalid argument to operator=() ).}
+\end{DoxyCode}
+
+\item {\bfseries \hyperlink{structcimg__library_1_1_c_img_i_o_exception}{C\-Img\-I\-O\-Exception}} \-: Thrown when an error occured when trying to load or save image files. The example below will throw a {\itshape \hyperlink{structcimg__library_1_1_c_img_i_o_exception}{C\-Img\-I\-O\-Exception}}. 
+\begin{DoxyCode}
+CImg<float> img(\textcolor{stringliteral}{"file\_doesnt\_exist.jpg"});    \textcolor{comment}{// Try to load a file that doesn't exist.}
+\end{DoxyCode}
+
+\item {\bfseries \hyperlink{structcimg__library_1_1_c_img_display_exception}{C\-Img\-Display\-Exception}} \-: Thrown when an error occured when trying to display an image in a window. This exception is thrown when image display request cannot be satisfied.
+\end{DoxyItemize}
+
+The parent class \hyperlink{structcimg__library_1_1_c_img_exception}{C\-Img\-Exception} may be thrown itself when errors that cannot be classified in one of the above type occur. It is recommended not to throw C\-Img\-Exceptions yourself, since there are normally reserved to C\-Img Library functions. {\bfseries \hyperlink{structcimg__library_1_1_c_img_instance_exception}{C\-Img\-Instance\-Exception}}, {\bfseries \hyperlink{structcimg__library_1_1_c_img_argument_exception}{C\-Img\-Argument\-Exception}}, {\bfseries \hyperlink{structcimg__library_1_1_c_img_i_o_exception}{C\-Img\-I\-O\-Exception}} and {\bfseries \hyperlink{structcimg__library_1_1_c_img_display_exception}{C\-Img\-Display\-Exception}} are simple subclasses of \hyperlink{structcimg__library_1_1_c_img_exception}{C\-Img\-Exception} and are thus not detailled more in this reference documentation.\hypertarget{structcimg__library_1_1_c_img_exception_ex2}{}\subsection{Exception handling}\label{structcimg__library_1_1_c_img_exception_ex2}
+When an error occurs, the C\-Img Library first displays the error in a modal window. Then, it throws an instance of the corresponding exception class, generally leading the program to stop (this is the default behavior). You can bypass this default behavior by handling the exceptions yourself, using a code block {\ttfamily try \{ ... \} catch() \{ ... \}}. In this case, you can avoid the apparition of the modal window, by defining the environment variable {\ttfamily cimg\-\_\-debug} to 0 before including the C\-Img header file. The example below shows how to cleanly handle C\-Img Library exceptions \-: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#define cimg\_debug 0     // Disable modal window in CImg exceptions.}
+\textcolor{preprocessor}{}\textcolor{preprocessor}{#define "CImg.h"}
+\textcolor{preprocessor}{}\textcolor{keywordtype}{int} main() \{
+  \textcolor{keywordflow}{try} \{
+    ...; \textcolor{comment}{// Here, do what you want.}
+  \}
+  \textcolor{keywordflow}{catch} (CImgInstanceException &e) \{
+    std::fprintf(stderr,\textcolor{stringliteral}{"CImg Library Error : %s"},e.message);  \textcolor{comment}{// Display your own error message}
+    ...                                                        \textcolor{comment}{// Do what you want now.}
+  \}
+\}
+\end{DoxyCode}
+ 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-Img.\-h\end{DoxyCompactItemize}

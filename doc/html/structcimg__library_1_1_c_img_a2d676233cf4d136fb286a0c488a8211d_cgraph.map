@@ -1,0 +1,12 @@
+<map id="cimg_library::CImg::get_blur_anisotropic" name="cimg_library::CImg::get_blur_anisotropic">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a306c987ece8d66ce92d739a828aa82ea" title="In&#45;place version of the previous function. " alt="" coords="203,193,336,237"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="384,5,517,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="384,73,517,117"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="747,189,880,233"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="747,257,880,301"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#aba56e96a615d71ed9a71009768fc4b75" title="Return the number of slices of the instance image (size along the Z&#45;axis). " alt="" coords="747,346,880,390"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a99af7b06c856fffc82a8872f2ebd5e8c" title="Read a pixel value using linear interpolation for the three first coordinates (cx,cy,cz). " alt="" coords="384,313,517,357"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a94e74f9969caf1db1f862ec9c145ed29" title="Read a pixel value using linear interpolation for the two first coordinates (cx,cy). " alt="" coords="384,193,517,237"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a947e22cc453c54c0a0b0590e64d2095f" title="Read a pixel value with Dirichlet or Neumann boundary conditions for the three first coordinates (x..." alt="" coords="566,313,698,357"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#a04fbd850fa0db4802ee50c2129d2b4bd" title="Read a pixel value with Dirichlet or Neumann boundary conditions for the two first coordinates (x..." alt="" coords="566,193,698,237"/>
+</map>

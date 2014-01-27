@@ -1,0 +1,12 @@
+<map id="cimg_library::CImg::save_graphicsmagick" name="cimg_library::CImg::save_graphicsmagick">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="607,150,740,194"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="800,175,933,219"/>
+<area shape="rect" id="node4" href="$namespacecimg__library_1_1cimg.html#a411c598d6a44291415a1e2299d2c39b1" title="Return path to store temporary files. " alt="" coords="224,371,352,415"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a5449e3262d461016ac4eb767963a231d" title="Save the image as a PNM file. " alt="" coords="222,129,354,173"/>
+<area shape="rect" id="node11" href="$namespacecimg__library_1_1cimg.html#a427f31124296fa11e951bb2536e4e88b" title="Return path of the GraphicsMagick&#39;s gm tool. " alt="" coords="211,439,365,483"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a4c74efea5ee5a59b941b9c5d0fb4df6c" title="Return a reference to the maximum pixel value and return also the minimum pixel value. " alt="" coords="414,99,546,143"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#af19c37d44b9fce37ad7c4a9ad247d1a0" title="Return a pointer to the pixel value located at (x,y,z,v). " alt="" coords="596,46,751,74"/>
+<area shape="rect" id="node10" href="$namespacecimg__library_1_1cimg.html#ac01790460808876967d2ba371a000cee" title="Return false for little endian CPUs (Intel), true for big endian CPUs (Motorola). ..." alt="" coords="416,31,544,75"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a266ad9e6e5d13058af75966b7d7e3ad9" title="Return the offset of the pixel coordinates (x,y,z,v) with respect to the data pointer data..." alt="" coords="800,5,933,49"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="800,73,933,117"/>
+</map>

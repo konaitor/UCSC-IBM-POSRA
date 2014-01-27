@@ -1,0 +1,6 @@
+<map id="cimg_library::CImg::get_default_LUT8" name="cimg_library::CImg::get_default_LUT8">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#ab2d6463804faab6dd4def4be68220d3b" title="Convert color pixels from (R,G,B) to match a specified palette. " alt="" coords="190,38,322,82"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aee18d3c55b117b42d507bac215e0793a" title="Convert an indexed image to a (R,G,B) image using the specified color palette. " alt="" coords="190,106,322,150"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#abcf750a4bb72227df700b69ca7272c1e" title="In&#45;place version of the previous function. " alt="" coords="371,5,504,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a21e9195be99dcd4db84faf8e7b8f52f4" title="Convert color pixels from (R,G,B) to match the default 256 colors palette. " alt="" coords="371,73,504,117"/>
+</map>
