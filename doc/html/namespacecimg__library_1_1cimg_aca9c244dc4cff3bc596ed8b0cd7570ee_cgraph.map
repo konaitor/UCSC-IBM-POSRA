@@ -1,0 +1,7 @@
+<map id="cimg_library::cimg::info" name="cimg_library::cimg::info">
+<area shape="rect" id="node2" href="$namespacecimg__library_1_1cimg.html#ac01790460808876967d2ba371a000cee" title="Return false for little endian CPUs (Intel), true for big endian CPUs (Motorola). ..." alt="" coords="197,5,326,49"/>
+<area shape="rect" id="node3" href="$namespacecimg__library_1_1cimg.html#a66b97c48fa2e598dd3818152cca7e4f0" title="Return path of the ImageMagick&#39;s convert tool. " alt="" coords="191,73,332,117"/>
+<area shape="rect" id="node4" href="$namespacecimg__library_1_1cimg.html#a427f31124296fa11e951bb2536e4e88b" title="Return path of the GraphicsMagick&#39;s gm tool. " alt="" coords="184,141,339,185"/>
+<area shape="rect" id="node5" href="$namespacecimg__library_1_1cimg.html#a9ab62b36cd320543e0b0ab830252cb10" title="Return path of the XMedcon tool. " alt="" coords="197,209,326,253"/>
+<area shape="rect" id="node6" href="$namespacecimg__library_1_1cimg.html#a411c598d6a44291415a1e2299d2c39b1" title="Return path to store temporary files. " alt="" coords="197,277,326,321"/>
+</map>

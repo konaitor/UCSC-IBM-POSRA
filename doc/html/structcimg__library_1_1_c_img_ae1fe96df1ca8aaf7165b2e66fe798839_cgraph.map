@@ -1,0 +1,22 @@
+<map id="cimg_library::CImg::draw_object3d" name="cimg_library::CImg::draw_object3d">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="591,247,724,291"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="591,623,724,667"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a263e8361662bdd550a65666df0c9de7b" title="In&#45;place version of the previous function. " alt="" coords="383,5,516,49"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a9e085d33be58bdfb6733a8ebbb7cc9fd" title="Return the norm of the current vector/matrix. ntype = norm type (0=L2, 1=L1, &#45;1=Linf). " alt="" coords="187,219,320,263"/>
+<area shape="rect" id="node7" href="$namespacecimg__library_1_1cimg.html#a94c6e14129933f3c261ccf9de7a6f299" title="Return the absolute value of a. " alt="" coords="370,347,528,375"/>
+<area shape="rect" id="node10" href="$namespacecimg__library_1_1cimg.html#ae84548c45d9e5878954602914d34babe" title="Return the maximum between a and b. " alt="" coords="369,639,530,667"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#a752ba1edbc0912be6454062f207c4ecd" title="Draw a colored point (pixel) in the instance image. " alt="" coords="187,1137,320,1181"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="383,847,516,891"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="383,915,516,959"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#a4516c4c43a7130f034172df71bbaefa4" title="Draw a sprite image in the instance image. " alt="" coords="187,579,320,623"/>
+<area shape="rect" id="node19" href="$structcimg__library_1_1_c_img.html#a1fe7b3d3438708eecd0978ee7df2db1b" title="Draw a colored line in the instance image. " alt="" coords="187,717,320,761"/>
+<area shape="rect" id="node20" href="$structcimg__library_1_1_c_img.html#a8328a10f9e96fd585d2a032b03e9e781" title="Draw a filled circle on the instance image. " alt="" coords="187,915,320,959"/>
+<area shape="rect" id="node21" href="$structcimg__library_1_1_c_img.html#a75e37255f598921a5396ce2c11bf9f5a" title="Draw a 2D filled colored triangle in the instance image. " alt="" coords="383,279,516,323"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="591,147,724,191"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a5715551ea29f928aa02909654415a75f" title="Return the dot product of the current vector/matrix with the vector/matrix img. " alt="" coords="370,125,529,153"/>
+<area shape="rect" id="node9" href="$namespacecimg__library_1_1cimg.html#ad94384d3e36da5cb180e58c3daee5a21" title="Return the minimum between a and b. " alt="" coords="579,95,736,123"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img.html#aba56e96a615d71ed9a71009768fc4b75" title="Return the number of slices of the instance image (size along the Z&#45;axis). " alt="" coords="383,519,516,563"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img.html#ad30f8300f32a94a80e1e06c84a45de49" title="Return the number of vector channels of the instance image (size along the V&#45;axis). " alt="" coords="383,451,516,495"/>
+<area shape="rect" id="node17" href="$structcimg__library_1_1_c_img.html#af19c37d44b9fce37ad7c4a9ad247d1a0" title="Return a pointer to the pixel value located at (x,y,z,v). " alt="" coords="372,743,527,771"/>
+<area shape="rect" id="node18" href="$structcimg__library_1_1_c_img.html#a266ad9e6e5d13058af75966b7d7e3ad9" title="Return the offset of the pixel coordinates (x,y,z,v) with respect to the data pointer data..." alt="" coords="591,735,724,779"/>
+</map>

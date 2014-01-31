@@ -1,0 +1,5 @@
+<map id="cimg_library::CImg::get_fill" name="cimg_library::CImg::get_fill">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a22c7685eaf6d61e3e25186f702cc89d0" title="In&#45;place version of the previous function. " alt="" coords="187,39,320,83"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="368,5,501,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="368,73,501,117"/>
+</map>

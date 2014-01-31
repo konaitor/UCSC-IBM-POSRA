@@ -1,0 +1,5 @@
+<map id="cimg_library::CImg::draw_rectangle" name="cimg_library::CImg::draw_rectangle">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a20f6a3ae25994d475c397127c0c2e516" title="Draw a 3D filled colored rectangle in the instance image, at coordinates (x0,y0,z0)&#45;(x1,y1,z1). " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a25913106bea95e3eb8f9f380cccfda82" title="Draw a 1D graph on the instance image. " alt="" coords="187,73,320,117"/>
+<area shape="rect" id="node4" href="$namespacecimg__library_1_1cimg.html#a62805bf0845c650a457cd78b3cd6488a" title="Display a dialog box, where a user can click standard buttons. " alt="" coords="189,141,318,185"/>
+</map>

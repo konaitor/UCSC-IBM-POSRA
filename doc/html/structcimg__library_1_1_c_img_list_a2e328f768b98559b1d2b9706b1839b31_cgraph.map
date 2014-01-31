@@ -1,0 +1,7 @@
+<map id="cimg_library::CImgList::get_append" name="cimg_library::CImgList::get_append">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="223,5,356,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="419,102,552,146"/>
+<area shape="rect" id="node4" href="$namespacecimg__library_1_1cimg.html#ae84548c45d9e5878954602914d34babe" title="Return the maximum between a and b. " alt="" coords="209,125,370,153"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a4fe05a8bfe2fd0404456c21b6e43f01c" title="In&#45;place version of the previous function. " alt="" coords="223,177,356,221"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="419,207,552,251"/>
+</map>

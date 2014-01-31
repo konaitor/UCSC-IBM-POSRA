@@ -1,0 +1,39 @@
+<map id="cimg_library::CImg::assign" name="cimg_library::CImg::assign">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img_display.html#a951e98c7d426911b27dadb95bb96885f" title="Take a snapshot of the display in the specified image. " alt="" coords="187,38,363,82"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a03f62716b3aeefb924ec762fbac6d959" title="In&#45;place version of the default constructor. " alt="" coords="208,106,341,150"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a7adf0edeca1ab85b0d23f3900ca51fb6" title="In&#45;place version of the default copy constructor. " alt="" coords="208,174,341,218"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a4c3e9649f52640863834b7e075d57b4a" title="Construct an image with given size (dx,dy,dz,dv) and with specified pixel values (int version)..." alt="" coords="208,242,341,286"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#aa00643fa0ff78f1376773dd18360e872" title="Assignment operator. " alt="" coords="208,310,341,354"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a2fdcd03fe442d0ec209851f8e8a2e454" title="Operator/=. " alt="" coords="208,378,341,422"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#ac8f214991f5b67f4b9d3aef103e1bb6c" title="In&#45;place version of the previous function. " alt="" coords="208,446,341,490"/>
+<area shape="rect" id="node17" href="$structcimg__library_1_1_c_img.html#a84970d569f01fc5f9370d9cc84428903" title="In&#45;place version of the previous function. " alt="" coords="208,514,341,558"/>
+<area shape="rect" id="node21" href="$structcimg__library_1_1_c_img.html#ac2e3a649006d1984a2559c30cd742080" title="Draw a text into the instance image. " alt="" coords="208,582,341,626"/>
+<area shape="rect" id="node28" href="$structcimg__library_1_1_c_img.html#a40eae09d35344fccbc2731042404b62a" title="In&#45;place version of the previous function. " alt="" coords="208,650,341,694"/>
+<area shape="rect" id="node30" href="$structcimg__library_1_1_c_img_list.html#a96954dbde6c6fa7779d6979fb7b253ed" title="Equivalent to assign() (STL&#45;compliant name) " alt="" coords="198,718,351,762"/>
+<area shape="rect" id="node31" href="$structcimg__library_1_1_c_img_list.html#a26448b6799eb8fb6b2f8d2049a0c69a8" title="Copy constructor. " alt="" coords="198,786,351,830"/>
+<area shape="rect" id="node32" href="$structcimg__library_1_1_c_img_list.html#a38bea14a3e64c2235bba89ebf7dd86e4" title="In&#45;place version of the copy constructor. " alt="" coords="198,854,351,898"/>
+<area shape="rect" id="node33" href="$structcimg__library_1_1_c_img_list.html#a73b8e58cb0f78752c71ea5d94179de5b" title="Assignment operator. " alt="" coords="198,922,351,966"/>
+<area shape="rect" id="node34" href="$structcimg__library_1_1_c_img_list.html#a62889566e5960a79df5bc2d7c9a497df" title="In&#45;place version of the previous function. " alt="" coords="198,990,351,1034"/>
+<area shape="rect" id="node36" href="$structcimg__library_1_1_c_img_list.html#ae2fce076842991a251d7e7137ee98ea8" title="In&#45;place version of the previous function. " alt="" coords="198,1058,351,1102"/>
+<area shape="rect" id="node37" href="$structcimg__library_1_1_c_img_list.html#a0faab84e39f84291464191aea2e4836f" title="In&#45;place version of the previous function. " alt="" coords="198,1126,351,1170"/>
+<area shape="rect" id="node38" href="$structcimg__library_1_1_c_img_list.html#a6754ac0fa581f56a510f27b3912ba39e" title="In&#45;place version of the previous function. " alt="" coords="198,1194,351,1238"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#ab2cba8b4a8be8a65ad07e0b48af67131" title="Construct an image from the content of a CImgDisplay instance. " alt="" coords="422,5,554,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#afc73889d32581e3c839a752b40c62548" title="In&#45;place version of the previous constructor. " alt="" coords="422,73,554,117"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#aa602135848e9603913f4cda976b0c42d" title="Compute a statistics vector (min,max,mean,variance,offmin,offmax). " alt="" coords="422,345,554,389"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#a79c910f70e49d74484d76d64c2302bf3" title="Display informations about the image on the standard error output. " alt="" coords="614,345,746,389"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a5b3f7335c1f79793de9fe21c041f3820" title="Display informations about the image on the standard output. " alt="" coords="806,247,938,291"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#aaa7358f1301586d38e99c0c46977623d" title="cimg_library::CImg\l::display" alt="" coords="806,451,938,495"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img_list.html#a634d0affc59d80ad9ba790d674e73a7e" title="Display informations about the list on the standard output. " alt="" coords="795,315,949,359"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img_list.html#a7346f53f857c5c9f3d30928c7f3f6238" title="Display the current CImgList instance in a new display window. " alt="" coords="795,383,949,427"/>
+<area shape="rect" id="node18" href="$structcimg__library_1_1_c_img.html#a1409b618eb28c852f8bf8f971ef2949b" title="In&#45;place version of the previous function. " alt="" coords="422,413,554,457"/>
+<area shape="rect" id="node19" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="422,481,554,525"/>
+<area shape="rect" id="node20" href="$structcimg__library_1_1_c_img.html#a9a8bb0d6ca24878b4ec6cf645f51ec12" title="High&#45;level interface to select features in images. " alt="" coords="614,511,746,555"/>
+<area shape="rect" id="node22" href="$structcimg__library_1_1_c_img.html#ac12c8f45e022ad0fa3bed46aee54ee48" title="Draw a text into the instance image. " alt="" coords="422,549,554,593"/>
+<area shape="rect" id="node23" href="$structcimg__library_1_1_c_img.html#a27bc230085f4e303b0d16a24df534802" title="Draw a labeled horizontal axis on the instance image. " alt="" coords="422,617,554,661"/>
+<area shape="rect" id="node25" href="$structcimg__library_1_1_c_img.html#a44be2b8159a1706c1d7625b4d7a34d3d" title="High&#45;level interface for displaying a 3d object. " alt="" coords="422,685,554,729"/>
+<area shape="rect" id="node27" href="$namespacecimg__library_1_1cimg.html#a62805bf0845c650a457cd78b3cd6488a" title="Display a dialog box, where a user can click standard buttons. " alt="" coords="424,753,552,797"/>
+<area shape="rect" id="node24" href="$structcimg__library_1_1_c_img.html#a51d3f13753cc1b69c8250441dad0fb20" title="Draw a labeled horizontal+vertical axis on the instance image. " alt="" coords="614,617,746,661"/>
+<area shape="rect" id="node26" href="$structcimg__library_1_1_c_img.html#a08ace5215b345a7efd284a1de8f954e7" title="High&#45;level interface for displaying a 3d object. " alt="" coords="614,685,746,729"/>
+<area shape="rect" id="node29" href="$structcimg__library_1_1_c_img.html#a8e1066b7901486897438a4f045e5deec" title="Solve a linear system AX=B where B=*this. " alt="" coords="422,821,554,865"/>
+<area shape="rect" id="node35" href="$structcimg__library_1_1_c_img_list.html#afff4b865fa0601ec7f7dfffccaae1238" title="Remove the image at position pos from the image list. " alt="" coords="411,990,565,1034"/>
+</map>

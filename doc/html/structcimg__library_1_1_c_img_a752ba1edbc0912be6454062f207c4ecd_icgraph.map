@@ -1,0 +1,10 @@
+<map id="cimg_library::CImg::draw_point" name="cimg_library::CImg::draw_point">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#af7338f1daed2c68dd0481944c55a99ac" title="Draw a colored arrow in the instance image. " alt="" coords="187,13,320,57"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a27bc230085f4e303b0d16a24df534802" title="Draw a labeled horizontal axis on the instance image. " alt="" coords="368,73,501,117"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a9c7293be611e6c79c51758bcbcbb8802" title="Draw an outlined circle. " alt="" coords="187,133,320,177"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a25913106bea95e3eb8f9f380cccfda82" title="Draw a 1D graph on the instance image. " alt="" coords="187,201,320,245"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#ae1fe96df1ca8aaf7165b2e66fe798839" title="Draw a 3D object in the instance image. " alt="" coords="187,269,320,313"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a86670dddc872143ddc00db53d51ff3aa" title="Draw a vector field in the instance image, using a colormap. " alt="" coords="368,5,501,49"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a51d3f13753cc1b69c8250441dad0fb20" title="Draw a labeled horizontal+vertical axis on the instance image. " alt="" coords="550,73,682,117"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a453c4ba21c7985ba19f8936865e4f9f4" title="Draw a 3D object in the instance image. " alt="" coords="368,269,501,313"/>
+</map>

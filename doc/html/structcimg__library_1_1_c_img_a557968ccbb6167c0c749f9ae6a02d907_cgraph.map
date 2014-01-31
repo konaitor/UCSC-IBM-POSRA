@@ -1,0 +1,9 @@
+<map id="cimg_library::CImg::draw_plasma" name="cimg_library::CImg::draw_plasma">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="202,5,334,49"/>
+<area shape="rect" id="node3" href="$namespacecimg__library_1_1cimg.html#a94c6e14129933f3c261ccf9de7a6f299" title="Return the absolute value of a. " alt="" coords="189,73,347,101"/>
+<area shape="rect" id="node4" href="$namespacecimg__library_1_1cimg.html#ae84548c45d9e5878954602914d34babe" title="Return the maximum between a and b. " alt="" coords="187,125,349,153"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="202,177,334,221"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="202,245,334,289"/>
+<area shape="rect" id="node7" href="$namespacecimg__library_1_1cimg.html#a0341a323738439349625b2de5f35bb4c" title="Return a random variable following a gaussian distribution and a standard deviation of 1..." alt="" coords="204,313,332,357"/>
+<area shape="rect" id="node8" href="$namespacecimg__library_1_1cimg.html#af31db729637ea4dad61e49e5729839c4" title="Return a random variable between [0,1], followin a uniform distribution. " alt="" coords="398,313,527,357"/>
+</map>

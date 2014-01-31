@@ -1,0 +1,779 @@
+\hypertarget{namespacecimg__library}{\section{cimg\-\_\-library Namespace Reference}
+\label{namespacecimg__library}\index{cimg\-\_\-library@{cimg\-\_\-library}}
+}
+
+
+Namespace that encompasses all classes and functions of the C\-Img library.  
+
+
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacecimg__library_1_1cimg}{cimg}
+\begin{DoxyCompactList}\small\item\em Namespace that encompasses {\itshape low-\/level} functions and variables of the C\-Img Library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcimg__library_1_1_c_img}{C\-Img}
+\begin{DoxyCompactList}\small\item\em Class representing an image (up to 4 dimensions wide), each pixel being of type {\ttfamily T}. \end{DoxyCompactList}\item 
+struct \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}
+\begin{DoxyCompactList}\small\item\em Class representing list of images C\-Img$<$\-T$>$. \end{DoxyCompactList}\item 
+struct \hyperlink{structcimg__library_1_1_c_img_exception}{C\-Img\-Exception}
+\begin{DoxyCompactList}\small\item\em Class which is thrown when an error occured during a C\-Img library function call. \end{DoxyCompactList}\item 
+struct \hyperlink{structcimg__library_1_1_c_img_instance_exception}{C\-Img\-Instance\-Exception}
+\item 
+struct \hyperlink{structcimg__library_1_1_c_img_argument_exception}{C\-Img\-Argument\-Exception}
+\item 
+struct \hyperlink{structcimg__library_1_1_c_img_i_o_exception}{C\-Img\-I\-O\-Exception}
+\item 
+struct \hyperlink{structcimg__library_1_1_c_img_display_exception}{C\-Img\-Display\-Exception}
+\item 
+struct \hyperlink{structcimg__library_1_1_c_img_display}{C\-Img\-Display}
+\begin{DoxyCompactList}\small\item\em This class represents a window which can display \hyperlink{structcimg__library_1_1_c_img}{C\-Img} images and handles mouse and keyboard events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespacecimg__library_afc607cac6ab154ee1435682c07e22f76}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const t2 \&val)}\label{namespacecimg__library_afc607cac6ab154ee1435682c07e22f76}
+
+\item 
+\hypertarget{namespacecimg__library_a0fcc463194b25b926864e1773c626a22}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_a0fcc463194b25b926864e1773c626a22}
+
+\item 
+\hypertarget{namespacecimg__library_a0b1c22bac7998acae6d1bc9113f67ed2}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const t2 \&val)}\label{namespacecimg__library_a0b1c22bac7998acae6d1bc9113f67ed2}
+
+\item 
+\hypertarget{namespacecimg__library_a7fd53d9cee53b5685de51d36322d3095}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_a7fd53d9cee53b5685de51d36322d3095}
+
+\item 
+\hypertarget{namespacecimg__library_a8b298dd701088637e648945442ef277e}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img1, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img2)}\label{namespacecimg__library_a8b298dd701088637e648945442ef277e}
+
+\item 
+\hypertarget{namespacecimg__library_a9f01b9c1a303b9e129d396b41c16986a}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_a9f01b9c1a303b9e129d396b41c16986a}
+
+\item 
+\hypertarget{namespacecimg__library_afb8e494f04b2ac3dab57194fe2f35164}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_afb8e494f04b2ac3dab57194fe2f35164}
+
+\item 
+\hypertarget{namespacecimg__library_aa5acfab2004d3e428bcd67d667a6b9b9}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator+} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list1, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list2)}\label{namespacecimg__library_aa5acfab2004d3e428bcd67d667a6b9b9}
+
+\item 
+\hypertarget{namespacecimg__library_acdcc55a47398052c9717f67c5325febf}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const t2 \&val)}\label{namespacecimg__library_acdcc55a47398052c9717f67c5325febf}
+
+\item 
+\hypertarget{namespacecimg__library_a7ae34a4a90749a1b6e2ca50b81374e68}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_a7ae34a4a90749a1b6e2ca50b81374e68}
+
+\item 
+\hypertarget{namespacecimg__library_aafa59e1c4c42c108e224369633d2c48d}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const t2 \&val)}\label{namespacecimg__library_aafa59e1c4c42c108e224369633d2c48d}
+
+\item 
+\hypertarget{namespacecimg__library_a8de12fa54c65054ebc3e5aeeefda97ae}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_a8de12fa54c65054ebc3e5aeeefda97ae}
+
+\item 
+\hypertarget{namespacecimg__library_ab084cffd33fb21a1e94e2bdf54a36f4c}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img1, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img2)}\label{namespacecimg__library_ab084cffd33fb21a1e94e2bdf54a36f4c}
+
+\item 
+\hypertarget{namespacecimg__library_a43d4da379566349a0ced1ae01f6fd627}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_a43d4da379566349a0ced1ae01f6fd627}
+
+\item 
+\hypertarget{namespacecimg__library_a190d1b8452b752ea029d0134856ce0dc}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_a190d1b8452b752ea029d0134856ce0dc}
+
+\item 
+\hypertarget{namespacecimg__library_aad482182916ac81f796224c05010ea93}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator-\/} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list1, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list2)}\label{namespacecimg__library_aad482182916ac81f796224c05010ea93}
+
+\item 
+\hypertarget{namespacecimg__library_afce8c78ee2a0106d8592b68c8d9d1ee6}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const t2 \&val)}\label{namespacecimg__library_afce8c78ee2a0106d8592b68c8d9d1ee6}
+
+\item 
+\hypertarget{namespacecimg__library_a1350ee9a31804f9cd439a58b127c20c1}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_a1350ee9a31804f9cd439a58b127c20c1}
+
+\item 
+\hypertarget{namespacecimg__library_afa041143a33afba2cc42547b59a684f6}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const t2 \&val)}\label{namespacecimg__library_afa041143a33afba2cc42547b59a684f6}
+
+\item 
+\hypertarget{namespacecimg__library_a0ce618578ff4ad0130a98f23cdeb2579}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_a0ce618578ff4ad0130a98f23cdeb2579}
+
+\item 
+\hypertarget{namespacecimg__library_ac47fd5d3f2f586fe5540cc436511314f}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img1, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img2)}\label{namespacecimg__library_ac47fd5d3f2f586fe5540cc436511314f}
+
+\item 
+\hypertarget{namespacecimg__library_a1f672b3e21d50902c476742569f2e6b0}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_a1f672b3e21d50902c476742569f2e6b0}
+
+\item 
+\hypertarget{namespacecimg__library_a97def5fda9d69d3a74e7d5040d421898}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_a97def5fda9d69d3a74e7d5040d421898}
+
+\item 
+\hypertarget{namespacecimg__library_a8d9555ead8682e069c8f73df710ad3ed}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator$\ast$} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list1, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list2)}\label{namespacecimg__library_a8d9555ead8682e069c8f73df710ad3ed}
+
+\item 
+\hypertarget{namespacecimg__library_af55868a78c853f1b85baeb78482af6b5}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const t2 \&val)}\label{namespacecimg__library_af55868a78c853f1b85baeb78482af6b5}
+
+\item 
+\hypertarget{namespacecimg__library_aa0942457af1e7ed9197b758484836e3a}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const t1 \&val, \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_aa0942457af1e7ed9197b758484836e3a}
+
+\item 
+\hypertarget{namespacecimg__library_a05cd579c9885d1bf2edbf26dc7acdafe}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const t2 \&val)}\label{namespacecimg__library_a05cd579c9885d1bf2edbf26dc7acdafe}
+
+\item 
+\hypertarget{namespacecimg__library_ada440d0421254a53c9a142cb7fef786e}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const t1 \&val, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_ada440d0421254a53c9a142cb7fef786e}
+
+\item 
+\hypertarget{namespacecimg__library_a11170bf2e083dd10359e43c0cb756495}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img1, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img2)}\label{namespacecimg__library_a11170bf2e083dd10359e43c0cb756495}
+
+\item 
+\hypertarget{namespacecimg__library_afcc9952c9868bcc1506bea2147eb4ec7}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t1 $>$ \&img, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list)}\label{namespacecimg__library_afcc9952c9868bcc1506bea2147eb4ec7}
+
+\item 
+\hypertarget{namespacecimg__library_a87331013704c3ec204d35ebcab8f0061}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t2 $>$ \&img)}\label{namespacecimg__library_a87331013704c3ec204d35ebcab8f0061}
+
+\item 
+\hypertarget{namespacecimg__library_a051d47368d50ba9f292758cb54f8b5e8}{{\footnotesize template$<$typename t1 , typename t2 $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ t1, t2 $>$\-::type $>$ {\bfseries operator/} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t1 $>$ \&list1, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t2 $>$ \&list2)}\label{namespacecimg__library_a051d47368d50ba9f292758cb54f8b5e8}
+
+\item 
+\hypertarget{namespacecimg__library_a4dec6d0f2142f0688bece378ab0dcdea}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries apply} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, t \&func)}\label{namespacecimg__library_a4dec6d0f2142f0688bece378ab0dcdea}
+
+\item 
+\hypertarget{namespacecimg__library_a7acdf5b481ddbf5ba6ee59d3299be505}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries mul} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img)}\label{namespacecimg__library_a7acdf5b481ddbf5ba6ee59d3299be505}
+
+\item 
+\hypertarget{namespacecimg__library_ad4a5c8aef33ae0edbecd99b888562c3e}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries div} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img)}\label{namespacecimg__library_ad4a5c8aef33ae0edbecd99b888562c3e}
+
+\item 
+\hypertarget{namespacecimg__library_a23eaf6e0fe12d267f34332af5cf4c51d}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries max} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img)}\label{namespacecimg__library_a23eaf6e0fe12d267f34332af5cf4c51d}
+
+\item 
+\hypertarget{namespacecimg__library_a54d83b09f0a9a5f1458bfd06f2ce0756}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries max} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val)}\label{namespacecimg__library_a54d83b09f0a9a5f1458bfd06f2ce0756}
+
+\item 
+\hypertarget{namespacecimg__library_a370263920fa5a11056d59a1a80150a3c}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries min} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img)}\label{namespacecimg__library_a370263920fa5a11056d59a1a80150a3c}
+
+\item 
+\hypertarget{namespacecimg__library_a65ae500e6c92b0801d4dd80b67e54506}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1last}{cimg\-::last}$<$ T, \\*
+double $>$\-::type $>$ {\bfseries stats} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a65ae500e6c92b0801d4dd80b67e54506}
+
+\item 
+\hypertarget{namespacecimg__library_a973eba583e34a30fcf9e64dcf905bcab}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries min} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val)}\label{namespacecimg__library_a973eba583e34a30fcf9e64dcf905bcab}
+
+\item 
+\hypertarget{namespacecimg__library_a1ee7db316304a174dc5390ca6ab98de3}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries sqr} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a1ee7db316304a174dc5390ca6ab98de3}
+
+\item 
+\hypertarget{namespacecimg__library_afeb5d929372bfdc3b00309c7bb4f08b1}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries sqrt} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_afeb5d929372bfdc3b00309c7bb4f08b1}
+
+\item 
+\hypertarget{namespacecimg__library_a8ef3748e0a7eb60fca76e74abd217395}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries exp} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a8ef3748e0a7eb60fca76e74abd217395}
+
+\item 
+\hypertarget{namespacecimg__library_a82fbcbee9136f5f61397a8b786c4f808}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries log} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a82fbcbee9136f5f61397a8b786c4f808}
+
+\item 
+\hypertarget{namespacecimg__library_af9dc7949eaaae362ab4a3815a9524214}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries log10} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_af9dc7949eaaae362ab4a3815a9524214}
+
+\item 
+\hypertarget{namespacecimg__library_a289e639cde84ea1c5705760b028fdd88}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries pow} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const double p)}\label{namespacecimg__library_a289e639cde84ea1c5705760b028fdd88}
+
+\item 
+\hypertarget{namespacecimg__library_a3f70742dec1ac3f6991443532070c1ce}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries pow} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img)}\label{namespacecimg__library_a3f70742dec1ac3f6991443532070c1ce}
+
+\item 
+\hypertarget{namespacecimg__library_a9c51a9e3bff53717ef3b7656208a63fe}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries abs} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a9c51a9e3bff53717ef3b7656208a63fe}
+
+\item 
+\hypertarget{namespacecimg__library_a3a0f1df165d2a1301332b21ded439bc8}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries cos} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a3a0f1df165d2a1301332b21ded439bc8}
+
+\item 
+\hypertarget{namespacecimg__library_ab002b1d2737ed26fe366aaa4d40b125a}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries sin} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_ab002b1d2737ed26fe366aaa4d40b125a}
+
+\item 
+\hypertarget{namespacecimg__library_af046cf7087da2ff166449a332ac97197}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries tan} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_af046cf7087da2ff166449a332ac97197}
+
+\item 
+\hypertarget{namespacecimg__library_ab7d40d1a8afcaa4fabed45ed333835d7}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries acos} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_ab7d40d1a8afcaa4fabed45ed333835d7}
+
+\item 
+\hypertarget{namespacecimg__library_a794f216de85b7d0176f5f91e6fefa036}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries asin} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a794f216de85b7d0176f5f91e6fefa036}
+
+\item 
+\hypertarget{namespacecimg__library_a8dc092ebc0b55c0028166ea2ff10b099}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries atan} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a8dc092ebc0b55c0028166ea2ff10b099}
+
+\item 
+\hypertarget{namespacecimg__library_ac2d29ca52f69886a8c6d775498891afc}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries round} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float x, const unsigned int round\-\_\-type=0)}\label{namespacecimg__library_ac2d29ca52f69886a8c6d775498891afc}
+
+\item 
+\hypertarget{namespacecimg__library_ad276f1394666e933c3cc030e48f79a95}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries rand} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val\-\_\-min, const T \&val\-\_\-max)}\label{namespacecimg__library_ad276f1394666e933c3cc030e48f79a95}
+
+\item 
+\hypertarget{namespacecimg__library_aee612a38f21aab912fa4a2a3b9e4e966}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val)}\label{namespacecimg__library_aee612a38f21aab912fa4a2a3b9e4e966}
+
+\item 
+\hypertarget{namespacecimg__library_a0bcd796c79a6a9a96e30a8e3871933a3}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1)}\label{namespacecimg__library_a0bcd796c79a6a9a96e30a8e3871933a3}
+
+\item 
+\hypertarget{namespacecimg__library_aa77ad9bb9bd631f6894acb99812a1215}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2)}\label{namespacecimg__library_aa77ad9bb9bd631f6894acb99812a1215}
+
+\item 
+\hypertarget{namespacecimg__library_a9e9ca37eb9bd5af4f5465052ee01052e}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3)}\label{namespacecimg__library_a9e9ca37eb9bd5af4f5465052ee01052e}
+
+\item 
+\hypertarget{namespacecimg__library_a1c49ad00a768844539a05b192b91a637}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4)}\label{namespacecimg__library_a1c49ad00a768844539a05b192b91a637}
+
+\item 
+\hypertarget{namespacecimg__library_a850d0c9514ae7c542269c12f048e4374}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5)}\label{namespacecimg__library_a850d0c9514ae7c542269c12f048e4374}
+
+\item 
+\hypertarget{namespacecimg__library_a118c591a4e38602291a5876c0994b09d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6)}\label{namespacecimg__library_a118c591a4e38602291a5876c0994b09d}
+
+\item 
+\hypertarget{namespacecimg__library_a96a289ac79aa29110475d097d16e4dda}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7)}\label{namespacecimg__library_a96a289ac79aa29110475d097d16e4dda}
+
+\item 
+\hypertarget{namespacecimg__library_ab61718ba80dbdc3034cb07eec2bf3a81}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8)}\label{namespacecimg__library_ab61718ba80dbdc3034cb07eec2bf3a81}
+
+\item 
+\hypertarget{namespacecimg__library_a65603d1711e04f67f46fec2e436d1c8b}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9)}\label{namespacecimg__library_a65603d1711e04f67f46fec2e436d1c8b}
+
+\item 
+\hypertarget{namespacecimg__library_a39d88e5394559a26efcb5ff520875da5}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9, const T \&val10)}\label{namespacecimg__library_a39d88e5394559a26efcb5ff520875da5}
+
+\item 
+\hypertarget{namespacecimg__library_aac926dbc2851a6b974c8899f9e67607a}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9, const T \&val10, const T \&val11)}\label{namespacecimg__library_aac926dbc2851a6b974c8899f9e67607a}
+
+\item 
+\hypertarget{namespacecimg__library_a8969d26563d078c7134970e2f3e41471}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9, const T \&val10, const T \&val11, const T \&val12)}\label{namespacecimg__library_a8969d26563d078c7134970e2f3e41471}
+
+\item 
+\hypertarget{namespacecimg__library_a10053ecc7c48a39c4963790dcf58c7be}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9, const T \&val10, const T \&val11, const T \&val12, const T \&val13)}\label{namespacecimg__library_a10053ecc7c48a39c4963790dcf58c7be}
+
+\item 
+\hypertarget{namespacecimg__library_a48ab2e6d6d2e053fc2386452f0f33046}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9, const T \&val10, const T \&val11, const T \&val12, const T \&val13, const T \&val14)}\label{namespacecimg__library_a48ab2e6d6d2e053fc2386452f0f33046}
+
+\item 
+\hypertarget{namespacecimg__library_a555b760074388ba9b16e640a75c254d6}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&val0, const T \&val1, const T \&val2, const T \&val3, const T \&val4, const T \&val5, const T \&val6, const T \&val7, const T \&val8, const T \&val9, const T \&val10, const T \&val11, const T \&val12, const T \&val13, const T \&val14, const T \&val15)}\label{namespacecimg__library_a555b760074388ba9b16e640a75c254d6}
+
+\item 
+\hypertarget{namespacecimg__library_adf65cfcf4210edbdee95ebedadc51df4}{{\footnotesize template$<$typename T , int N$>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int \&val0,...)}\label{namespacecimg__library_adf65cfcf4210edbdee95ebedadc51df4}
+
+\item 
+\hypertarget{namespacecimg__library_aa5faf88ddb91d95a8b3bb4326f515229}{{\footnotesize template$<$typename T , int N$>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries fill} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const double \&val0,...)}\label{namespacecimg__library_aa5faf88ddb91d95a8b3bb4326f515229}
+
+\item 
+\hypertarget{namespacecimg__library_aeb922fcdf5e2a763859a09ad52725e99}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries normalize} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&a, const T \&b)}\label{namespacecimg__library_aeb922fcdf5e2a763859a09ad52725e99}
+
+\item 
+\hypertarget{namespacecimg__library_a67aaa14c9923b42c65b3318f343fa56c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries cut} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&a, const T \&b)}\label{namespacecimg__library_a67aaa14c9923b42c65b3318f343fa56c}
+
+\item 
+\hypertarget{namespacecimg__library_a464871d819b33914678f1ce117a49265}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries quantize} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int n=256, const bool keep\-\_\-range=true)}\label{namespacecimg__library_a464871d819b33914678f1ce117a49265}
+
+\item 
+\hypertarget{namespacecimg__library_a446bcc9062187651ee80c947ed8dcf25}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries threshold} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&thres)}\label{namespacecimg__library_a446bcc9062187651ee80c947ed8dcf25}
+
+\item 
+\hypertarget{namespacecimg__library_af9bf65ab06672c9367e2d7fc52446899}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries rotate} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float angle, const unsigned int cond=3)}\label{namespacecimg__library_af9bf65ab06672c9367e2d7fc52446899}
+
+\item 
+\hypertarget{namespacecimg__library_a8a6701983bacc473806a14df72e37fee}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries rotate} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float angle, const float cx, const float cy, const float zoom=1, const unsigned int cond=3)}\label{namespacecimg__library_a8a6701983bacc473806a14df72e37fee}
+
+\item 
+\hypertarget{namespacecimg__library_a8d3dd3cb2a544e135083805d8ab9f68c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries resize} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int pdx=-\/100, const int pdy=-\/100, const int pdz=-\/100, const int pdv=-\/100, const int interp=1, const int border\-\_\-condition=-\/1)}\label{namespacecimg__library_a8d3dd3cb2a544e135083805d8ab9f68c}
+
+\item 
+\hypertarget{namespacecimg__library_a1cdbde2da1268e82b02f4570d44541cf}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries resize} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&src, const int interp=1, const int border\-\_\-condition=-\/1)}\label{namespacecimg__library_a1cdbde2da1268e82b02f4570d44541cf}
+
+\item 
+\hypertarget{namespacecimg__library_a1f727610d87ba50e048aff0dc35ee8b7}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries resize} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img_display}{C\-Img\-Display} \&disp, const int interp=1, const int border\-\_\-condition=-\/1)}\label{namespacecimg__library_a1f727610d87ba50e048aff0dc35ee8b7}
+
+\item 
+\hypertarget{namespacecimg__library_a95ef4b158f977b971aee77f3c5e05891}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries permute\-\_\-axes} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const char $\ast$permut=\char`\"{}vxyz\char`\"{})}\label{namespacecimg__library_a95ef4b158f977b971aee77f3c5e05891}
+
+\item 
+\hypertarget{namespacecimg__library_a7d35556fef7e0e3f9e4b15ee2abd7fb1}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries resize\-\_\-half\-X\-Y} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a7d35556fef7e0e3f9e4b15ee2abd7fb1}
+
+\item 
+\hypertarget{namespacecimg__library_a07b4b6077fb4a2d87e80c8a6aeda111f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int x0, const int y0, const int z0, const int v0, const int x1, const int y1, const int z1, const int v1, const bool border\-\_\-condition=false)}\label{namespacecimg__library_a07b4b6077fb4a2d87e80c8a6aeda111f}
+
+\item 
+\hypertarget{namespacecimg__library_afe27f6bc395d4f03678d8986f22145b9}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int x0, const int y0, const int z0, const int x1, const int y1, const int z1, const bool border\-\_\-condition=false)}\label{namespacecimg__library_afe27f6bc395d4f03678d8986f22145b9}
+
+\item 
+\hypertarget{namespacecimg__library_a88c7539206a46c4ac3fe47fdb2dc1608}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int x0, const int y0, const int x1, const int y1, const bool border\-\_\-condition=false)}\label{namespacecimg__library_a88c7539206a46c4ac3fe47fdb2dc1608}
+
+\item 
+\hypertarget{namespacecimg__library_a5095b444b5d8ae1488b2c112248ab3e9}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int x0, const int x1, const bool border\-\_\-condition=false)}\label{namespacecimg__library_a5095b444b5d8ae1488b2c112248ab3e9}
+
+\item 
+\hypertarget{namespacecimg__library_a516571be8b9d874cddff3883b1db8a5f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries columns} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x0, const unsigned int x1)}\label{namespacecimg__library_a516571be8b9d874cddff3883b1db8a5f}
+
+\item 
+\hypertarget{namespacecimg__library_aefbcca8780ef3e219935864837a8eb55}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries column} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x0)}\label{namespacecimg__library_aefbcca8780ef3e219935864837a8eb55}
+
+\item 
+\hypertarget{namespacecimg__library_aa92df0e0a05ae69f275454c41264bd10}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries lines} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int y0, const unsigned int y1)}\label{namespacecimg__library_aa92df0e0a05ae69f275454c41264bd10}
+
+\item 
+\hypertarget{namespacecimg__library_a75ea789f8c09aa76e6c793f74a5bc885}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries line} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int y0)}\label{namespacecimg__library_a75ea789f8c09aa76e6c793f74a5bc885}
+
+\item 
+\hypertarget{namespacecimg__library_a72a6507099ebdefe1812334ba2e6850b}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries slices} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int z0, const unsigned int z1)}\label{namespacecimg__library_a72a6507099ebdefe1812334ba2e6850b}
+
+\item 
+\hypertarget{namespacecimg__library_ae1368c3f8ca39d4859a96fa1a6a1afd8}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries slice} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int z0)}\label{namespacecimg__library_ae1368c3f8ca39d4859a96fa1a6a1afd8}
+
+\item 
+\hypertarget{namespacecimg__library_a9831a5ca9eec538356793baec5498c5d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries channels} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int v0, const unsigned int v1)}\label{namespacecimg__library_a9831a5ca9eec538356793baec5498c5d}
+
+\item 
+\hypertarget{namespacecimg__library_a248344795edb94d07234077c8b17c8fa}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries channel} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int v0)}\label{namespacecimg__library_a248344795edb94d07234077c8b17c8fa}
+
+\item 
+\hypertarget{namespacecimg__library_a922e75497067319a06ba076607f95b09}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-points} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x0, const unsigned int x1, const unsigned int y0=0, const unsigned int z0=0, const unsigned int v0=0)}\label{namespacecimg__library_a922e75497067319a06ba076607f95b09}
+
+\item 
+\hypertarget{namespacecimg__library_a974c22df35de0515018db72d7cc200d0}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-points} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x0, const unsigned int x1, const unsigned int y0=0, const unsigned int z0=0, const unsigned int v0=0)}\label{namespacecimg__library_a974c22df35de0515018db72d7cc200d0}
+
+\item 
+\hypertarget{namespacecimg__library_abe1465e8daa8bde57608c057bd030375}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-lines} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int y0, const unsigned int y1, const unsigned int z0=0, const unsigned int v0=0)}\label{namespacecimg__library_abe1465e8daa8bde57608c057bd030375}
+
+\item 
+\hypertarget{namespacecimg__library_a1ad772ffc20e166a6b5fd2569f61c941}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-lines} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int y0, const unsigned int y1, const unsigned int z0=0, const unsigned int v0=0)}\label{namespacecimg__library_a1ad772ffc20e166a6b5fd2569f61c941}
+
+\item 
+\hypertarget{namespacecimg__library_a822aa4f2a360f521f98ca184633db25d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-line} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int y0, const unsigned int z0=0, const unsigned int v0=0)}\label{namespacecimg__library_a822aa4f2a360f521f98ca184633db25d}
+
+\item 
+\hypertarget{namespacecimg__library_aa4694300282f773c49746b22143a66b6}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-line} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int y0, const unsigned int z0=0, const unsigned int v0=0)}\label{namespacecimg__library_aa4694300282f773c49746b22143a66b6}
+
+\item 
+\hypertarget{namespacecimg__library_a73744c268e30ed33e23a41ba97fcfb2a}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-planes} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int z0, const unsigned int z1, const unsigned int v0=0)}\label{namespacecimg__library_a73744c268e30ed33e23a41ba97fcfb2a}
+
+\item 
+\hypertarget{namespacecimg__library_acda942d1c25d10fa99f5cf6d4c18e816}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-planes} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int z0, const unsigned int z1, const unsigned int v0=0)}\label{namespacecimg__library_acda942d1c25d10fa99f5cf6d4c18e816}
+
+\item 
+\hypertarget{namespacecimg__library_a36f3195a562b90ef1afec18c97f5b59d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-plane} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int z0, const unsigned int v0=0)}\label{namespacecimg__library_a36f3195a562b90ef1afec18c97f5b59d}
+
+\item 
+\hypertarget{namespacecimg__library_a80756bfec1ee32aa0ec871ca9efd73c7}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-plane} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int z0, const unsigned int v0=0)}\label{namespacecimg__library_a80756bfec1ee32aa0ec871ca9efd73c7}
+
+\item 
+\hypertarget{namespacecimg__library_a2b5812cfa20d14528b7aca6fc76a051e}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-channels} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int v0, const unsigned int v1)}\label{namespacecimg__library_a2b5812cfa20d14528b7aca6fc76a051e}
+
+\item 
+\hypertarget{namespacecimg__library_aad0b29dbc038e66061b4b7998cea7b4c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-channels} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int v0, const unsigned int v1)}\label{namespacecimg__library_aad0b29dbc038e66061b4b7998cea7b4c}
+
+\item 
+\hypertarget{namespacecimg__library_a3cf8798c4859b85adbf80642a5ea70a3}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-channel} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int v0)}\label{namespacecimg__library_a3cf8798c4859b85adbf80642a5ea70a3}
+
+\item 
+\hypertarget{namespacecimg__library_a1eab13b0425b40f92a78431ef40ba42f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared\-\_\-channel} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int v0)}\label{namespacecimg__library_a1eab13b0425b40f92a78431ef40ba42f}
+
+\item 
+\hypertarget{namespacecimg__library_aaa0930fc6ee428defac1c96c777bc59a}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared} (\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_aaa0930fc6ee428defac1c96c777bc59a}
+
+\item 
+\hypertarget{namespacecimg__library_a31792efab06c072bcdba1694dc474ace}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries shared} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a31792efab06c072bcdba1694dc474ace}
+
+\item 
+\hypertarget{namespacecimg__library_acdc2977bcc13e616cafed7a6b3554eeb}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries mirror} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const char axe='x')}\label{namespacecimg__library_acdc2977bcc13e616cafed7a6b3554eeb}
+
+\item 
+\hypertarget{namespacecimg__library_a3c8242f4cdc4155b2d4c93323da7a515}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries translate} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int deltax, const int deltay=0, const int deltaz=0, const int deltav=0, const int border\-\_\-condition=0)}\label{namespacecimg__library_a3c8242f4cdc4155b2d4c93323da7a515}
+
+\item 
+\hypertarget{namespacecimg__library_a3f692169eed013b7fd65bbe1f7b0a9c6}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries projections2d} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x0, const unsigned int y0, const unsigned int z0, const int dx=-\/100, const int dy=-\/100, const int dz=-\/100)}\label{namespacecimg__library_a3f692169eed013b7fd65bbe1f7b0a9c6}
+
+\item 
+\hypertarget{namespacecimg__library_aad1f931b9fff50843e5ea02cc6cbd891}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1last}{cimg\-::last}$<$ T, \\*
+float $>$\-::type $>$ {\bfseries histogram} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int nblevels=256, const T val\-\_\-min=(T) 0, const T val\-\_\-max=(T) 0)}\label{namespacecimg__library_aad1f931b9fff50843e5ea02cc6cbd891}
+
+\item 
+\hypertarget{namespacecimg__library_a783e10c61968f02494bcaf4e27715af7}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries equalize\-\_\-histogram} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int nblevels=256, const T val\-\_\-min=(T) 0, const T val\-\_\-max=(T) 0)}\label{namespacecimg__library_a783e10c61968f02494bcaf4e27715af7}
+
+\item 
+\hypertarget{namespacecimg__library_aaa8627fd161efc70b6c6f35fa4dc148c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1last}{cimg\-::last}$<$ T, \\*
+unsigned int $>$\-::type $>$ {\bfseries label\-\_\-regions} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_aaa8627fd161efc70b6c6f35fa4dc148c}
+
+\item 
+\hypertarget{namespacecimg__library_ab57727629f2deed0f95dda937bf4f550}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries norm\-\_\-pointwise} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, int norm\-\_\-type=2)}\label{namespacecimg__library_ab57727629f2deed0f95dda937bf4f550}
+
+\item 
+\hypertarget{namespacecimg__library_a353d5741067aa871f8e72cca52a23828}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries orientation\-\_\-pointwise} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a353d5741067aa871f8e72cca52a23828}
+
+\item 
+\hypertarget{namespacecimg__library_a091dfdcb6bc5c8b7db00fdae5ba2f3af}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries split} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const char axe='x', const unsigned int nb=0)}\label{namespacecimg__library_a091dfdcb6bc5c8b7db00fdae5ba2f3af}
+
+\item 
+\hypertarget{namespacecimg__library_a4ea7d286ae4230994a18e24fcb42ad8d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries append} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&img, const char axis='x', const char align='c')}\label{namespacecimg__library_a4ea7d286ae4230994a18e24fcb42ad8d}
+
+\item 
+\hypertarget{namespacecimg__library_a528678297a980588f8b71b1b146999b5}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries gradient\-X\-Y} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int scheme=0)}\label{namespacecimg__library_a528678297a980588f8b71b1b146999b5}
+
+\item 
+\hypertarget{namespacecimg__library_a5630548410a647f8ca938769b517a444}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries gradient\-X\-Y\-Z} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int scheme=0)}\label{namespacecimg__library_a5630548410a647f8ca938769b517a444}
+
+\item 
+\hypertarget{namespacecimg__library_a9c1d1bccbe4664f05008519ab74d8dec}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries structure\-\_\-tensor\-X\-Y} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int scheme=1)}\label{namespacecimg__library_a9c1d1bccbe4664f05008519ab74d8dec}
+
+\item 
+\hypertarget{namespacecimg__library_a2b98089ee92143827cca8c409b4cf6c9}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries structure\-\_\-tensor\-X\-Y\-Z} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int scheme=1)}\label{namespacecimg__library_a2b98089ee92143827cca8c409b4cf6c9}
+
+\item 
+\hypertarget{namespacecimg__library_aab0631d697568fb135aad0069e3afae8}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries distance\-\_\-function} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int nb\-\_\-iter=100, const float band\-\_\-size=0.\-0f, const float precision=0.\-5f)}\label{namespacecimg__library_aab0631d697568fb135aad0069e3afae8}
+
+\item 
+\hypertarget{namespacecimg__library_a139f15096fa45c24a3bddb7443018b5d}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries dijkstra} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int starting\-\_\-node, const unsigned int ending\-\_\-node, \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&previous)}\label{namespacecimg__library_a139f15096fa45c24a3bddb7443018b5d}
+
+\item 
+\hypertarget{namespacecimg__library_ac8445474c26aa558fc2d8a1d3cc8eed4}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries dijkstra} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int starting\-\_\-node, const unsigned int ending\-\_\-node=$\sim$0\-U)}\label{namespacecimg__library_ac8445474c26aa558fc2d8a1d3cc8eed4}
+
+\item 
+\hypertarget{namespacecimg__library_aa8cdecc9881b5ebd03447cdfbeb1a2ad}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ {\bfseries R\-G\-Bto\-L\-U\-T} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&palette, const bool dithering=true, const bool indexing=false)}\label{namespacecimg__library_aa8cdecc9881b5ebd03447cdfbeb1a2ad}
+
+\item 
+\hypertarget{namespacecimg__library_a0c4e66a44f72e1e6405ee0a91992bc96}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries R\-G\-Bto\-L\-U\-T} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const bool dithering=true, const bool indexing=false)}\label{namespacecimg__library_a0c4e66a44f72e1e6405ee0a91992bc96}
+
+\item 
+\hypertarget{namespacecimg__library_a4338ca2180ba976458222e53dfbaf968}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ {\bfseries L\-U\-Tto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&palette)}\label{namespacecimg__library_a4338ca2180ba976458222e53dfbaf968}
+
+\item 
+\hypertarget{namespacecimg__library_a842c102920efc93e5b8c100d2cbe5dce}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries L\-U\-Tto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a842c102920efc93e5b8c100d2cbe5dce}
+
+\item 
+\hypertarget{namespacecimg__library_a9526fbea353956bdf98b32ef07cf5664}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries R\-G\-Bto\-H\-S\-V} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a9526fbea353956bdf98b32ef07cf5664}
+
+\item 
+\hypertarget{namespacecimg__library_a986f3f1032bdfc3c31f4e831f4227fa9}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries H\-S\-Vto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a986f3f1032bdfc3c31f4e831f4227fa9}
+
+\item 
+\hypertarget{namespacecimg__library_a5804953e2a98ee98857382bec5995f9e}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries R\-G\-Bto\-H\-S\-L} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a5804953e2a98ee98857382bec5995f9e}
+
+\item 
+\hypertarget{namespacecimg__library_a98eaa20d4af3bd8db4f1d82255af690c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries H\-S\-Lto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a98eaa20d4af3bd8db4f1d82255af690c}
+
+\item 
+\hypertarget{namespacecimg__library_a92d4a39b74385deca067d18329b1caff}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries R\-G\-Bto\-Y\-Cb\-Cr} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a92d4a39b74385deca067d18329b1caff}
+
+\item 
+\hypertarget{namespacecimg__library_a5de2c11c63975be8a05c458e5fe9a579}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries Y\-Cb\-Crto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a5de2c11c63975be8a05c458e5fe9a579}
+
+\item 
+\hypertarget{namespacecimg__library_a3e0edc08fccc97ac3d9bbf81b7aff47c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries R\-G\-Bto\-Y\-U\-V} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a3e0edc08fccc97ac3d9bbf81b7aff47c}
+
+\item 
+\hypertarget{namespacecimg__library_aaf5f952e902ac3556f3c5cc718007841}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries Y\-U\-Vto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_aaf5f952e902ac3556f3c5cc718007841}
+
+\item 
+\hypertarget{namespacecimg__library_a46e4bf909e3678f026c23df2cb897f16}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries R\-G\-Bto\-X\-Y\-Z} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a46e4bf909e3678f026c23df2cb897f16}
+
+\item 
+\hypertarget{namespacecimg__library_a08b8983d2080a344711bfe37c79d8fab}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries X\-Y\-Zto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a08b8983d2080a344711bfe37c79d8fab}
+
+\item 
+\hypertarget{namespacecimg__library_a8243c773295471fa51e9daf51980ec08}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries X\-Y\-Zto\-Lab} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a8243c773295471fa51e9daf51980ec08}
+
+\item 
+\hypertarget{namespacecimg__library_abb9670ff7e7d05cd52de64d06193834d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries Labto\-X\-Y\-Z} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_abb9670ff7e7d05cd52de64d06193834d}
+
+\item 
+\hypertarget{namespacecimg__library_ab22f4c6070133a42fe07727fccf8f8c1}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries X\-Y\-Ztoxy\-Y} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_ab22f4c6070133a42fe07727fccf8f8c1}
+
+\item 
+\hypertarget{namespacecimg__library_a24cfe294f6732504e9dc856bc1c8fde0}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries xy\-Yto\-X\-Y\-Z} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a24cfe294f6732504e9dc856bc1c8fde0}
+
+\item 
+\hypertarget{namespacecimg__library_a3e9d575396933415fe81cae41e41544a}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries R\-G\-Bto\-Lab} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a3e9d575396933415fe81cae41e41544a}
+
+\item 
+\hypertarget{namespacecimg__library_aa1ba6f22ee11f6cba662a7a04508fca0}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries Labto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_aa1ba6f22ee11f6cba662a7a04508fca0}
+
+\item 
+\hypertarget{namespacecimg__library_a41902389cf0f939928cf8006540f9521}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries R\-G\-Btoxy\-Y} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a41902389cf0f939928cf8006540f9521}
+
+\item 
+\hypertarget{namespacecimg__library_af124c838a51f3b7dbaf4dbe0506ac6bf}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries xy\-Yto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_af124c838a51f3b7dbaf4dbe0506ac6bf}
+
+\item 
+\hypertarget{namespacecimg__library_aa3811f949f1fbe0f699a7bc71f5440cb}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries R\-G\-Bto\-Bayer} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const bool even\-\_\-mode=true)}\label{namespacecimg__library_aa3811f949f1fbe0f699a7bc71f5440cb}
+
+\item 
+\hypertarget{namespacecimg__library_ac53b2de0d1464aa7dd7db6670aadbe04}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries Bayerto\-R\-G\-B} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int interpolation\-\_\-type=3, const bool even\-\_\-mode=true)}\label{namespacecimg__library_ac53b2de0d1464aa7dd7db6670aadbe04}
+
+\item 
+\hypertarget{namespacecimg__library_a30f59a406769c0f5eeb473bdbfe862ff}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries correlate} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&mask, const unsigned int cond=1, const bool weighted\-\_\-correl=false)}\label{namespacecimg__library_a30f59a406769c0f5eeb473bdbfe862ff}
+
+\item 
+\hypertarget{namespacecimg__library_ac7712bb68aca4c24eea108d6dbde8194}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries convolve} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&mask, const unsigned int cond=1, const bool weighted\-\_\-convol=false)}\label{namespacecimg__library_ac7712bb68aca4c24eea108d6dbde8194}
+
+\item 
+\hypertarget{namespacecimg__library_a6ae77a10d78e14a71801275d62aa927f}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries erode} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&mask, const unsigned int cond=1, const bool weighted\-\_\-erosion=false)}\label{namespacecimg__library_a6ae77a10d78e14a71801275d62aa927f}
+
+\item 
+\hypertarget{namespacecimg__library_a680ec2caf5175dc764d0fa4d8b2295bd}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries erode} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int n, const unsigned int cond=1)}\label{namespacecimg__library_a680ec2caf5175dc764d0fa4d8b2295bd}
+
+\item 
+\hypertarget{namespacecimg__library_a42d9fbad3862204cdb5461382c2fb263}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries dilate} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&mask, const unsigned int cond=1, const bool weighted\-\_\-dilatation=false)}\label{namespacecimg__library_a42d9fbad3862204cdb5461382c2fb263}
+
+\item 
+\hypertarget{namespacecimg__library_a7908062db7c565bd93300a31e4c610a2}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries dilate} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int n, const unsigned int cond=1)}\label{namespacecimg__library_a7908062db7c565bd93300a31e4c610a2}
+
+\item 
+\hypertarget{namespacecimg__library_a5d62d30c9c9ae0d2ef20f0035c5c0a4c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries noise} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const double sigma=-\/20, const unsigned int ntype=0)}\label{namespacecimg__library_a5d62d30c9c9ae0d2ef20f0035c5c0a4c}
+
+\item 
+\hypertarget{namespacecimg__library_a480f278ce5c21b40c4c00f46d2b3af8b}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries deriche} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float sigma, const int order=0, const char axe='x', const bool cond=true)}\label{namespacecimg__library_a480f278ce5c21b40c4c00f46d2b3af8b}
+
+\item 
+\hypertarget{namespacecimg__library_a280907fb995d144168d826a44e16bf93}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries blur} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float sigmax, const float sigmay, const float sigmaz, const bool cond=true)}\label{namespacecimg__library_a280907fb995d144168d826a44e16bf93}
+
+\item 
+\hypertarget{namespacecimg__library_aa575c48d43e6324ccb2f748513523353}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries blur} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float sigma, const bool cond=true)}\label{namespacecimg__library_aa575c48d43e6324ccb2f748513523353}
+
+\item 
+\hypertarget{namespacecimg__library_a1982a130768515644d2a2dccb1a2faea}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries blur\-\_\-anisotropic} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&G, const float amplitude=60.\-0f, const float dl=0.\-8f, const float da=30.\-0f, const float gauss\-\_\-prec=2.\-0f, const unsigned int interpolation=0, const bool fast\-\_\-approx=true)}\label{namespacecimg__library_a1982a130768515644d2a2dccb1a2faea}
+
+\item 
+\hypertarget{namespacecimg__library_a77b7df743f2fafedffd8e903387f1d6d}{{\footnotesize template$<$typename T , typename tm $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries blur\-\_\-anisotropic} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ tm $>$ \&mask, const float amplitude, const float sharpness=0.\-7f, const float anisotropy=0.\-3f, const float alpha=0.\-6f, const float sigma=1.\-1f, const float dl=0.\-8f, const float da=30.\-0f, const float gauss\-\_\-prec=2.\-0f, const unsigned int interpolation=0, const bool fast\-\_\-approx=true, const float geom\-\_\-factor=1.\-0f)}\label{namespacecimg__library_a77b7df743f2fafedffd8e903387f1d6d}
+
+\item 
+\hypertarget{namespacecimg__library_a14d7a7e95627bd3bac5fcf218c456725}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries blur\-\_\-anisotropic} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float amplitude, const float sharpness=0.\-7f, const float anisotropy=0.\-3f, const float alpha=0.\-6f, const float sigma=1.\-1f, const float dl=0.\-8f, const float da=30.\-0f, const float gauss\-\_\-prec=2.\-0f, const unsigned int interpolation=0, const bool fast\-\_\-approx=true, const float geom\-\_\-factor=1.\-0f)}\label{namespacecimg__library_a14d7a7e95627bd3bac5fcf218c456725}
+
+\item 
+\hypertarget{namespacecimg__library_a31cdc922a23a961fdc1da6fa179dcf1f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries blur\-\_\-bilateral} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float sigmax, const float sigmay, const float sigmaz, const float sigmar, const int bgridx, const int bgridy, const int bgridz, const int bgridr, const bool interpolation=true)}\label{namespacecimg__library_a31cdc922a23a961fdc1da6fa179dcf1f}
+
+\item 
+\hypertarget{namespacecimg__library_a8e9e88613a50a5f8750eae25c4cb3ec2}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries blur\-\_\-bilateral} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float sigmas, const float sigmar, const int bgrids=-\/33, const int bgridr=32, const bool interpolation=true)}\label{namespacecimg__library_a8e9e88613a50a5f8750eae25c4cb3ec2}
+
+\item 
+\hypertarget{namespacecimg__library_a1beefe187cc1e13f9b222b75ed6b1325}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries F\-F\-T} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const char axe, const bool inverse=false)}\label{namespacecimg__library_a1beefe187cc1e13f9b222b75ed6b1325}
+
+\item 
+\hypertarget{namespacecimg__library_afba31aad9e0b94e3feaa49108a6f87c0}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries F\-F\-T} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const bool inverse=false)}\label{namespacecimg__library_afba31aad9e0b94e3feaa49108a6f87c0}
+
+\item 
+\hypertarget{namespacecimg__library_ae79d8aaa5ec5fcb7ac289e66b2c82f64}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries blur\-\_\-median} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int n=3)}\label{namespacecimg__library_ae79d8aaa5ec5fcb7ac289e66b2c82f64}
+
+\item 
+\hypertarget{namespacecimg__library_a5b954164f0326852fa782ae40c6c4bbd}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries sharpen} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const float amplitude=50.\-0f, const float edge=1.\-0f, const float alpha=0.\-0f, const float sigma=0.\-0f)}\label{namespacecimg__library_a5b954164f0326852fa782ae40c6c4bbd}
+
+\item 
+\hypertarget{namespacecimg__library_aaffc6e0c063cefb1fdc815b2b07189cd}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries displacement\-\_\-field} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&reference, const float smooth=0.\-1f, const float precision=1e-\/6f, const unsigned int nb\-\_\-scale=0, const unsigned int itermax=10000)}\label{namespacecimg__library_aaffc6e0c063cefb1fdc815b2b07189cd}
+
+\item 
+\hypertarget{namespacecimg__library_a62a81ca20955cac96f7a34f656609cd3}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries matrix} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a62a81ca20955cac96f7a34f656609cd3}
+
+\item 
+\hypertarget{namespacecimg__library_aeab76a77652f047b69e9dba537a54fef}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries tensor} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_aeab76a77652f047b69e9dba537a54fef}
+
+\item 
+\hypertarget{namespacecimg__library_ae7b580c9331ba405f37cabd394ba0de5}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries unroll} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const char axe='x')}\label{namespacecimg__library_ae7b580c9331ba405f37cabd394ba0de5}
+
+\item 
+\hypertarget{namespacecimg__library_a9bb0df769ff84eb0fbb115ef8fbff9e1}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries diagonal} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a9bb0df769ff84eb0fbb115ef8fbff9e1}
+
+\item 
+\hypertarget{namespacecimg__library_ad259a7afd71d8ea61ce3e8e75628a418}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries identity\-\_\-matrix} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_ad259a7afd71d8ea61ce3e8e75628a418}
+
+\item 
+\hypertarget{namespacecimg__library_a9f87dc4ab542dc26200abfb772c87643}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries sequence} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const T \&a0, const T \&a1)}\label{namespacecimg__library_a9f87dc4ab542dc26200abfb772c87643}
+
+\item 
+\hypertarget{namespacecimg__library_a463cc91b67537c0efdfa94f5169f770f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries vector\-\_\-at} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x=0, const unsigned int y=0, const unsigned int z=0)}\label{namespacecimg__library_a463cc91b67537c0efdfa94f5169f770f}
+
+\item 
+\hypertarget{namespacecimg__library_a89e463e7546504e35211be7d248f07d2}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries matrix\-\_\-at} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x=0, const unsigned int y=0, const unsigned int z=0)}\label{namespacecimg__library_a89e463e7546504e35211be7d248f07d2}
+
+\item 
+\hypertarget{namespacecimg__library_a19c242bca975a174401bac963f8d503d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries tensor\-\_\-at} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const unsigned int x=0, const unsigned int y=0, const unsigned int z=0)}\label{namespacecimg__library_a19c242bca975a174401bac963f8d503d}
+
+\item 
+\hypertarget{namespacecimg__library_ace4f451db6ce41f6cfa8bcc0e0b1ac00}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries transpose} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_ace4f451db6ce41f6cfa8bcc0e0b1ac00}
+
+\item 
+\hypertarget{namespacecimg__library_af7974a0baf2e86be676b28051673d51d}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries inverse} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const bool use\-\_\-\-L\-U=true)}\label{namespacecimg__library_af7974a0baf2e86be676b28051673d51d}
+
+\item 
+\hypertarget{namespacecimg__library_ac51bcf31ac7193452292b7d0387e80d4}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, float $>$\-::type $>$ {\bfseries pseudoinverse} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_ac51bcf31ac7193452292b7d0387e80d4}
+
+\item 
+\hypertarget{namespacecimg__library_a88cff17d038d3f56b9f5ea13fe6440b9}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}\\*
+$<$ T, t $>$\-::type $>$ {\bfseries cross} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img)}\label{namespacecimg__library_a88cff17d038d3f56b9f5ea13fe6440b9}
+
+\item 
+\hypertarget{namespacecimg__library_add7d9ff588debeb2da0c6ed19c86156a}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries S\-V\-D} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const bool sorting=true)}\label{namespacecimg__library_add7d9ff588debeb2da0c6ed19c86156a}
+
+\item 
+\hypertarget{namespacecimg__library_a2e42c75cb2930a580f751f6c7c6b6df3}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1superset2}{cimg\-::superset2}\\*
+$<$ T, t, float $>$\-::type $>$ {\bfseries solve} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&A)}\label{namespacecimg__library_a2e42c75cb2930a580f751f6c7c6b6df3}
+
+\item 
+\hypertarget{namespacecimg__library_a36b7dddb7d45c0918418a47b9c333448}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries eigen} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_a36b7dddb7d45c0918418a47b9c333448}
+
+\item 
+\hypertarget{namespacecimg__library_abb9acfcba2ac8a142bd529cc59d5d4a0}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries symmetric\-\_\-eigen} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance)}\label{namespacecimg__library_abb9acfcba2ac8a142bd529cc59d5d4a0}
+
+\item 
+\hypertarget{namespacecimg__library_a53b0a40dcab5b29cf3534d3081e809f1}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries sort} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&permutations, const bool increasing=true)}\label{namespacecimg__library_a53b0a40dcab5b29cf3534d3081e809f1}
+
+\item 
+\hypertarget{namespacecimg__library_a2527ebb85bf55e53a11850af1e3ab0b6}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries sort} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const bool increasing=true)}\label{namespacecimg__library_a2527ebb85bf55e53a11850af1e3ab0b6}
+
+\item 
+\hypertarget{namespacecimg__library_a2c5378a221a1b91df7ccd7bec4ea5b99}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries permute} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&permutation)}\label{namespacecimg__library_a2c5378a221a1b91df7ccd7bec4ea5b99}
+
+\item 
+\hypertarget{namespacecimg__library_ab47896ffed965f8982b6af44f90c8b13}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ typename \hyperlink{structcimg__library_1_1cimg_1_1last}{cimg\-::last}$<$ T, \\*
+int $>$\-::type $>$ {\bfseries coordinates} (const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ \&instance, const int coords\-\_\-type, \hyperlink{structcimg__library_1_1_c_img_display}{C\-Img\-Display} \&disp, unsigned int $\ast$const X\-Y\-Z=0, const unsigned char $\ast$const color=0)}\label{namespacecimg__library_ab47896ffed965f8982b6af44f90c8b13}
+
+\item 
+\hypertarget{namespacecimg__library_a422fd36132c697a15cc19e7695486799}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, t $>$\-::type $>$ {\bfseries insert} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img, const unsigned int pos=$\sim$0\-U, const bool shared=false)}\label{namespacecimg__library_a422fd36132c697a15cc19e7695486799}
+
+\item 
+\hypertarget{namespacecimg__library_a75bfd8ba8a54170dda6ea0e17d76d5f8}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, t $>$\-::type $>$ {\bfseries insert} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int n, const \hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ t $>$ \&img, const unsigned int pos=$\sim$0\-U, const bool shared=false)}\label{namespacecimg__library_a75bfd8ba8a54170dda6ea0e17d76d5f8}
+
+\item 
+\hypertarget{namespacecimg__library_ad94be33a428f0075358b6aa3b41ca199}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, t $>$\-::type $>$ {\bfseries insert} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t $>$ \&list, const unsigned int pos=$\sim$0\-U, int shared=0)}\label{namespacecimg__library_ad94be33a428f0075358b6aa3b41ca199}
+
+\item 
+\hypertarget{namespacecimg__library_a00a5c0ffdf74f8e422359bb4b061cea1}{{\footnotesize template$<$typename T , typename t $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, t $>$\-::type $>$ {\bfseries insert} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int n, const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ t $>$ \&list, const unsigned int pos=$\sim$0\-U, const int shared=0)}\label{namespacecimg__library_a00a5c0ffdf74f8e422359bb4b061cea1}
+
+\item 
+\hypertarget{namespacecimg__library_af31b22a7a085b93b0886e44dd74d7e3e}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries remove} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int pos)}\label{namespacecimg__library_af31b22a7a085b93b0886e44dd74d7e3e}
+
+\item 
+\hypertarget{namespacecimg__library_a6e4a3dda40304a813526861bbae90965}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries remove} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance)}\label{namespacecimg__library_a6e4a3dda40304a813526861bbae90965}
+
+\item 
+\hypertarget{namespacecimg__library_a24d88b952dd5ac65db5044edc20cdd5c}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries reverse} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance)}\label{namespacecimg__library_a24d88b952dd5ac65db5044edc20cdd5c}
+
+\item 
+\hypertarget{namespacecimg__library_a4b18199b36dbf7194b2063e1265b2efe}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int i0, const unsigned int i1, const bool shared=false)}\label{namespacecimg__library_a4b18199b36dbf7194b2063e1265b2efe}
+
+\item 
+\hypertarget{namespacecimg__library_a96dfaeaed139ff8cb2f63334e9bf33d9}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int i0, const unsigned int i1, const int x0, const int y0, const int z0, const int v0, const int x1, const int y1, const int z1, const int v1)}\label{namespacecimg__library_a96dfaeaed139ff8cb2f63334e9bf33d9}
+
+\item 
+\hypertarget{namespacecimg__library_a71af87bc0b14c38fe47f9712b2c4781e}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int i0, const unsigned int i1, const int x0, const int y0, const int z0, const int x1, const int y1, const int z1)}\label{namespacecimg__library_a71af87bc0b14c38fe47f9712b2c4781e}
+
+\item 
+\hypertarget{namespacecimg__library_af6dcdb1ab7fa18a716443e5e7dd7533f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int i0, const unsigned int i1, const int x0, const int y0, const int x1, const int y1)}\label{namespacecimg__library_af6dcdb1ab7fa18a716443e5e7dd7533f}
+
+\item 
+\hypertarget{namespacecimg__library_a75d8b03eaa62660cc18e047d9611b82e}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries crop} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const unsigned int i0, const unsigned int i1, const int x0, const int x1)}\label{namespacecimg__library_a75d8b03eaa62660cc18e047d9611b82e}
+
+\item 
+\hypertarget{namespacecimg__library_ab24563ad490677184e72f277d378a05b}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries F\-F\-T} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const char axe, const bool inverse=false)}\label{namespacecimg__library_ab24563ad490677184e72f277d378a05b}
+
+\item 
+\hypertarget{namespacecimg__library_a66d5a36c7e99e26b1d7da73d9c34e546}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ typename \\*
+\hyperlink{structcimg__library_1_1cimg_1_1superset}{cimg\-::superset}$<$ T, float $>$\\*
+\-::type $>$ {\bfseries F\-F\-T} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const bool inverse=false)}\label{namespacecimg__library_a66d5a36c7e99e26b1d7da73d9c34e546}
+
+\item 
+\hypertarget{namespacecimg__library_a1ddcf5c3e8f50fd70eb262e566d64ff1}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries split} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const char axe='x')}\label{namespacecimg__library_a1ddcf5c3e8f50fd70eb262e566d64ff1}
+
+\item 
+\hypertarget{namespacecimg__library_acbcd3e0fdbd45689f04965f9698c8e3f}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img}{C\-Img}$<$ T $>$ {\bfseries append} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance, const char axe='x', const char align='c')}\label{namespacecimg__library_acbcd3e0fdbd45689f04965f9698c8e3f}
+
+\item 
+\hypertarget{namespacecimg__library_ab3f0d4a8d966090afad43ff2e41b39d1}{{\footnotesize template$<$typename T $>$ }\\\hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ {\bfseries crop\-\_\-font} (const \hyperlink{structcimg__library_1_1_c_img_list}{C\-Img\-List}$<$ T $>$ \&instance)}\label{namespacecimg__library_ab3f0d4a8d966090afad43ff2e41b39d1}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Namespace that encompasses all classes and functions of the C\-Img library. This namespace is defined to avoid functions and class names collisions that could happen with the include of other C++ header files. Anyway, it should not happen often and you should start most of your C\-Img-\/based programs with 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "CImg.h"}
+\textcolor{keyword}{using namespace }cimg\_library;
+\end{DoxyCode}
+ to simplify the declaration of C\-Img Library objects variables afterwards. 

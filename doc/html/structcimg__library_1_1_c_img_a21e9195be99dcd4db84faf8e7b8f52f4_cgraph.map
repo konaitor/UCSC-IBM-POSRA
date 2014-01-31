@@ -1,0 +1,8 @@
+<map id="cimg_library::CImg::get_RGBtoLUT" name="cimg_library::CImg::get_RGBtoLUT">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#ab2d6463804faab6dd4def4be68220d3b" title="Convert color pixels from (R,G,B) to match a specified palette. " alt="" coords="187,141,320,185"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="370,5,502,49"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="370,73,502,117"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a34d519a14c0aed27660fb42d25bf5f74" title="Return the default 256 colors palette. " alt="" coords="369,141,503,185"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="370,209,502,253"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="370,277,502,321"/>
+</map>

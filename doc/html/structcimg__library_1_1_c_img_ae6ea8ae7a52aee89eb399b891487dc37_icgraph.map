@@ -1,0 +1,5 @@
+<map id="cimg_library::CImg::get_histogram" name="cimg_library::CImg::get_histogram">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a107654a436b31a5612dab76c9c6a4873" title="In&#45;place version of the previous function. " alt="" coords="192,5,325,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a386c5bfabae28bf303b5aba88e73b974" title="In&#45;place version of the previous function. " alt="" coords="186,73,331,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#ad51813f525845badc730fafa4282f94a" title="Return the histogram&#45;equalized version of the current image. " alt="" coords="379,73,549,117"/>
+</map>

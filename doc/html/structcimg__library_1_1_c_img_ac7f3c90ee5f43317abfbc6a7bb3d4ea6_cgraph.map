@@ -1,0 +1,6 @@
+<map id="cimg_library::CImg::assign" name="cimg_library::CImg::assign">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a34e498eaf7ce5d83df329953e54f4292" title="In&#45;place version of the default constructor. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a22c7685eaf6d61e3e25186f702cc89d0" title="In&#45;place version of the previous function. " alt="" coords="187,73,320,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="368,38,501,82"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="368,106,501,150"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="cimg_library::CImg::operator()" name="cimg_library::CImg::operator()">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a266ad9e6e5d13058af75966b7d7e3ad9" title="Return the offset of the pixel coordinates (x,y,z,v) with respect to the data pointer data..." alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="187,73,320,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="187,141,320,185"/>
+</map>

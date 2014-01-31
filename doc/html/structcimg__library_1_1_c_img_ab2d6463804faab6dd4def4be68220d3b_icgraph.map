@@ -1,0 +1,4 @@
+<map id="cimg_library::CImg::get_RGBtoLUT" name="cimg_library::CImg::get_RGBtoLUT">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#abcf750a4bb72227df700b69ca7272c1e" title="In&#45;place version of the previous function. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a21e9195be99dcd4db84faf8e7b8f52f4" title="Convert color pixels from (R,G,B) to match the default 256 colors palette. " alt="" coords="187,73,320,117"/>
+</map>

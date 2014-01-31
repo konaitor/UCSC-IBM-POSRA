@@ -1,0 +1,18 @@
+<map id="cimg_library::CImg::draw_line" name="cimg_library::CImg::draw_line">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#ae227ca08fc15c1e543e92d0778c218d7" title="Draw a cubic spline curve in the instance image. " alt="" coords="187,5,320,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#af7338f1daed2c68dd0481944c55a99ac" title="Draw a colored arrow in the instance image. " alt="" coords="187,125,320,169"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a86670dddc872143ddc00db53d51ff3aa" title="Draw a vector field in the instance image, using a colormap. " alt="" coords="368,78,501,122"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#a27bc230085f4e303b0d16a24df534802" title="Draw a labeled horizontal axis on the instance image. " alt="" coords="368,171,501,215"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#af855c100ffc67a63f0098584e76b40fd" title="Draw a 3D outlined colored rectangle in the instance image. " alt="" coords="187,245,320,289"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a7c13b4cd23d8d4852b52641daa3558be" title="Draw a 2D outlined colored triangle. " alt="" coords="187,313,320,357"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#a25913106bea95e3eb8f9f380cccfda82" title="Draw a 1D graph on the instance image. " alt="" coords="187,381,320,425"/>
+<area shape="rect" id="node10" href="$structcimg__library_1_1_c_img.html#a3acd0d16535b2040a44c3d5e6fc3c289" title="Draw grid on the instance image. " alt="" coords="187,449,320,493"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#ae1fe96df1ca8aaf7165b2e66fe798839" title="Draw a 3D object in the instance image. " alt="" coords="187,517,320,561"/>
+<area shape="rect" id="node14" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="187,585,320,629"/>
+<area shape="rect" id="node17" href="$namespacecimg__library_1_1cimg.html#a62805bf0845c650a457cd78b3cd6488a" title="Display a dialog box, where a user can click standard buttons. " alt="" coords="189,653,318,697"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a51d3f13753cc1b69c8250441dad0fb20" title="Draw a labeled horizontal+vertical axis on the instance image. " alt="" coords="550,171,682,215"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#afc006e53ed308a776803d07d66eb5af8" title="Draw grid on the instance image. " alt="" coords="368,449,501,493"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a453c4ba21c7985ba19f8936865e4f9f4" title="Draw a 3D object in the instance image. " alt="" coords="368,517,501,561"/>
+<area shape="rect" id="node15" href="$structcimg__library_1_1_c_img.html#aaa7358f1301586d38e99c0c46977623d" title="cimg_library::CImg\l::display" alt="" coords="368,585,501,629"/>
+<area shape="rect" id="node16" href="$structcimg__library_1_1_c_img.html#a9a8bb0d6ca24878b4ec6cf645f51ec12" title="High&#45;level interface to select features in images. " alt="" coords="368,653,501,697"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="cimg_library::CImg::get_rotate" name="cimg_library::CImg::get_rotate">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="202,5,334,49"/>
+<area shape="rect" id="node3" href="$namespacecimg__library_1_1cimg.html#af6508b733d0d7887da1cf583b703f3a1" title="Return x modulo m (generic modulo). " alt="" coords="187,73,349,101"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="579,263,712,307"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="579,369,712,413"/>
+<area shape="rect" id="node6" href="$namespacecimg__library_1_1cimg.html#a94c6e14129933f3c261ccf9de7a6f299" title="Return the absolute value of a. " alt="" coords="189,245,347,273"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#a04fbd850fa0db4802ee50c2129d2b4bd" title="Read a pixel value with Dirichlet or Neumann boundary conditions for the two first coordinates (x..." alt="" coords="398,297,530,341"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a94e74f9969caf1db1f862ec9c145ed29" title="Read a pixel value using linear interpolation for the two first coordinates (cx,cy). " alt="" coords="202,177,334,221"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img.html#ab26403a66e670b53ef8f706fe83247a7" title="Read a pixel value using bicubic interpolation. " alt="" coords="202,297,334,341"/>
+</map>

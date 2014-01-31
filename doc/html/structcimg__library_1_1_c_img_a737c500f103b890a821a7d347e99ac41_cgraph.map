@@ -1,0 +1,9 @@
+<map id="cimg_library::CImg::get_convolve" name="cimg_library::CImg::get_convolve">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="368,5,501,49"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="368,73,501,117"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a5f72fb96161e300a423242c75b6cb655" title="Compute the correlation of the instance image by a mask. " alt="" coords="187,133,320,177"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aba56e96a615d71ed9a71009768fc4b75" title="Return the number of slices of the instance image (size along the Z&#45;axis). " alt="" coords="550,299,682,343"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="550,138,682,182"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="550,223,682,267"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#a947e22cc453c54c0a0b0590e64d2095f" title="Read a pixel value with Dirichlet or Neumann boundary conditions for the three first coordinates (x..." alt="" coords="368,243,501,287"/>
+</map>

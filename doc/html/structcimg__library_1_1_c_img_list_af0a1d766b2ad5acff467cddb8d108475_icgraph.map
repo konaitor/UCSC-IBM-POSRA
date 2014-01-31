@@ -1,0 +1,10 @@
+<map id="cimg_library::CImgList::save_cimg" name="cimg_library::CImgList::save_cimg">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a34e0be5beb5d91caa5ae59ee2e039aa4" title="Save the image as a .cimg file. " alt="" coords="208,142,341,186"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a593d3d4f5eae665e93c3f551b2da3f03" title="Save the image as a file. " alt="" coords="400,39,533,83"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#ae2b66c0e3dd50e8b7cd33f97fa4b45cf" title="Save the image as a .cimg file. " alt="" coords="400,107,533,151"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img_list.html#ae1b9c55022579c04193de0342987acef" title="Save an image list into a file. " alt="" coords="390,175,543,219"/>
+<area shape="rect" id="node9" href="$structcimg__library_1_1_c_img_list.html#a9401ecac7b6ea3c3c42038e7bb2b3ff5" title="Save an image list into a CImg file (RAW binary file + simple header) " alt="" coords="390,243,543,287"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a1f77ac52b556d72fb2fa883209bf4af8" title="Simple interface to select shaped from an image. " alt="" coords="592,39,725,83"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#aaa7358f1301586d38e99c0c46977623d" title="cimg_library::CImg\l::display" alt="" coords="774,5,906,49"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#a9a8bb0d6ca24878b4ec6cf645f51ec12" title="High&#45;level interface to select features in images. " alt="" coords="774,73,906,117"/>
+</map>

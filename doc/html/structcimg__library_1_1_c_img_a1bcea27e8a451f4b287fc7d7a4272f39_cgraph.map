@@ -1,0 +1,14 @@
+<map id="cimg_library::CImg::draw_image" name="cimg_library::CImg::draw_image">
+<area shape="rect" id="node2" href="$structcimg__library_1_1_c_img.html#a9c9bc7186ce965d46cbb507cde3fb9d5" title="Return true if current image is empty. " alt="" coords="383,56,516,100"/>
+<area shape="rect" id="node3" href="$structcimg__library_1_1_c_img.html#a40381e3f35687e554852725b13eb4fa9" title="Return the type of the pixel values. " alt="" coords="579,320,712,364"/>
+<area shape="rect" id="node4" href="$structcimg__library_1_1_c_img.html#a4516c4c43a7130f034172df71bbaefa4" title="Draw a sprite image in the instance image. " alt="" coords="187,320,320,364"/>
+<area shape="rect" id="node5" href="$structcimg__library_1_1_c_img.html#abf1a3c383880a20428b2ea9d22f3c06e" title="Return the number of columns of the instance image (size along the X&#45;axis, i.e image width)..." alt="" coords="383,124,516,168"/>
+<area shape="rect" id="node6" href="$structcimg__library_1_1_c_img.html#aa1e128f9d950b39ed312eb368741970c" title="Return the number of rows of the instance image (size along the Y&#45;axis, i.e image height)..." alt="" coords="383,192,516,236"/>
+<area shape="rect" id="node7" href="$structcimg__library_1_1_c_img.html#aba56e96a615d71ed9a71009768fc4b75" title="Return the number of slices of the instance image (size along the Z&#45;axis). " alt="" coords="383,260,516,304"/>
+<area shape="rect" id="node8" href="$structcimg__library_1_1_c_img.html#ad30f8300f32a94a80e1e06c84a45de49" title="Return the number of vector channels of the instance image (size along the V&#45;axis). " alt="" coords="383,380,516,424"/>
+<area shape="rect" id="node9" href="$namespacecimg__library_1_1cimg.html#a94c6e14129933f3c261ccf9de7a6f299" title="Return the absolute value of a. " alt="" coords="370,448,528,476"/>
+<area shape="rect" id="node10" href="$namespacecimg__library_1_1cimg.html#ae84548c45d9e5878954602914d34babe" title="Return the maximum between a and b. " alt="" coords="369,500,530,528"/>
+<area shape="rect" id="node11" href="$structcimg__library_1_1_c_img.html#af19c37d44b9fce37ad7c4a9ad247d1a0" title="Return a pointer to the pixel value located at (x,y,z,v). " alt="" coords="372,552,527,580"/>
+<area shape="rect" id="node12" href="$structcimg__library_1_1_c_img.html#a266ad9e6e5d13058af75966b7d7e3ad9" title="Return the offset of the pixel coordinates (x,y,z,v) with respect to the data pointer data..." alt="" coords="579,578,712,622"/>
+<area shape="rect" id="node13" href="$structcimg__library_1_1_c_img.html#a4f22f4188289724c853ed6a12b0a2e1e" title="Return the total number of pixel values in an image. " alt="" coords="579,510,712,554"/>
+</map>
