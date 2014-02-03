@@ -810,6 +810,7 @@ int osra_process_image(
                                     box = thin_image(thick_box, THRESHOLD_BOND, bgColor);
                               else
                                     box = thick_box;
+                              box.write("thinned.jpeg");
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
