@@ -659,6 +659,9 @@ int osra_process_image(
       vector<vector<vector<Image> > > array_of_images_page(page,vector<vector<Image> > (num_resolutions));
       vector<vector<vector<box_t> > > array_of_boxes_page(page,vector<vector<box_t> >(num_resolutions));
 
+      //nick_dev
+      bool testing = true;
+
 #pragma omp parallel for default(shared) private(OCR_JOB,JOB)
       for (int l = 0; l < page; l++)
       {
@@ -810,9 +813,61 @@ int osra_process_image(
                                     box = thin_image(thick_box, THRESHOLD_BOND, bgColor);
                               else
                                     box = thick_box;
-                              box.write("thinned.jpeg");
+                              box.write("thinned.gif");
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
+                              //nick_dev
+                              if(testing){
+                                    Image control_point_image;
+                                    control_point_image = box;
+                                    control_point_image.type(TrueColorType);
+                                    int cwidth = control_point_image.columns(), cheight = control_point_image.rows();
+                                    double mean = 0.0;
+                                    int total = 0;
+                                    for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next){
+                                          potrace_dpoint_t (*c)[3] = curr->curve.c;
+                                          for(int i=0;i<curr->curve.n;++i, ++total){
+                                                int x1 = c[i][0].x, y1 = c[i][0].y;
+                                                int x2 = c[i][1].x, y2 = c[i][1].y;
+                                                int x3 = c[i][2].x, y3 = c[i][2].y;
+                                                std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
+                                                if(i != 0){
+                                                      float res1 = 0.0;
+                                                      float res2 = 0.0;
+                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) res1 = sqrt((x1 - x3) + (y1 - y3));
+                                                      res2 = sqrt((x2 - x3) + (y2 - y3));
+                                                      if(res1==res1) mean += res1;//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
+                                                      if(res2==res2) mean += res2;//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
+                                                      std::cout << "Total: " << mean << " " << res1 << std::endl;
+                                                }
+                                                if(x1 < 0)       x1 = 0;
+                                                if(x1 >= width)  x1 = width - 1;
+                                                if(y1 < 0)       y1 = 0;
+                                                if(y1 >= height) y1 = height - 1;
+                                                if(x2 < 0)       x2 = 0;
+                                                if(x2 >= width)  x2 = width - 1;
+                                                if(y2 < 0)       y2 = 0;
+                                                if(y2 >= height) y2 = height - 1;
+                                                if(x3 < 0)       x3 = 0;
+                                                if(x3 >= width)  x3 = width - 1;
+                                                if(y3 < 0)       y3 = 0;
+                                                if(y3 >= height) y3 = height - 1;
+                                                //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
+                                                if(curr->curve.tag[i] == POTRACE_CURVETO){ 
+                                                      control_point_image.pixelColor(x1, y1, "blue");
+                                                      control_point_image.pixelColor(x2, y2, "blue");
+                                                      control_point_image.pixelColor(x3, y3, "red");
+                                                }else{
+                                                      control_point_image.pixelColor(x2, y2, "green");
+                                                      control_point_image.pixelColor(x3, y3, "yellow");
+                                                }
+                                          }
+                                    }
+                                    mean = mean / total;
+                                    std::cout << "Total: " << mean << std::endl;
+                                    control_point_image.write("control_point_image.png");
+                                    testing = false;
+                              }
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
 
                               int real_font_width, real_font_height;

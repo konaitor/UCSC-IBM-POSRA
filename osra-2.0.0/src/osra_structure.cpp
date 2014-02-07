@@ -1284,7 +1284,6 @@ int find_atoms(const potrace_path_t *p, vector<atom_t> &atom, vector<bond_t> &bo
 
       for (long i = 0; i < n; i++)
         {
-
           switch (tag[i])
             {
             case POTRACE_CORNER:

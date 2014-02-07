@@ -4,6 +4,8 @@ Parenthesis will most likely be detected somewhere inside of find_atoms
 inside of osra_structure.cpp. We will use potrace coordinates to detect
 the structure of a line
 
+Look into detect_curve in osra_common.cpp
+
 osra.cpp
       main
             TCLAP - Super GetOpt
