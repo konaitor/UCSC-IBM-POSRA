@@ -17,6 +17,9 @@ this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
 St, Fifth Floor, Boston, MA 02110-1301, USA
  *****************************************************************************/
 
+//nick_dev
+#include <string.h>
+
 #include <stdio.h> // fclose
 #include <stdlib.h> // malloc(), free()
 #include <math.h> // fabs(double)
@@ -822,11 +825,14 @@ int osra_process_image(
                                     control_point_image = box;
                                     control_point_image.type(TrueColorType);
                                     int cwidth = control_point_image.columns(), cheight = control_point_image.rows();
+                                    const unsigned int gwidth = 1600, gheight = 20, depth = 3;
+                                    unsigned char *control_graph = (unsigned char*)malloc(sizeof(unsigned char) * gwidth * gheight * depth);
+                                    memset(control_graph, 255, sizeof(unsigned char) * gwidth * gheight * depth);
                                     double mean = 0.0;
                                     int total = 0;
                                     static const int colorsize = 11;
                                     int k = 0;
-                                    char *colors[colorsize] = { "magenta", "SkyBlue", "turquoise", "gold", "orange", "red", "green", "yellow", "pink", "lime", "cyan" };
+                                    std::string colors[colorsize] = { "magenta", "SkyBlue", "turquoise", "gold", "orange", "red", "green", "yellow", "pink", "lime", "cyan" };
                                     for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next, ++k){
                                           potrace_dpoint_t (*c)[3] = curr->curve.c;
                                           for(int i=0;i<curr->curve.n;++i, ++total){
@@ -845,6 +851,7 @@ int osra_process_image(
                                                       std::cout << "Total: " << mean << " " << res1 << std::endl;
                                                       */
                                                       res1 = sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0));
+                                                      memset(control_graph + (long)(depth * gwidth * (unsigned int)res1) + (long)(depth * total), 0, sizeof(unsigned char) * depth);
                                                       mean += sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0));
                                                 }
                                                 if(x1 < 0)       x1 = 0;
@@ -870,14 +877,13 @@ int osra_process_image(
                                                       control_point_image.pixelColor(x3, y3, "yellow");
                                                 }
                                                 */
-                                                if(curr->curve.tag[i] == POTRACE_CURVETO){ 
-                                                      if(res1 < 2.4) control_point_image.pixelColor(x1, y1, colors[k % colorsize]);
-                                                      if(res1 < 2.4) control_point_image.pixelColor(x2, y2, colors[k % colorsize]);
-                                                      if(res1 < 2.4) control_point_image.pixelColor(x3, y3, colors[k % colorsize]);
-                                                }else{
-                                                      if(res1 < 2.4) control_point_image.pixelColor(x2, y2, colors[k % colorsize]);
-                                                      if(res1 < 2.4) control_point_image.pixelColor(x3, y3, colors[k % colorsize]);
-                                                }
+                                                //if(res1 < 2.4){
+                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) 
+                                                            control_point_image.pixelColor(x1, y1, colors[k % colorsize]);
+                                                      control_point_image.pixelColor(x2, y2, colors[k % colorsize]);
+                                                      control_point_image.pixelColor(x3, y3, colors[k % colorsize]);
+                                                //}
+                                                control_point_image.pixelColor(total, (unsigned int)res1, colors[k % colorsize]);
                                           }
                                     }
                                     mean = mean / total;
@@ -902,11 +908,12 @@ int osra_process_image(
                                                 }
                                           }
                                     }
-                                    std::cout << "Total: " << mean << std::endl;
+                                    std::cout << "Mean Distance: " << mean << std::endl;
                                     variance = variance / total;
                                     float stddev = sqrt(variance);
                                     std::cout << "Std: " << stddev << std::endl;
                                     control_point_image.write("control_point_image.png");
+                                    (new Image(gwidth, gheight, "RGB", CharPixel, control_graph))->write("control_point_graph.png");
                                     testing = false;
                               }
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
