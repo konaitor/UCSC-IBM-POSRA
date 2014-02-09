@@ -824,21 +824,28 @@ int osra_process_image(
                                     int cwidth = control_point_image.columns(), cheight = control_point_image.rows();
                                     double mean = 0.0;
                                     int total = 0;
-                                    for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next){
+                                    static const int colorsize = 11;
+                                    int k = 0;
+                                    char *colors[colorsize] = { "magenta", "SkyBlue", "turquoise", "gold", "orange", "red", "green", "yellow", "pink", "lime", "cyan" };
+                                    for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next, ++k){
                                           potrace_dpoint_t (*c)[3] = curr->curve.c;
                                           for(int i=0;i<curr->curve.n;++i, ++total){
                                                 int x1 = c[i][0].x, y1 = c[i][0].y;
                                                 int x2 = c[i][1].x, y2 = c[i][1].y;
                                                 int x3 = c[i][2].x, y3 = c[i][2].y;
-                                                std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
+                                                //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
+                                                float res1 = 0.0;
+                                                float res2 = 0.0;
                                                 if(i != 0){
-                                                      float res1 = 0.0;
-                                                      float res2 = 0.0;
-                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) res1 = sqrt((x1 - x3) + (y1 - y3));
-                                                      res2 = sqrt((x2 - x3) + (y2 - y3));
+                                                      /*
+                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) res1 = sqrt(pow((x1 - x3), 2.0) + pow((y1 - y3), 2.0));
+                                                      res2 = sqrt(pow((x2 - x3), 2.0) + pow((y2 - y3), 2.0));
                                                       if(res1==res1) mean += res1;//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
                                                       if(res2==res2) mean += res2;//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
                                                       std::cout << "Total: " << mean << " " << res1 << std::endl;
+                                                      */
+                                                      res1 = sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0));
+                                                      mean += sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0));
                                                 }
                                                 if(x1 < 0)       x1 = 0;
                                                 if(x1 >= width)  x1 = width - 1;
@@ -852,6 +859,7 @@ int osra_process_image(
                                                 if(x3 >= width)  x3 = width - 1;
                                                 if(y3 < 0)       y3 = 0;
                                                 if(y3 >= height) y3 = height - 1;
+                                                /*
                                                 //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
                                                 if(curr->curve.tag[i] == POTRACE_CURVETO){ 
                                                       control_point_image.pixelColor(x1, y1, "blue");
@@ -861,10 +869,43 @@ int osra_process_image(
                                                       control_point_image.pixelColor(x2, y2, "green");
                                                       control_point_image.pixelColor(x3, y3, "yellow");
                                                 }
+                                                */
+                                                if(curr->curve.tag[i] == POTRACE_CURVETO){ 
+                                                      if(res1 < 2.4) control_point_image.pixelColor(x1, y1, colors[k % colorsize]);
+                                                      if(res1 < 2.4) control_point_image.pixelColor(x2, y2, colors[k % colorsize]);
+                                                      if(res1 < 2.4) control_point_image.pixelColor(x3, y3, colors[k % colorsize]);
+                                                }else{
+                                                      if(res1 < 2.4) control_point_image.pixelColor(x2, y2, colors[k % colorsize]);
+                                                      if(res1 < 2.4) control_point_image.pixelColor(x3, y3, colors[k % colorsize]);
+                                                }
                                           }
                                     }
                                     mean = mean / total;
+                                    float variance = 0.0;
+                                    for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next, ++k){
+                                          potrace_dpoint_t (*c)[3] = curr->curve.c;
+                                          for(int i=0;i<curr->curve.n;++i){
+                                                int x1 = c[i][0].x, y1 = c[i][0].y;
+                                                int x2 = c[i][1].x, y2 = c[i][1].y;
+                                                int x3 = c[i][2].x, y3 = c[i][2].y;
+                                                //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
+                                                if(i != 0){
+                                                      float res1 = 0.0;
+                                                      float res2 = 0.0;
+                                                      variance += pow(sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0)) - mean, 2.0);
+                                                      /*
+                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) res1 = sqrt(pow((x1 - x3), 2.0) + pow((y1 - y3), 2.0));
+                                                      res2 = sqrt(pow((x2 - x3), 2.0) + pow((y2 - y3), 2.0));
+                                                      if(res1==res1) variance += pow((res1 - mean), 2.0);//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
+                                                      if(res2==res2) variance += pow((res2 - mean), 2.0);//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
+                                                      */
+                                                }
+                                          }
+                                    }
                                     std::cout << "Total: " << mean << std::endl;
+                                    variance = variance / total;
+                                    float stddev = sqrt(variance);
+                                    std::cout << "Std: " << stddev << std::endl;
                                     control_point_image.write("control_point_image.png");
                                     testing = false;
                               }
