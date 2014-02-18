@@ -19,6 +19,7 @@ St, Fifth Floor, Boston, MA 02110-1301, USA
 
 //nick_dev
 #include <string.h>
+#include "test_functions.cpp"
 
 #include <stdio.h> // fclose
 #include <stdlib.h> // malloc(), free()
@@ -819,108 +820,20 @@ int osra_process_image(
                               box.write("thinned.gif");
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
-                              //nick_dev
+                              //nick_dev begin
                               if(testing){
-                                    Image control_point_image;
-                                    control_point_image = box;
-                                    control_point_image.type(TrueColorType);
-                                    int cwidth = control_point_image.columns(), cheight = control_point_image.rows();
-                                    const unsigned int gwidth = 1600, gheight = 20, depth = 3;
-                                    unsigned char *control_graph = (unsigned char*)malloc(sizeof(unsigned char) * gwidth * gheight * depth);
-                                    memset(control_graph, 255, sizeof(unsigned char) * gwidth * gheight * depth);
-                                    double mean = 0.0;
-                                    int total = 0;
-                                    static const int colorsize = 11;
-                                    int k = 0;
-                                    std::string colors[colorsize] = { "magenta", "SkyBlue", "turquoise", "gold", "orange", "red", "green", "yellow", "pink", "lime", "cyan" };
-                                    for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next, ++k){
-                                          potrace_dpoint_t (*c)[3] = curr->curve.c;
-                                          for(int i=0;i<curr->curve.n;++i, ++total){
-                                                int x1 = c[i][0].x, y1 = c[i][0].y;
-                                                int x2 = c[i][1].x, y2 = c[i][1].y;
-                                                int x3 = c[i][2].x, y3 = c[i][2].y;
-                                                //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
-                                                float res1 = 0.0;
-                                                float res2 = 0.0;
-                                                if(i != 0){
-                                                      /*
-                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) res1 = sqrt(pow((x1 - x3), 2.0) + pow((y1 - y3), 2.0));
-                                                      res2 = sqrt(pow((x2 - x3), 2.0) + pow((y2 - y3), 2.0));
-                                                      if(res1==res1) mean += res1;//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
-                                                      if(res2==res2) mean += res2;//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
-                                                      std::cout << "Total: " << mean << " " << res1 << std::endl;
-                                                      */
-                                                      res1 = sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0));
-                                                      memset(control_graph + (long)(depth * gwidth * (unsigned int)res1) + (long)(depth * total), 0, sizeof(unsigned char) * depth);
-                                                      mean += sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0));
-                                                }
-                                                if(x1 < 0)       x1 = 0;
-                                                if(x1 >= width)  x1 = width - 1;
-                                                if(y1 < 0)       y1 = 0;
-                                                if(y1 >= height) y1 = height - 1;
-                                                if(x2 < 0)       x2 = 0;
-                                                if(x2 >= width)  x2 = width - 1;
-                                                if(y2 < 0)       y2 = 0;
-                                                if(y2 >= height) y2 = height - 1;
-                                                if(x3 < 0)       x3 = 0;
-                                                if(x3 >= width)  x3 = width - 1;
-                                                if(y3 < 0)       y3 = 0;
-                                                if(y3 >= height) y3 = height - 1;
-                                                /*
-                                                //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
-                                                if(curr->curve.tag[i] == POTRACE_CURVETO){ 
-                                                      control_point_image.pixelColor(x1, y1, "blue");
-                                                      control_point_image.pixelColor(x2, y2, "blue");
-                                                      control_point_image.pixelColor(x3, y3, "red");
-                                                }else{
-                                                      control_point_image.pixelColor(x2, y2, "green");
-                                                      control_point_image.pixelColor(x3, y3, "yellow");
-                                                }
-                                                */
-                                                //if(res1 < 2.4){
-                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) 
-                                                            control_point_image.pixelColor(x1, y1, colors[k % colorsize]);
-                                                      control_point_image.pixelColor(x2, y2, colors[k % colorsize]);
-                                                      control_point_image.pixelColor(x3, y3, colors[k % colorsize]);
-                                                //}
-                                                control_point_image.pixelColor(total, (unsigned int)res1, colors[k % colorsize]);
-                                          }
-                                    }
-                                    mean = mean / total;
-                                    float variance = 0.0;
-                                    for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next, ++k){
-                                          potrace_dpoint_t (*c)[3] = curr->curve.c;
-                                          for(int i=0;i<curr->curve.n;++i){
-                                                int x1 = c[i][0].x, y1 = c[i][0].y;
-                                                int x2 = c[i][1].x, y2 = c[i][1].y;
-                                                int x3 = c[i][2].x, y3 = c[i][2].y;
-                                                //std::cout << x1 << " " << y1 << " " << x2 << " " << y2 << " " << x3 << " " << y3 << std::endl;
-                                                if(i != 0){
-                                                      float res1 = 0.0;
-                                                      float res2 = 0.0;
-                                                      variance += pow(sqrt(pow((c[i][2].x - c[i-1][2].x), 2.0) + pow((c[i][2].y - c[i-1][2].y), 2.0)) - mean, 2.0);
-                                                      /*
-                                                      if(curr->curve.tag[i] == POTRACE_CURVETO) res1 = sqrt(pow((x1 - x3), 2.0) + pow((y1 - y3), 2.0));
-                                                      res2 = sqrt(pow((x2 - x3), 2.0) + pow((y2 - y3), 2.0));
-                                                      if(res1==res1) variance += pow((res1 - mean), 2.0);//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
-                                                      if(res2==res2) variance += pow((res2 - mean), 2.0);//sqrt((x2 - x3) + (y2 - y3)) / curr->curve.n;
-                                                      */
-                                                }
-                                          }
-                                    }
-                                    std::cout << "Mean Distance: " << mean << std::endl;
-                                    variance = variance / total;
-                                    float stddev = sqrt(variance);
-                                    std::cout << "Std: " << stddev << std::endl;
-                                    control_point_image.write("control_point_image.png");
-                                    (new Image(gwidth, gheight, "RGB", CharPixel, control_graph))->write("control_point_graph.png");
+                                    //print_images(p, width, height, box);
                                     testing = false;
                               }
+                              //nick_dev end
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
 
                               int real_font_width, real_font_height;
                               n_letters = find_chars(p, orig_box, letters, atom, bond, n_atom, n_bond, height, width, bgColor,
                                           THRESHOLD_BOND, max_font_width, max_font_height, real_font_width, real_font_height,verbose);
+                              //nick_dev
+                              graph_all(thick_box, k, "chars", atom, bond, letters, label);
+
                               if (verbose)
                                     cout << "Number of atoms: " << n_atom << ", bonds: " << n_bond << ", " << n_letters << " letters: " << n_letters << " " << letters << " after find_atoms()" << endl;
 
@@ -1053,6 +966,9 @@ int osra_process_image(
                               int real_atoms = count_atoms(atom, n_atom);
                               int bond_max_type = 0;
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
+
+                              //nick_dev
+                              graph_all(thick_box, k, "end", atom, bond, letters, label);
 
                               if (verbose)
                                     cout << "Final number of atoms: " << real_atoms << ", bonds: " << real_bonds << ", chars: " << n_letters << '.' << endl;

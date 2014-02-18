@@ -1114,7 +1114,7 @@ configure:7469: result: yes
 configure:7495: LIBS="-lGraphicsMagick -lGraphicsMagick++ -lopenbabel -locrad -lpotrace -lm " after linking check succeeded
 configure:7511: checking for library containing pnm_readpnminit
 configure:7542: g++ -o conftest -g -O2 -I/usr/local/include/GraphicsMagick -I/usr/include/openbabel-2.0 -I/usr/local/include/gocr -I/usr/local/include  -L/usr/local/lib  conftest.cpp -lGraphicsMagick -lGraphicsMagick++ -lopenbabel -locrad -lpotrace -lm  >&5
-/tmp/ccePopMH.o: In function `main':
+/tmp/ccHjzBRP.o: In function `main':
 /home/nick/Code/UCSC-IBM-POSRA/osra-2.0.0/conftest.cpp:46: undefined reference to `pnm_readpnminit'
 collect2: error: ld returned 1 exit status
 configure:7542: $? = 1

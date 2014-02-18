@@ -1,4 +1,5 @@
-osra_lib.o: osra_lib.cpp /usr/local/include/GraphicsMagick/Magick++.h \
+osra_lib.o: osra_lib.cpp test_functions.cpp \
+ /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/GraphicsMagick/Magick++/Include.h \
  /usr/local/include/GraphicsMagick/magick/magick_config.h \
  /usr/local/include/GraphicsMagick/magick/api.h \
@@ -77,13 +78,12 @@ osra_lib.o: osra_lib.cpp /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/gocr/pgm2asc.h /usr/local/include/gocr/pnm.h \
  /usr/local/include/gocr/config.h /usr/local/include/gocr/output.h \
  /usr/local/include/gocr/gocr.h /usr/local/include/gocr/unicode.h \
- /usr/local/include/gocr/list.h \
+ /usr/local/include/gocr/list.h osra.h osra_labels.h \
  /usr/include/openbabel-2.0/openbabel/oberror.h \
- /usr/include/openbabel-2.0/openbabel/babelconfig.h osra.h \
- osra_grayscale.h osra_segment.h osra_fragments.h osra_labels.h \
- osra_thin.h osra_common.h osra_structure.h osra_lib.h osra_ocr.h \
- osra_openbabel.h osra_reaction.h osra_anisotropic.h osra_stl.h unpaper.h \
- config.h
+ /usr/include/openbabel-2.0/openbabel/babelconfig.h osra_grayscale.h \
+ osra_segment.h osra_fragments.h osra_thin.h osra_common.h \
+ osra_structure.h osra_lib.h osra_ocr.h osra_openbabel.h osra_reaction.h \
+ osra_anisotropic.h osra_stl.h unpaper.h config.h
 osra_grayscale.o: osra_grayscale.cpp osra.h \
  /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/GraphicsMagick/Magick++/Include.h \

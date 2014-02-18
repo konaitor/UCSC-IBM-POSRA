@@ -44,6 +44,7 @@ osra_lib.cpp
 
 osra_structure.cpp
       1259 - find_atoms - Use the potrace data to detect atom and eventually bond locations
+                          Push all control points!!!! Regardless of position
             1267 - n is the number of contiguous segments potrace found
             1268 - tag is a pointer to segment's type (either corner or curve_to)
             1269 - c is a pointer to a list of control points see potrace lib
