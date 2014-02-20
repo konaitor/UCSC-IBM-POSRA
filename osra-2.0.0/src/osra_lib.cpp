@@ -43,6 +43,10 @@ extern "C" {
 }
 
 #include <openbabel/oberror.h>
+#include <openbabel/mol.h>
+#include <openbabel/obconversion.h>
+#include <openbabel/op.h>
+using namespace OpenBabel;
 
 #include "osra.h"
 #include "osra_grayscale.h"

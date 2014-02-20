@@ -80,7 +80,34 @@ osra_lib.o: osra_lib.cpp test_functions.cpp \
  /usr/local/include/gocr/gocr.h /usr/local/include/gocr/unicode.h \
  /usr/local/include/gocr/list.h osra.h osra_labels.h \
  /usr/include/openbabel-2.0/openbabel/oberror.h \
- /usr/include/openbabel-2.0/openbabel/babelconfig.h osra_grayscale.h \
+ /usr/include/openbabel-2.0/openbabel/babelconfig.h \
+ /usr/include/openbabel-2.0/openbabel/mol.h \
+ /usr/include/openbabel-2.0/openbabel/atom.h \
+ /usr/include/openbabel-2.0/openbabel/base.h \
+ /usr/include/openbabel-2.0/openbabel/tokenst.h \
+ /usr/include/openbabel-2.0/openbabel/residue.h \
+ /usr/include/openbabel-2.0/openbabel/math/vector3.h \
+ /usr/include/openbabel-2.0/openbabel/rand.h \
+ /usr/include/openbabel-2.0/openbabel/bond.h \
+ /usr/include/openbabel-2.0/openbabel/data.h \
+ /usr/include/openbabel-2.0/openbabel/chains.h \
+ /usr/include/openbabel-2.0/openbabel/bitvec.h \
+ /usr/include/openbabel-2.0/openbabel/ring.h \
+ /usr/include/openbabel-2.0/openbabel/typer.h \
+ /usr/include/openbabel-2.0/openbabel/parsmart.h \
+ /usr/include/openbabel-2.0/openbabel/generic.h \
+ /usr/include/openbabel-2.0/openbabel/math/spacegroup.h \
+ /usr/include/openbabel-2.0/openbabel/math/transform3d.h \
+ /usr/include/openbabel-2.0/openbabel/math/matrix3x3.h \
+ /usr/include/openbabel-2.0/openbabel/obutil.h \
+ /usr/include/openbabel-2.0/openbabel/obiter.h \
+ /usr/include/openbabel-2.0/openbabel/internalcoord.h \
+ /usr/include/openbabel-2.0/openbabel/obconversion.h \
+ /usr/include/openbabel-2.0/openbabel/dlhandler.h \
+ /usr/include/openbabel-2.0/openbabel/format.h \
+ /usr/include/openbabel-2.0/openbabel/plugin.h \
+ /usr/include/openbabel-2.0/openbabel/lineend.h \
+ /usr/include/openbabel-2.0/openbabel/op.h osra_grayscale.h \
  osra_segment.h osra_fragments.h osra_thin.h osra_common.h \
  osra_structure.h osra_lib.h osra_ocr.h osra_openbabel.h osra_reaction.h \
  osra_anisotropic.h osra_stl.h unpaper.h config.h
