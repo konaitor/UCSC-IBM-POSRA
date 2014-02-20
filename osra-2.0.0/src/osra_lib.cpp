@@ -1095,7 +1095,22 @@ int osra_process_image(
                         if (output_format != "mol" && !is_reaction)
                         {
                               out_stream << pages_of_structures[l][i];
-
+                              if (output_format == "can" || output_format == "smi") { // create 3D sdf representation
+                                    OBMol sdfmol;
+                                    OBConversion sdfconv;
+                                    if (sdfconv.SetInAndOutFormats("smi", "sdf") && sdfconv.ReadString(&sdfmol, pages_of_structures[l][i])) {
+                                          sdfconv.Convert();
+                                          sdfmol.AddHydrogens(); // add hydrogen atoms
+                                          OBOp* pOp = OBOp::FindType("gen3D"); // locate 3D operations plugin
+                                          if (pOp) {
+                                                pOp->Do(&sdfmol);
+                                          } else {
+                                                cout << "No 'gen3D' operations object found" << endl;
+                                          }
+                                          out_stream  << sdfconv.WriteString(&sdfmol, true) << endl;
+                                    }
+                              }
+                        }
                               // Dump this structure into a separate file:
                               if (!output_image_file_prefix.empty())
                               {
@@ -1113,7 +1128,7 @@ int osra_process_image(
                                     }
                               }
                         }
-                  }
+                  //}
             if (is_reaction && !arrows[l].empty())
             {
                   vector<string> reactions;
