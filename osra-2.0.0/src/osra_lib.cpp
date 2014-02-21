@@ -824,24 +824,25 @@ int osra_process_image(
                               box.write("thinned.gif");
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
-                              //nick_dev begin
-                              if(testing){
-                                    //print_images(p, width, height, box);
-                                    testing = false;
-                              }
-                              //nick_dev end
+
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
 
                               int real_font_width, real_font_height;
                               n_letters = find_chars(p, orig_box, letters, atom, bond, n_atom, n_bond, height, width, bgColor,
                                           THRESHOLD_BOND, max_font_width, max_font_height, real_font_width, real_font_height,verbose);
-                              //nick_dev
-                              graph_all(thick_box, k, "chars", atom, bond, letters, label);
 
                               if (verbose)
                                     cout << "Number of atoms: " << n_atom << ", bonds: " << n_bond << ", " << n_letters << " letters: " << n_letters << " " << letters << " after find_atoms()" << endl;
 
                               double avg_bond_length = percentile75(bond, n_bond, atom);
+
+                              //nick_dev begin
+                              if(testing){
+                                    //print_images(p, width, height, box);
+                                    find_paren(box, p, atom);
+                                    testing = false;
+                              }
+                              //nick_dev end
 
                               double max_area = avg_bond_length * 5;
                               if (thick)
@@ -972,7 +973,7 @@ int osra_process_image(
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
                               //nick_dev
-                              graph_all(thick_box, k, "end", atom, bond, letters, label);
+                              plot_all(thick_box, k, "end", atom, bond, letters, label);
 
                               if (verbose)
                                     cout << "Final number of atoms: " << real_atoms << ", bonds: " << real_bonds << ", chars: " << n_letters << '.' << endl;
