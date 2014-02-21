@@ -59,6 +59,7 @@ extern "C" {
 
 using namespace std;
 using namespace Magick;
+bool testing = true;
 
 void set_select_resolution(vector<int>  &select_resolution, int input_resolution)
 {
@@ -690,7 +691,7 @@ int osra_process_image(
       image.modifyImage();
       bool adaptive = convert_to_gray(image, invert, adaptive_option, verbose);
 
-    
+      
       
       vector<vector<string> > array_of_structures(num_resolutions);
       vector<vector<double> > array_of_avg_bonds(num_resolutions), array_of_ind_conf(num_resolutions);
@@ -774,6 +775,7 @@ int osra_process_image(
           //dbg.backgroundColor("white");
           //dbg.erase();
           //dbg.type(TrueColorType);
+          
           for (int k = 0; k < n_boxes; k++)
             if ((boxes[k].x2 - boxes[k].x1) > max_font_width && (boxes[k].y2 - boxes[k].y1) > max_font_height
                 && !boxes[k].c.empty() && ((boxes[k].x2 - boxes[k].x1) > 2 * max_font_width || (boxes[k].y2
@@ -793,23 +795,89 @@ int osra_process_image(
                     int x = boxes[k].c[p].x;
                     int y = boxes[k].c[p].y;
                     ColorGray color = image.pixelColor(x, y);
+                    
                     //dbg.pixelColor(x, y, color);
                     orig_box.pixelColor(x - boxes[k].x1 + FRAME, y - boxes[k].y1 + FRAME, color);
                   }
-
                 int width = orig_box.columns();
                 int height = orig_box.rows();
+                
+                // DAVID_DEV
+                Image detect = orig_box;
+                if (testing) {
+                vector<pair<int, int> > endpoints;
+                for (int i = 0; i < width; i++) {
+                    for (int j = 0; j < height; j++) {
+                        int adj = 0;
+                        vector<ColorGray> north, south, east, west;
+                        vector<vector<ColorGray > > sides;
+                        for (int n = 1; n <= 3; n++ ) {
+                            north.push_back (detect.pixelColor(i,j+n));
+                            north.push_back (detect.pixelColor(i+1,j+n));
+                            west.push_back (detect.pixelColor(i-n,j));
+                            west.push_back (detect.pixelColor(i-1,j-n));
+                         }
+                       
+                        for (int n = 2; n <= 4; n++) {
+                            south.push_back (detect.pixelColor(i,j-n));
+                            south.push_back (detect.pixelColor(i+1,j-n));
+                            east.push_back (detect.pixelColor(i+n,j));
+                            east.push_back (detect.pixelColor(i+n,j-1));
+                        }
+                        
+                        sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
+                        for (int c = 0; c < sides.size(); c++) {
+                            for (int d = 0; d < sides.at(c).size(); d++) {
+                                if (sides.at(c).at(d).shade() < 1) {
+                                    adj++;
+                                    break;
+                                }
+                            }
+                        }
+   
+                        //if (adj < 4 && adj > 0) 
+                        //cout << adj << endl;
+                        ColorGray c = detect.pixelColor(i,j);
+                        if (adj == 1 && c.shade() < 1 && c.alpha() == 0)
+                            endpoints.push_back(make_pair(i,j));
+                     }
+                 }
+                 detect.write("orig2.png");
+                 cout << endpoints.size() << endl;
+                 
+                 for (int i = 0; i < endpoints.size(); i++) {
+                   // detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
+                    for (int j = 0; j < endpoints.size(); j++) {
+                        if ((endpoints.at(i).first == endpoints.at(j).first ||
+                            endpoints.at(i).first == endpoints.at(j).first + 1 ||
+                            endpoints.at(i).first == endpoints.at(j).first - 1) && i != j &&
+                            endpoints.at(i).second - endpoints.at(j).second > 1) {
+                                detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
+                                detect.pixelColor (endpoints.at(j).first, endpoints.at(j).second, "red");
+                                for (int b = endpoints.at(i).second; b > 0; b--)
+                                    detect.pixelColor (endpoints.at(i).first, b, "red");
+                        }
+                    }
+                 }
+                detect.write("out.png");
+                detect.write("out.jpg");
+                testing = false;
+                }
+                // END DAVID_DEV
+                
+                
                 Image thick_box;
                 create_thick_box(orig_box,thick_box,width,height,resolution,working_resolution,box_scale,bgColor,THRESHOLD_BOND,res_iter,thick,jaggy);
 
                 if (verbose)
                   cout << "Analysing box " << boxes[k].x1 << "x" << boxes[k].y1 << "-" << boxes[k].x2 << "x" << boxes[k].y2 << " using working resolution " << working_resolution << '.' << endl;
-
+          
                 Image box;
                 if (thick)
                   box = thin_image(thick_box, THRESHOLD_BOND, bgColor);
                 else
                   box = thick_box;
+               
                 potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                 potrace_path_t const * const p = st->plist;
                 n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
