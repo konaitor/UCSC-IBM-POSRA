@@ -849,7 +849,7 @@ int osra_process_image(
                      
                      for (int i = 0; i < endpoints.size(); i++) {
                         //show all endpoints:
-                        detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
+                        //detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
                         for (int j = 0; j < endpoints.size(); j++) {
                             if ((endpoints.at(i).first == endpoints.at(j).first ||
                                 endpoints.at(i).first == endpoints.at(j).first + 1 ||
