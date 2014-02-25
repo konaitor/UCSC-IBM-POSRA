@@ -805,63 +805,77 @@ int osra_process_image(
                 // DAVID_DEV
                 Image detect = orig_box;
                 if (testing) {
-                vector<pair<int, int> > endpoints;
-                for (int i = 0; i < width; i++) {
-                    for (int j = 0; j < height; j++) {
-                        int adj = 0;
-                        vector<ColorGray> north, south, east, west;
-                        vector<vector<ColorGray > > sides;
-                        for (int n = 1; n <= 3; n++ ) {
-                            north.push_back (detect.pixelColor(i,j+n));
-                            north.push_back (detect.pixelColor(i+1,j+n));
-                            west.push_back (detect.pixelColor(i-n,j));
-                            west.push_back (detect.pixelColor(i-1,j-n));
-                         }
-                       
-                        for (int n = 2; n <= 4; n++) {
-                            south.push_back (detect.pixelColor(i,j-n));
-                            south.push_back (detect.pixelColor(i+1,j-n));
-                            east.push_back (detect.pixelColor(i+n,j));
-                            east.push_back (detect.pixelColor(i+n,j-1));
-                        }
-                        
-                        sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
-                        for (int c = 0; c < sides.size(); c++) {
-                            for (int d = 0; d < sides.at(c).size(); d++) {
-                                if (sides.at(c).at(d).shade() < 1) {
-                                    adj++;
-                                    break;
+                    vector<pair<int, int> > endpoints;
+                    for (int i = 0; i < width; i++) {
+                        for (int j = 0; j < height; j++) {
+                            int adj = 0;
+                            vector<ColorGray> north, south, east, west;
+                            vector<vector<ColorGray > > sides;
+                            for (int n = 1; n <= 2; n++ ) {
+                                north.push_back (detect.pixelColor(i,j-n));
+                                north.push_back (detect.pixelColor(i+1,j-n));
+                                west.push_back (detect.pixelColor(i-n,j));
+                                west.push_back (detect.pixelColor(i-n,j+1));
+                                south.push_back (detect.pixelColor(i,j+(n+1)));
+                                south.push_back (detect.pixelColor(i+1,j+(n+1)));
+                                east.push_back (detect.pixelColor(i+(n+1),j));
+                                east.push_back (detect.pixelColor(i+(n+1),j+1));
+                            }
+                            
+                            sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
+                            for (int c = 0; c < sides.size(); c++) {
+                                for (int d = 0; d < sides.at(c).size(); d++) {
+                                    if (sides.at(c).at(d).shade() < 1) {
+                                        adj++;
+                                        break;
+                                    }
                                 }
                             }
-                        }
-   
-                        //if (adj < 4 && adj > 0) 
-                        //cout << adj << endl;
-                        ColorGray c = detect.pixelColor(i,j);
-                        if (adj == 1 && c.shade() < 1 && c.alpha() == 0)
-                            endpoints.push_back(make_pair(i,j));
+       
+                            //if (adj < 4 && adj > 0) 
+                            //cout << adj << endl;
+                            ColorGray c1 = detect.pixelColor(i,j);
+                            ColorGray c2 = detect.pixelColor(i,j+1);
+                            ColorGray c3 = detect.pixelColor(i+1,j);
+                            ColorGray c4 = detect.pixelColor(i+1,j+1);
+                            if (adj == 1 && (c1.shade() < 1 || c2.shade() < 1))
+                                endpoints.push_back(make_pair(i,j));
+                         }
                      }
-                 }
-                 detect.write("orig2.png");
-                 cout << endpoints.size() << endl;
-                 
-                 for (int i = 0; i < endpoints.size(); i++) {
-                   // detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
-                    for (int j = 0; j < endpoints.size(); j++) {
-                        if ((endpoints.at(i).first == endpoints.at(j).first ||
-                            endpoints.at(i).first == endpoints.at(j).first + 1 ||
-                            endpoints.at(i).first == endpoints.at(j).first - 1) && i != j &&
-                            endpoints.at(i).second - endpoints.at(j).second > 1) {
-                                detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
-                                detect.pixelColor (endpoints.at(j).first, endpoints.at(j).second, "red");
-                                for (int b = endpoints.at(i).second; b > 0; b--)
-                                    detect.pixelColor (endpoints.at(i).first, b, "red");
+                     //detect.write("orig2.png");
+                     cout << "Endpoints found: " << endpoints.size() << endl;
+                     
+                     ColorGray mid0, mid1, mid2, qtr;
+                     
+                     for (int i = 0; i < endpoints.size(); i++) {
+                        //show all endpoints:
+                        detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
+                        for (int j = 0; j < endpoints.size(); j++) {
+                            if ((endpoints.at(i).first == endpoints.at(j).first ||
+                                endpoints.at(i).first == endpoints.at(j).first + 1 ||
+                                endpoints.at(i).first == endpoints.at(j).first - 1) && i != j &&
+                                endpoints.at(i).second - endpoints.at(j).second > 5) {
+                                
+                                    int mid_y = (endpoints.at(i).second + endpoints.at(j).second) / 2;
+                                    mid0 = detect.pixelColor(endpoints.at(i).first, mid_y);
+                                    mid1 = detect.pixelColor(endpoints.at(i).first, mid_y+1);
+                                    mid2 = detect.pixelColor(endpoints.at(i).first, mid_y-1);
+                                    qtr = detect.pixelColor(endpoints.at(i).first, (mid_y + endpoints.at(i).second)/2);
+                                    
+                                    //cout << mid0.shade() << " " << mid1.shade() << " " << mid2.shade() << endl;
+                                    
+                                    if ((mid0.shade() < 1 || mid1.shade() < 1 || mid2.shade() < 1) && qtr.shade() == 1) {
+                                        for (int b = endpoints.at(i).second; b > endpoints.at(j).second; b--)
+                                            detect.pixelColor (endpoints.at(j).first, b, "green");
+                                        detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "blue");
+                                        detect.pixelColor (endpoints.at(j).first, endpoints.at(j).second, "blue");
+                                    }                                   
+                            }
                         }
-                    }
-                 }
-                detect.write("out.png");
-                detect.write("out.jpg");
-                testing = false;
+                     }
+                    detect.write("out.png");
+                    //detect.write("out.jpg");
+                    testing = false;
                 }
                 // END DAVID_DEV
                 
