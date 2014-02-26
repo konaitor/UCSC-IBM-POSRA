@@ -660,7 +660,7 @@ int osra_process_image(
       vector<vector<vector<box_t> > > array_of_boxes_page(page,vector<vector<box_t> >(num_resolutions));
 
       //nick_dev
-      bool testing = true;
+      bool testing = false;
 
 #pragma omp parallel for default(shared) private(OCR_JOB,JOB)
       for (int l = 0; l < page; l++)
