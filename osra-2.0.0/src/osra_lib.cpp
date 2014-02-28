@@ -837,9 +837,10 @@ int osra_process_image(
                               double avg_bond_length = percentile75(bond, n_bond, atom);
 
                               //nick_dev begin
+                              vector<bracketbox> bracketboxes;
                               if(testing){
                                     //print_images(p, width, height, box);
-                                    find_paren(box, p, atom);
+                                    find_paren(orig_box, p, atom, bracketboxes);
                                     testing = false;
                               }
                               //nick_dev end
@@ -973,6 +974,7 @@ int osra_process_image(
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
                               //nick_dev
+                              find_intersection(bond,atom,bracketboxes);
                               plot_all(thick_box, k, "end", atom, bond, letters, label);
 
                               if (verbose)
