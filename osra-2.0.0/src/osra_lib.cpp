@@ -802,16 +802,22 @@ int osra_process_image(
                 int width = orig_box.columns();
                 int height = orig_box.rows();
                 
-                // DAVID_DEV
-                Image detect = orig_box;
+                // DAVID_DEV *************************************************************************************
+                // Round and square brackets detection
+                
                 if (testing) {
+                    Image detect = orig_box;
                     vector<pair<int, int> > endpoints;
+                    const unsigned int SIDE_GROUP_SIZE = 2;
+                    const unsigned int BRACKET_MIN_SIZE = 5;
                     for (int i = 0; i < width; i++) {
                         for (int j = 0; j < height; j++) {
-                            int adj = 0;
+                            int adj_groups = 0; // The number of side groups that contain at least 1 non-white pixel
                             vector<ColorGray> north, south, east, west;
                             vector<vector<ColorGray > > sides;
-                            for (int n = 1; n <= 2; n++ ) {
+                            
+                            // Populate the side-groups vectors with the correct Color objects
+                            for (int n = 1; n <= SIDE_GROUP_SIZE; n++ ) {
                                 north.push_back (detect.pixelColor(i,j-n));
                                 north.push_back (detect.pixelColor(i+1,j-n));
                                 west.push_back (detect.pixelColor(i-n,j));
@@ -821,63 +827,92 @@ int osra_process_image(
                                 east.push_back (detect.pixelColor(i+(n+1),j));
                                 east.push_back (detect.pixelColor(i+(n+1),j+1));
                             }
-                            
+                            // Add each side-group vector the the sides vector
                             sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
+                            
+                            // Check if each side group contains at least 1 non-white pixel
                             for (int c = 0; c < sides.size(); c++) {
                                 for (int d = 0; d < sides.at(c).size(); d++) {
                                     if (sides.at(c).at(d).shade() < 1) {
-                                        adj++;
+                                        adj_groups++;
                                         break;
                                     }
                                 }
                             }
-       
-                            //if (adj < 4 && adj > 0) 
-                            //cout << adj << endl;
-                            ColorGray c1 = detect.pixelColor(i,j);
-                            ColorGray c2 = detect.pixelColor(i,j+1);
-                            ColorGray c3 = detect.pixelColor(i+1,j);
-                            ColorGray c4 = detect.pixelColor(i+1,j+1);
-                            if (adj == 1 && (c1.shade() < 1 || c2.shade() < 1))
-                                endpoints.push_back(make_pair(i,j));
-                         }
-                     }
-                     //detect.write("orig2.png");
-                     cout << "Endpoints found: " << endpoints.size() << endl;
+                            
+                            // If the current pixel, or the pixel to its immediate right are non-white,
+                            // and 3 of the adjacent groups are completely white, then add the current
+                            // pixel (or immediate right) to list of endpoints.
+                            ColorGray current_pixel = detect.pixelColor(i,j);
+                            ColorGray current_right = detect.pixelColor(i+1,j);
+                            if (adj_groups == 1 && (current_pixel.shade() < 1 || current_right.shade() < 1)) {
+                                if (current_pixel.shade() < 1 && current_right.shade() == 1)
+                                    endpoints.push_back(make_pair(i,j));
+                                else if (current_pixel.shade() == 1 && current_right.shade() < 1)
+                                    endpoints.push_back(make_pair(i+1,j));
+                            }
+                        }
+                    }
                      
-                     ColorGray mid0, mid1, mid2, qtr;
-                     
+                     // For each endpoint, loop through all other endpoints
                      for (int i = 0; i < endpoints.size(); i++) {
-                        //show all endpoints:
+                        // Uncomment next line to show all endpoints:
                         //detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
                         for (int j = 0; j < endpoints.size(); j++) {
+                            // If x values are equivalent (+/- 1) and the endpoints are reasonable distance apart
+                            // then procede to next test
                             if ((endpoints.at(i).first == endpoints.at(j).first ||
                                 endpoints.at(i).first == endpoints.at(j).first + 1 ||
                                 endpoints.at(i).first == endpoints.at(j).first - 1) && i != j &&
-                                endpoints.at(i).second - endpoints.at(j).second > 5) {
+                                abs (endpoints.at(i).second - endpoints.at(j).second) > BRACKET_MIN_SIZE) {
                                 
+                                    // Get color information of middle pixel (+/- 1) between the 2 endpoints
+                                    // and quarter point pixels
+                                    ColorGray mid0, mid1, mid2, qtr0, qtr1;
                                     int mid_y = (endpoints.at(i).second + endpoints.at(j).second) / 2;
                                     mid0 = detect.pixelColor(endpoints.at(i).first, mid_y);
                                     mid1 = detect.pixelColor(endpoints.at(i).first, mid_y+1);
                                     mid2 = detect.pixelColor(endpoints.at(i).first, mid_y-1);
-                                    qtr = detect.pixelColor(endpoints.at(i).first, (mid_y + endpoints.at(i).second)/2);
+                                    qtr0 = detect.pixelColor(endpoints.at(i).first, (mid_y + endpoints.at(i).second)/2);
+                                    qtr1 = detect.pixelColor(endpoints.at(j).first, (mid_y + endpoints.at(j).second)/2);
                                     
-                                    //cout << mid0.shade() << " " << mid1.shade() << " " << mid2.shade() << endl;
+                                    // If at least one of the middle pixels are non-white and both of the quarter
+                                    // pixels are white, then add pair as endpoint
+                                    if ((mid0.shade() < 1 || mid1.shade() < 1 || mid2.shade() < 1) && qtr0.shade() == 1 && qtr1.shade() == 1) {
                                     
-                                    if ((mid0.shade() < 1 || mid1.shade() < 1 || mid2.shade() < 1) && qtr.shade() == 1) {
-                                        for (int b = endpoints.at(i).second; b > endpoints.at(j).second; b--)
-                                            detect.pixelColor (endpoints.at(j).first, b, "green");
+                                        // Drawing the green line between endpoints
+                                        if (endpoints.at(j).second > endpoints.at(i).second) {
+                                            for (int b = endpoints.at(i).second; b < endpoints.at(j).second; b++)
+                                                detect.pixelColor (endpoints.at(j).first, b, "green");
+                                        } else {
+                                            for (int b = endpoints.at(j).second; b < endpoints.at(i).second; b++)
+                                                detect.pixelColor (endpoints.at(j).first, b, "green");
+                                        }
                                         detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "blue");
                                         detect.pixelColor (endpoints.at(j).first, endpoints.at(j).second, "blue");
+                                        
+                                        // Uncomment the next 2 lines to print the coords of the endpoints that have been
+                                        // determined to represent a bracket:
+                                        cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
+                                        cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
+                                        
+                                        // Remove the detected endpoints from vector
+                                        if (i > j) {
+                                            endpoints.erase(endpoints.begin() + i);
+                                            endpoints.erase(endpoints.begin() + j);
+                                        }
+                                        else {
+                                            endpoints.erase(endpoints.begin() + j);
+                                            endpoints.erase(endpoints.begin() + i);
+                                         }
                                     }                                   
                             }
                         }
                      }
                     detect.write("out.png");
-                    //detect.write("out.jpg");
                     testing = false;
                 }
-                // END DAVID_DEV
+                // END DAVID_DEV *************************************************************************************
                 
                 
                 Image thick_box;
