@@ -823,6 +823,14 @@ int osra_process_image(
                                     box = thick_box;
                               box.write("thinned.gif");
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
+
+                              //nick_dev begin
+                              vector<bracketbox> bracketboxes;
+                              if(testing){
+                                    remove_brackets(orig_box, st->plist, bracketboxes);
+                                    testing = false;
+                              }
+                              //nick_dev end
                               potrace_path_t const * const p = st->plist;
 
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
@@ -836,6 +844,7 @@ int osra_process_image(
 
                               double avg_bond_length = percentile75(bond, n_bond, atom);
 
+                              /*
                               //nick_dev begin
                               vector<bracketbox> bracketboxes;
                               if(testing){
@@ -844,6 +853,7 @@ int osra_process_image(
                                     testing = false;
                               }
                               //nick_dev end
+                              */
 
                               double max_area = avg_bond_length * 5;
                               if (thick)

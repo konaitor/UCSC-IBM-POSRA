@@ -132,14 +132,14 @@ class bracketbox {
             char type;
 };
 
-void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
-void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height);
-void find_endpoints(const Image &img, vector<point> &endpoints, const double color_threshold, const char color);
+void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+void  remove_brackets(Image img, potrace_path_t *p, vector<bracketbox> &bracketboxes);
+void  david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
 float calc_mean(const potrace_path_t *p, vector<point> &points, const pair<int, int> size, int &total, const map<const potrace_path_t *,bool> &atom_map);
 float calc_stddev(const potrace_path_t *p, const vector<point> &points);
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
 void  lt_one_stddev(vector<point> &points, const unsigned int threshold);
-void  find_paren(Image img, const potrace_path_t *p, vector<atom_t> atoms, vector<bracketbox> &bracketboxes);
+void  find_paren(Image img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
 void  plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> atoms, const std::string color);
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
@@ -152,12 +152,48 @@ void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vecto
                   if(bond->exists) bond->split = bracketbox->intersects(*bond, atoms);
 }
 
-void find_endpoints(const Image &img, vector<point> &endpoints, const double color_threshold, const char color){
-      for(int x = 0; x < img.columns(); ++x)
-            for(int y = 0; y < img.rows(); ++y) {
-                  cursor c(&img, x, y, 3, color_threshold);
-                  if(c.is_endpoint()) endpoints.push_back(point((float)x, (float)y, 0.0, color));
+void remove_brackets(Image img, potrace_path_t *p, vector<bracketbox> &bracketboxes){
+      vector<pair<int, int> > endpoints;
+      vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
+      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
+      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor){
+            bracketboxes.push_back(bracketbox(itor->first, itor->second, 4, 'u')); 
+            for(potrace_path_t *curr = p;curr != NULL; curr = curr->next){
+                  potrace_dpoint_t (*c)[3] = curr->curve.c;
+                  potrace_dpoint_t (*keep_curves)[3] = (potrace_dpoint_t(*)[3])malloc(sizeof(potrace_dpoint_t[3]) * curr->curve.n);
+                  int *keep_tags = (int*)malloc(sizeof(int) * curr->curve.n);
+                  int ki = 0;
+                  for(int i=0;i<curr->curve.n;++i){
+                        if(!bracketboxes.back().is_inside(c[i][2].x, c[i][2].y)){
+                              memcpy(keep_curves[ki], c[i], sizeof(potrace_dpoint_t[3]));
+                              keep_tags[ki]   = curr->curve.tag[i];
+                              ++ki;
+                        }
+                  }
+                  if(ki == curr->curve.n) {
+                        //free(keep_tags);
+                        //free(keep_curves);
+                        continue;
+                  }
+                  potrace_dpoint_t (*newc)[3] = (potrace_dpoint_t(*)[3])malloc(sizeof(potrace_dpoint_t[3]) * ki);
+                  int *newtag = (int*)malloc(sizeof(int) * ki);
+                  memcpy(newc, keep_curves, sizeof(potrace_dpoint_t[3]) * ki);
+                  memcpy(newtag, keep_tags, sizeof(int) * ki);
+                  free(curr->curve.c);
+                  free(curr->curve.tag);
+                  curr->curve.n = ki;
+                  curr->curve.c = newc;
+                  curr->curve.tag = newtag;
             }
+      }
+      for(potrace_path_t *curr = p;curr != NULL; curr = curr->next){
+            potrace_dpoint_t (*c)[3] = curr->curve.c;
+            for(int i=0;i<curr->curve.n;++i){
+                  img.pixelColor(c[i][2].x, c[i][2].y, "green");
+
+            }
+      }
+      img.write("new_potrace.gif");
 }
 
 void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints){
@@ -329,7 +365,7 @@ void plot_points(Image &img, const vector<point> &points){
             }
 }
 
-void find_paren(Image img, const potrace_path_t *p, vector<atom_t> atoms, vector<bracketbox> &bracketboxes){ 
+void find_paren(Image img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){ 
       /*
       std::cout << atoms.size() << endl;
       map<const potrace_path_t *, bool> atom_map;
@@ -353,6 +389,7 @@ void find_paren(Image img, const potrace_path_t *p, vector<atom_t> atoms, vector
             for(vector<atom_t>::iterator atom = atoms.begin(); atom != atoms.end(); ++atom){
                   if(bracketboxes.back().is_inside(atom->x, atom->y)) {
                         atom->exists = false;
+                        atom->ignore = true;
                         img.pixelColor(atom->x, atom->y, "blue");
                   }
             }
