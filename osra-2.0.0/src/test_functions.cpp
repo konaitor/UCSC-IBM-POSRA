@@ -85,36 +85,87 @@ class bracketbox {
              * p1, p2 initialize extrema of brackets
              * width - width of the bounding box (Maybe function bond distance or maybe another way to calclulate more precisely)
              * type - Either 'l'/'L' or 'r'/'R' or 'u'/'U' for respectively Left or Right or Unknown bracket orientation
-             * cx, and cy denote the upper left hand corner of the box
+             * tlx, and tly denote the upper left hand corner of the box
+             * brx, and bry denote the lower right hand corner of the box
+             * cx*, cy* represent where the bond is broken by the box
             */
-            bracketbox(const pair<int, int> p1, const pair<int, int> p2, const int width, const char type): 
-                  x1(p1.first), y1(p1.second), x2(p2.first), y2(p2.second), width(width), type(type),
-                  cx(abs(p1.first-width)), cy((p1.second < p2.second) ? p1.second : p2.second), height(abs(p1.second - p2.second)) {};
-
-            bool is_inside(const int x, const int y) { 
-                  bool res = false;
-                  bool unknown = false;
-                  switch (tolower(type)){
-                        case 'l' : break;
-                        case 'r' : cx+=width; break;
-                        default  : type = 'l'; width*=2; break;
+            bracketbox(const pair<int, int> p1, const pair<int, int> p2, Image img): 
+                  x1(p1.first), y1(p1.second), x2(p2.first), y2(p2.second) 
+            { 
+                  height = abs(y1 - y2);
+                  tly = (y1 < y2) ? y1 : y2;
+                  bry = tly + height;
+                  int threshold = height / 2;
+                  int l_confidence = 0;
+                  int r_confidence = 0;
+                  int l_width = 0;
+                  int r_width = 0;
+                  int l_cx2 = 0;
+                  int l_cy2 = 0;
+                  int r_cx2 = 0;
+                  int r_cy2 = 0;
+                  bool found = false;
+                  for(int y = tly; y < bry; ++y){
+                        //Record bond location
+                        if(!found && abs(y-tly) > height / 4 && ColorGray(img.pixelColor(x1, y)).shade() < 1.0){
+                              cx1 = x1;
+                              cy1 = y;
+                              found = true;
+                        }
+                        //Check left
+                        for(int x = x1; x > (x1 - threshold); --x)
+                              if(ColorGray(img.pixelColor(x, y)).shade() < 1.0){
+                                    ++l_confidence;
+                                    if(abs(x - x1) > l_width) {
+                                          l_width = abs(x - x1);
+                                          l_cx2 = x;
+                                          l_cy2 = y;
+                                    }
+                                    break;
+                              }
+                        //Check right
+                        for(int x = x1; x < (x1 + threshold); ++x)
+                              if(ColorGray(img.pixelColor(x, y)).shade() < 1.0){
+                                    ++r_confidence;
+                                    if(abs(x - x1) > r_width){ 
+                                          r_width = abs(x - x1);
+                                          r_cx2 = x;
+                                          r_cy2 = y;
+                                    }
+                                    break;
+                              }
                   }
-                  const int left = cx;
-                  const int right = cx + width;
-                  const int top = cy;
-                  const int bottom = cy + height;
-                  if(x >= left && x <= right &&
-                     y >= top  && y <= bottom) 
-                        res = true;
-                  return res;
+                  if(l_confidence > r_confidence){
+                        type = 'l';
+                        width = l_width;
+                        tlx = x1 - width;
+                        brx = x2;
+                        ++cx1;
+                        cx2 = l_cx2 - 1;
+                        cy2 = l_cy2;
+                  }else{
+                        type = 'r';
+                        width = r_width;
+                        tlx = x1;
+                        brx = x2 + width;
+                        --cx1;
+                        cx2 = r_cx2 + 1;
+                        cy2 = r_cy2;
+                  }
             };
 
-            void plot(Image img){
-                  img.pixelColor(cx, cy, "green");
-                  img.pixelColor(cx+width, cy, "green");
-                  img.pixelColor(cx, cy+height, "green");
-                  img.pixelColor(cx+width, cy+height, "green");
-                  img.write("paren_box.gif");
+            void remove_brackets(Image &img){
+                  img.fillColor("white");
+                  img.strokeColor("white");
+                  img.strokeWidth(0.0);
+                  img.draw(DrawableRectangle(tlx, tly, brx, bry));
+                  img.strokeColor("black");
+                  img.strokeWidth(1.0);
+                  img.draw(DrawableLine((double)cx1, (double)cy1, (double)cx2, (double)cy2));
+            };
+
+            bool is_inside(const int x, const int y) { 
+                  return (x >= tlx && x <= brx && y >= tly  && y <= bry);
             };
 
             bool intersects(const bond_t &bond, const vector<atom_t> &atoms){
@@ -128,7 +179,7 @@ class bracketbox {
             };
 
       private:
-            int x1, x2, y1, y2, width, height, cx, cy;
+            int x1, x2, y1, y2, width, height, tlx, tly, brx, bry, cx1, cy1, cx2, cy2;
             char type;
 };
 
@@ -157,7 +208,7 @@ void remove_brackets(Image img, potrace_path_t *p, vector<bracketbox> &bracketbo
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
       david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor){
-            bracketboxes.push_back(bracketbox(itor->first, itor->second, 4, 'u')); 
+            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
             for(potrace_path_t *curr = p;curr != NULL; curr = curr->next){
                   potrace_dpoint_t (*c)[3] = curr->curve.c;
                   potrace_dpoint_t (*keep_curves)[3] = (potrace_dpoint_t(*)[3])malloc(sizeof(potrace_dpoint_t[3]) * curr->curve.n);
@@ -384,18 +435,10 @@ void find_paren(Image img, const potrace_path_t *p, vector<atom_t> &atoms, vecto
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
       david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
-      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor){
-            bracketboxes.push_back(bracketbox(itor->first, itor->second, 4, 'u')); 
-            for(vector<atom_t>::iterator atom = atoms.begin(); atom != atoms.end(); ++atom){
-                  if(bracketboxes.back().is_inside(atom->x, atom->y)) {
-                        atom->exists = false;
-                        atom->ignore = true;
-                        img.pixelColor(atom->x, atom->y, "blue");
-                  }
-            }
-      }
-      bracketboxes[0].plot(img);
-      bracketboxes[1].plot(img);
+      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
+            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
+      bracketboxes[0].remove_brackets(img);
+      bracketboxes[1].remove_brackets(img);
       //find_endpoints(img, endpoints, 1.0, GREEN);
       //plot_points(img, endpoints);
       img.write("paren_plot.gif");
