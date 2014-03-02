@@ -9,5 +9,5 @@ Version: 2.0.0
 
 #Requires: gocr ocrad openbabel-2.0 GraphicsMagick++
 Requires: openbabel-2.0 GraphicsMagick++
-Libs: -L${libdir} -lPgm2asc -lGraphicsMagick -lGraphicsMagick++ -lopenbabel -locrad -lpotrace -lm 
+Libs: -L${libdir} -lPgm2asc -lnetpbm -lGraphicsMagick -lGraphicsMagick++ -lopenbabel -locrad -lpotrace -lm 
 Cflags: -I${includedir}
