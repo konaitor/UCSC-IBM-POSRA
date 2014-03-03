@@ -822,6 +822,11 @@ int osra_process_image(
                               else
                                     box = thick_box;
                               box.write("thinned.gif");
+                              //nick_dev begin
+                              if(testing) {
+                                    find_brackets(box, *(new vector<bracketbox>()));
+                              }
+                              //nick_dev end
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
 
                               /*
@@ -850,8 +855,8 @@ int osra_process_image(
                               vector<bracketbox> bracketboxes;
                               if(testing){
                                     //print_images(p, width, height, box);
-                                    find_paren(orig_box, p, atom, bracketboxes);
-                                    testing = false;
+                                    find_brackets(orig_box, bracketboxes);
+                                    //testing = false;
                               }
                               //nick_dev end
 
@@ -983,9 +988,16 @@ int osra_process_image(
                               int bond_max_type = 0;
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
-                              //nick_dev
-                              find_intersection(bond,atom,bracketboxes);
-                              plot_all(thick_box, k, "end", atom, bond, letters, label);
+                              //nick_dev begin
+                              if(testing) {
+                                    find_intersection(bond,atom,bracketboxes);
+
+                                    for(vector<bond_t>::const_iterator itor = bond.begin(); itor != bond.end(); ++itor)
+                                                if(itor->split) cout << "splitted" << endl;
+                                    plot_all(orig_box, k, "end", atom, bond, letters, label);
+                                    testing = false;
+                              }
+                              //nick_dev end
 
                               if (verbose)
                                     cout << "Final number of atoms: " << real_atoms << ", bonds: " << real_bonds << ", chars: " << n_letters << '.' << endl;

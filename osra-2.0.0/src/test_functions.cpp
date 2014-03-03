@@ -143,6 +143,12 @@ class bracketbox {
                         ++cx1;
                         cx2 = l_cx2 - 1;
                         cy2 = l_cy2;
+                        for(int y = tly; y < bry; ++y)
+                              if(ColorGray(img.pixelColor(tlx - 1, y)).shade() < 1.0){
+                                    cx2 = tlx - 1;
+                                    cy2 = y;
+                                    break;
+                              }
                   }else{
                         type = 'r';
                         width = r_width;
@@ -151,6 +157,12 @@ class bracketbox {
                         --cx1;
                         cx2 = r_cx2 + 1;
                         cy2 = r_cy2;
+                        for(int y = tly; y < bry; ++y)
+                              if(ColorGray(img.pixelColor(brx + 1, y)).shade() < 1.0){
+                                    cx2 = brx + 1;
+                                    cy2 = y;
+                                    break;
+                              }
                   }
             };
 
@@ -169,13 +181,14 @@ class bracketbox {
             };
 
             bool intersects(const bond_t &bond, const vector<atom_t> &atoms){
-                  double atom1_x = atoms[bond.a].x;
-                  double atom1_y = atoms[bond.a].y;
-                  double atom2_x = atoms[bond.b].x;
-                  double atom2_y = atoms[bond.b].y;
-                  double midx = (atom1_x + atom2_x) / 2.0;
-                  double midy = (atom1_y + atom2_y) / 2.0;
-                  return is_inside((int)midx, (int)midy);
+                  double ax1 = atoms[bond.a].x;
+                  double ay1 = atoms[bond.a].y;
+                  double ax2 = atoms[bond.b].x;
+                  double ay2 = atoms[bond.b].y;
+                  double right = (ax1 > ax2) ? ax1 : ax2;
+                  double left  = (ax1 < ax2) ? ax1 : ax2;
+                  double midy  = (ay1 + ay2) / 2.0;
+                  return (x1 < right && x1 > left && midy > tly && midy < bry);
             };
 
       private:
@@ -190,7 +203,8 @@ float calc_mean(const potrace_path_t *p, vector<point> &points, const pair<int, 
 float calc_stddev(const potrace_path_t *p, const vector<point> &points);
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
 void  lt_one_stddev(vector<point> &points, const unsigned int threshold);
-void  find_paren(Image img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+void  find_brackets(Image &img, vector<bracketbox> &bracketboxes);
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
 void  plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> atoms, const std::string color);
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
@@ -198,9 +212,9 @@ void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> 
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);
 
 void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){
-      for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
-            for(vector<bracketbox>::iterator bracketbox = bracketboxes.begin(); bracketbox != bracketboxes.end(); ++bracketbox)
-                  if(bond->exists) bond->split = bracketbox->intersects(*bond, atoms);
+      for(vector<bracketbox>::iterator bracketbox = bracketboxes.begin(); bracketbox != bracketboxes.end(); ++bracketbox)
+            for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
+                  if(bond->exists) {  bond->split = bracketbox->intersects(*bond, atoms); if(bond->split) cout << distance(bond, bonds.begin()) << endl; }
 }
 
 void remove_brackets(Image img, potrace_path_t *p, vector<bracketbox> &bracketboxes){
@@ -416,7 +430,7 @@ void plot_points(Image &img, const vector<point> &points){
             }
 }
 
-void find_paren(Image img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){ 
+void find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){ 
       /*
       std::cout << atoms.size() << endl;
       map<const potrace_path_t *, bool> atom_map;
@@ -444,6 +458,16 @@ void find_paren(Image img, const potrace_path_t *p, vector<atom_t> &atoms, vecto
       img.write("paren_plot.gif");
 }
 
+void find_brackets(Image &img, vector<bracketbox> &bracketboxes){ 
+      vector<pair<int, int> > endpoints;
+      vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
+      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
+      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
+            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
+      bracketboxes[0].remove_brackets(img);
+      bracketboxes[1].remove_brackets(img);
+}
+
 
 void plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color){
       for(vector<atom_t>::const_iterator itor = atoms.begin(); itor != atoms.end(); ++itor)
@@ -455,8 +479,8 @@ void plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> at
             if(itor->exists){
                   int x = (atoms[itor->a].x + atoms[itor->b].x) / 2;
                   int y = (atoms[itor->a].y + atoms[itor->b].y) / 2;
-                  img.pixelColor(x, y, color);
                   if(itor->split) img.pixelColor(x, y, "green");
+                  else img.pixelColor(x, y, color);
             }
 }
 
