@@ -823,21 +823,13 @@ int osra_process_image(
                                     box = thick_box;
                               box.write("thinned.gif");
                               //nick_dev begin
+                              vector<bracketbox> bracketboxes;
                               if(testing) {
                                     find_brackets(box, *(new vector<bracketbox>()));
+                                    find_brackets(orig_box, bracketboxes);
                               }
                               //nick_dev end
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
-
-                              /*
-                              //nick_dev begin
-                              vector<bracketbox> bracketboxes;
-                              if(testing){
-                                    remove_brackets(orig_box, st->plist, bracketboxes);
-                                    testing = false;
-                              }
-                              //nick_dev end
-                              */
                               potrace_path_t const * const p = st->plist;
 
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
@@ -850,15 +842,6 @@ int osra_process_image(
                                     cout << "Number of atoms: " << n_atom << ", bonds: " << n_bond << ", " << n_letters << " letters: " << n_letters << " " << letters << " after find_atoms()" << endl;
 
                               double avg_bond_length = percentile75(bond, n_bond, atom);
-
-                              //nick_dev begin
-                              vector<bracketbox> bracketboxes;
-                              if(testing){
-                                    //print_images(p, width, height, box);
-                                    find_brackets(orig_box, bracketboxes);
-                                    //testing = false;
-                              }
-                              //nick_dev end
 
                               double max_area = avg_bond_length * 5;
                               if (thick)
@@ -991,9 +974,6 @@ int osra_process_image(
                               //nick_dev begin
                               if(testing) {
                                     find_intersection(bond,atom,bracketboxes);
-
-                                    for(vector<bond_t>::const_iterator itor = bond.begin(); itor != bond.end(); ++itor)
-                                                if(itor->split) cout << "splitted" << endl;
                                     plot_all(orig_box, k, "end", atom, bond, letters, label);
                                     testing = false;
                               }

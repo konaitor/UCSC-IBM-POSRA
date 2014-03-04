@@ -55,28 +55,6 @@ class point {
             unsigned char color;
 };
 
-class cursor {
-      public:
-            cursor(const Image *img, int x, int y, int components, double threshold):
-                  bm(0L),c(components), t(threshold), e(true), m((1L<<(components*w))-1L), w(2L)
-            {
-                  ColorGray cg = img->pixelColor(x,y);
-                  if(cg.shade() < t && cg.alpha() == 0) e = false;
-                  _f(img, x    , y - c);
-                  _f(img, x + 2, y);
-                  _f(img, x    , y + 2);
-                  _f(img, x - c, y + 2);
-            };
-            bool is_endpoint() { if(e) return false; int r=0; for(int i=0;i<c;++i,r+=_r(bm&(m<<(i*2*c)))); return r==1; };
-      private:
-            unsigned long c, bm, m, w;
-            double t;
-            bool e;
-            void set_point(double s) { bm<<=1; bm+=(s<t)?1:0; };
-            int _r(int d) { return d>0; };
-            void _f(const Image *img, int x, int y) { for(int i=0;i<w;++i) for(int j=0;j<c;++j,set_point(ColorGray(img->pixelColor(x+i, y+j)).shade())); };
-};
-
 class bracketbox {
       public:
             /* -- bracketbox --
@@ -94,7 +72,7 @@ class bracketbox {
             { 
                   height = abs(y1 - y2);
                   tly = (y1 < y2) ? y1 : y2;
-                  bry = tly + height;
+                  bry = tly + height + 1;
                   int threshold = height / 2;
                   int l_confidence = 0;
                   int r_confidence = 0;
@@ -138,7 +116,7 @@ class bracketbox {
                   if(l_confidence > r_confidence){
                         type = 'l';
                         width = l_width;
-                        tlx = x1 - width;
+                        tlx = x1 - width - 1;
                         brx = x2;
                         ++cx1;
                         cx2 = l_cx2 - 1;
@@ -153,7 +131,7 @@ class bracketbox {
                         type = 'r';
                         width = r_width;
                         tlx = x1;
-                        brx = x2 + width;
+                        brx = x2 + width + 1;
                         --cx1;
                         cx2 = r_cx2 + 1;
                         cy2 = r_cy2;
@@ -176,10 +154,6 @@ class bracketbox {
                   img.draw(DrawableLine((double)cx1, (double)cy1, (double)cx2, (double)cy2));
             };
 
-            bool is_inside(const int x, const int y) { 
-                  return (x >= tlx && x <= brx && y >= tly  && y <= bry);
-            };
-
             bool intersects(const bond_t &bond, const vector<atom_t> &atoms){
                   double ax1 = atoms[bond.a].x;
                   double ay1 = atoms[bond.a].y;
@@ -197,12 +171,8 @@ class bracketbox {
 };
 
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
-void  remove_brackets(Image img, potrace_path_t *p, vector<bracketbox> &bracketboxes);
 void  david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
-float calc_mean(const potrace_path_t *p, vector<point> &points, const pair<int, int> size, int &total, const map<const potrace_path_t *,bool> &atom_map);
-float calc_stddev(const potrace_path_t *p, const vector<point> &points);
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
-void  lt_one_stddev(vector<point> &points, const unsigned int threshold);
 void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
 void  find_brackets(Image &img, vector<bracketbox> &bracketboxes);
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
@@ -212,53 +182,8 @@ void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> 
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);
 
 void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){
-      for(vector<bracketbox>::iterator bracketbox = bracketboxes.begin(); bracketbox != bracketboxes.end(); ++bracketbox)
-            for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
-                  if(bond->exists) {  bond->split = bracketbox->intersects(*bond, atoms); if(bond->split) cout << distance(bond, bonds.begin()) << endl; }
-}
-
-void remove_brackets(Image img, potrace_path_t *p, vector<bracketbox> &bracketboxes){
-      vector<pair<int, int> > endpoints;
-      vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
-      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
-      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor){
-            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
-            for(potrace_path_t *curr = p;curr != NULL; curr = curr->next){
-                  potrace_dpoint_t (*c)[3] = curr->curve.c;
-                  potrace_dpoint_t (*keep_curves)[3] = (potrace_dpoint_t(*)[3])malloc(sizeof(potrace_dpoint_t[3]) * curr->curve.n);
-                  int *keep_tags = (int*)malloc(sizeof(int) * curr->curve.n);
-                  int ki = 0;
-                  for(int i=0;i<curr->curve.n;++i){
-                        if(!bracketboxes.back().is_inside(c[i][2].x, c[i][2].y)){
-                              memcpy(keep_curves[ki], c[i], sizeof(potrace_dpoint_t[3]));
-                              keep_tags[ki]   = curr->curve.tag[i];
-                              ++ki;
-                        }
-                  }
-                  if(ki == curr->curve.n) {
-                        //free(keep_tags);
-                        //free(keep_curves);
-                        continue;
-                  }
-                  potrace_dpoint_t (*newc)[3] = (potrace_dpoint_t(*)[3])malloc(sizeof(potrace_dpoint_t[3]) * ki);
-                  int *newtag = (int*)malloc(sizeof(int) * ki);
-                  memcpy(newc, keep_curves, sizeof(potrace_dpoint_t[3]) * ki);
-                  memcpy(newtag, keep_tags, sizeof(int) * ki);
-                  free(curr->curve.c);
-                  free(curr->curve.tag);
-                  curr->curve.n = ki;
-                  curr->curve.c = newc;
-                  curr->curve.tag = newtag;
-            }
-      }
-      for(potrace_path_t *curr = p;curr != NULL; curr = curr->next){
-            potrace_dpoint_t (*c)[3] = curr->curve.c;
-            for(int i=0;i<curr->curve.n;++i){
-                  img.pixelColor(c[i][2].x, c[i][2].y, "green");
-
-            }
-      }
-      img.write("new_potrace.gif");
+      for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
+            if(bond->exists) bond->split = (bracketboxes[0].intersects(*bond, atoms) || bracketboxes[1].intersects(*bond, atoms));
 }
 
 void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints){
@@ -347,8 +272,8 @@ void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int 
 
                               // Uncomment the next 2 lines to print the coords of the endpoints that have been
                               // determined to represent a bracket:
-                              cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
-                              cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
+                              //cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
+                              //cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
                               bracketpoints.push_back(make_pair(endpoints.at(i), endpoints.at(j)));
 
                               // Remove the detected endpoints from vector
@@ -367,55 +292,14 @@ void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int 
       detect.write("out.png");
 }
 
-float calc_mean(const potrace_path_t *p, vector<point> &points, const pair<int, int> size, int &total, const map<const potrace_path_t *, bool> &atom_map){
-      float mean = 0.0;
-      unsigned int k = 0;
-      for(const potrace_path_t *curr = p;curr != NULL; curr = curr->next, ++k){
-            if(atom_map.find(curr) != atom_map.end()) { if(!atom_map.find(curr)->second) continue; }
-            potrace_dpoint_t (*c)[3] = curr->curve.c;
-            for(int i=0;i<curr->curve.n;++i, ++total){
-                  if(i != 0){
-                        int x0 = c[i-1][2].x, y0 = c[i-1][0].y;  // x, y of previous point / First point
-                        int x1 = c[ i ][0].x, y1 = c[ i ][0].y;  // x, y of first handle
-                        int x2 = c[ i ][1].x, y2 = c[ i ][1].y;  // x, y of second handle
-                        int x3 = c[ i ][2].x, y3 = c[ i ][2].y;  // x, y of point
-                        if(x0 < 0 || x0 > size.first ) continue; // if bad x, y neglect point
-                        if(x1 < 0 || x1 > size.first ) continue;
-                        if(x2 < 0 || x2 > size.first ) continue;
-                        if(x3 < 0 || x3 > size.first ) continue;
-                        if(y0 < 0 || y0 > size.second) continue;
-                        if(y1 < 0 || y1 > size.second) continue;
-                        if(y2 < 0 || y2 > size.second) continue;
-                        if(y3 < 0 || y3 > size.second) continue;
-                        float dis1 = 0.0;
-                        float dis2 = 0.0;
-                        float dis3 = 0.0;
-                        if(curr->curve.tag[i] == POTRACE_CURVETO) { 
-                              dis1 = sqrt(pow((x1 - x0), 2.0) + pow((y1 - y0), 2.0)); 
-                              dis2 = sqrt(pow((x1 - x2), 2.0) + pow((y1 - y2), 2.0)); 
-                        } else {
-                              dis1 = sqrt(pow((x2 - x0), 2.0) + pow((y2 - y0), 2.0)); 
-                        }
-                        dis3 = sqrt(pow((x2 - x3), 2.0) + pow((y2 - y3), 2.0));
-                        if(dis1==dis1) { mean += dis1; points.push_back(point(x1, y1, dis1, CLEAR)); ++total; } else continue;
-                        if(dis2==dis2) { mean += dis2; points.push_back(point(x2, y2, dis2, CLEAR)); ++total; } else continue;
-                        if(dis3==dis3) { mean += dis3; points.push_back(point(x3, y3, dis3, CLEAR)); ++total; } else continue;
-                  }
-            }
-      }
-      return (mean / total);
-}
-
-float calc_stddev(const float mean, const vector<point> &points, const int total){
-      float variance = 0.0;
-      for(vector<point>::const_iterator itor = points.begin(); itor != points.end(); ++itor)
-            variance += pow(itor->d - mean, 2.0);
-      return sqrt(variance / total);
-}
-
-void lt_one_stddev(vector<point> &points, const unsigned int threshold, char color){
-      for(vector<point>::iterator itor = points.begin(); itor != points.end(); ++itor)
-            if((int)itor->d < threshold) itor->color = color; 
+void find_brackets(Image &img, vector<bracketbox> &bracketboxes){ 
+      vector<pair<int, int> > endpoints;
+      vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
+      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
+      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
+            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
+      bracketboxes[0].remove_brackets(img);
+      bracketboxes[1].remove_brackets(img);
 }
 
 void plot_points(Image &img, const vector<point> &points){
@@ -429,45 +313,6 @@ void plot_points(Image &img, const vector<point> &points){
                   img.pixelColor(x, y, colors[itor->color]);
             }
 }
-
-void find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){ 
-      /*
-      std::cout << atoms.size() << endl;
-      map<const potrace_path_t *, bool> atom_map;
-      for(vector<atom_t>::const_iterator itor = atoms.begin(); itor != atoms.end(); ++itor)
-            atom_map[itor->curve] = itor->exists;
-      vector<point> points;
-      const int num_stddevs = 1;
-      int total;
-      const float mean = calc_mean(p, points, pair<int, int>(img.columns(), img.rows()), total, atom_map);
-      const float stddev = calc_stddev(mean, points, total);
-      const unsigned int threshold = abs((int)(mean - stddev*num_stddevs));
-      std::cout << mean << " " << stddev << " " << threshold << " " << total << std::endl;
-      lt_one_stddev(points, 12, BLUE);
-      plot_points(img, points);
-      */
-      vector<pair<int, int> > endpoints;
-      vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
-      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
-      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
-            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
-      bracketboxes[0].remove_brackets(img);
-      bracketboxes[1].remove_brackets(img);
-      //find_endpoints(img, endpoints, 1.0, GREEN);
-      //plot_points(img, endpoints);
-      img.write("paren_plot.gif");
-}
-
-void find_brackets(Image &img, vector<bracketbox> &bracketboxes){ 
-      vector<pair<int, int> > endpoints;
-      vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
-      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
-      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
-            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
-      bracketboxes[0].remove_brackets(img);
-      bracketboxes[1].remove_brackets(img);
-}
-
 
 void plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color){
       for(vector<atom_t>::const_iterator itor = atoms.begin(); itor != atoms.end(); ++itor)
