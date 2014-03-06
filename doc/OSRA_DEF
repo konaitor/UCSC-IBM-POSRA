@@ -42,6 +42,12 @@ osra_lib.cpp
             829 - Find plus minus (see osra_labels.cpp) 
             831 - Find small bonds (see osra_structure.cpp)
 
+      split_fragments_and_assemble_structure_record
+            338 - declare atom / bond fragments
+            343 - 419 - Format / final touches
+            420 - get_formatted_structure (see osra_openbable.cpp) - Entry point to open babel stuff
+
+
 osra_structure.cpp
       1259 - find_atoms - Use the potrace data to detect atom and eventually bond locations
                           Push all control points!!!! Regardless of position
@@ -84,3 +90,10 @@ osra_labels.cpp
 
 osra_common.cpp
       
+osra_openbabel.cpp
+      540 - get_formatted_structure 
+            550 - create_molecule (see line 265)
+
+      265 - create_molecule
+            :qa
+

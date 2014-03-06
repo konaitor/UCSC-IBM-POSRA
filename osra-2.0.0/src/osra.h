@@ -41,7 +41,7 @@ using namespace Magick;
 struct atom_s
 {
 atom_s(double xx=0, double yy=0, const potrace_path_t* p=NULL) : 
-  x(xx),y(yy),min_x(xx),min_y(yy),max_x(xx),max_y(yy),curve(p),label(" "),n(0),anum(0), exists(false),corner(false),terminal(false),charge(0),ignore(false) {}
+  x(xx),y(yy),min_x(xx),min_y(yy),max_x(xx),max_y(yy),curve(p),label(" "),n(0),anum(0), exists(false),corner(false),terminal(false),charge(0){}
   // doubles: x, y
   //    coordinates within the image clip
   double x, y;
@@ -59,7 +59,7 @@ atom_s(double xx=0, double yy=0, const potrace_path_t* p=NULL) :
   const potrace_path_t *curve;
   // bools: exists, corner, terminal
   //    atom exists, atom is at the corner (has two bonds leading to it), atom is a terminal atom
-  bool exists, corner, terminal, ignore;
+  bool exists, corner, terminal;
   // int: charge
   //    electric charge on the atom
   int charge;
