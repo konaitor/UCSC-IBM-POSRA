@@ -354,10 +354,7 @@ void split_fragments_and_assemble_structure_record(vector<atom_t> &atom,
             mark_terminal_atoms(bond, n_bond, atom, n_atom);
             const vector<vector<int> > &frags = find_fragments(bond, n_bond, atom);
             vector<fragment_t> fragments = populate_fragments(frags, atom);
-            cout << fragments.size() << endl;
             std::sort(fragments.begin(), fragments.end(), comp_fragments);
-            for(vector<atom_t>::iterator a = atom.begin(); a != atom.end(); ++a)
-                  if(a->exists) cout << *a << endl;
             for (unsigned int i = 0; i < fragments.size(); i++)
             {
                   if (verbose)
@@ -976,7 +973,7 @@ int osra_process_image(
                               //nick_dev begin
                               if(testing) {
                                     find_intersection(bond,atom,bracketboxes);
-                                    split_atom(bond, atom);
+                                    split_atom(bond, atom, n_atom, n_bond);
                                     plot_all(orig_box, k, "end", atom, bond, letters, label);
                                     //testing = false;
                               }

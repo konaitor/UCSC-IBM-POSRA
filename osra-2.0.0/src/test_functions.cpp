@@ -172,7 +172,7 @@ class bracketbox {
 };
 
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
-void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms);
+void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond);
 void  david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
 void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
@@ -184,67 +184,27 @@ void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> 
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);
 
 void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){
+      if(bracketboxes.size() != 2) return;
       for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
             if(bond->exists) bond->split = (bracketboxes[0].intersects(*bond, atoms) || bracketboxes[1].intersects(*bond, atoms));
 }
 
-void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms){
-      atom_t FLOURINE;
-      FLOURINE.anum = 9;
-      FLOURINE.exists = FLOURINE.terminal = true;
-      /*
-      for(vector<atom_t>::iterator atom = atoms.begin(); atom != atoms.end(); ++atom)
-            if(atom->exists) cout << atom->label << endl;
-            */
+void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond){
       for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond){
             if(bond->split){
-                  /*
-                  bond_t newbond = *bond;
-                  newbond.split = false;
-                  bonds.push_back(newbond);
+                  ++n_atom;
+                  ++n_bond;
                   double x = (atoms[bond->a].x + atoms[bond->b].x) / 2;  
                   double y = (atoms[bond->a].y + atoms[bond->b].y) / 2;  
-                  atom_t FLOURINE1(atoms[ bond->b ]);
-                  //FLOURINE1.anum = 9;
-                  FLOURINE1.exists = FLOURINE1.terminal = true;
-                  FLOURINE1.x = x - 5;
-                  FLOURINE1.y = y - 5;
-                  FLOURINE1.label = "F";
-                  atoms.push_back(FLOURINE1);
-                  bond->b = atoms.size() - 1;
-                  atom_t FLOURINE2(atoms[ bond->a ]);
-                  //FLOURINE2.anum = 9;
-                  FLOURINE2.exists = FLOURINE2.terminal = true;
-                  FLOURINE2.x = x + 5;
-                  FLOURINE2.y = y + 5;
-                  FLOURINE2.label = "F";
-                  atoms.push_back(FLOURINE2);
-                  bonds.back().a = atoms.size() - 1;
-                  cout << atoms.size() << endl;
-                  /*
-                  atoms.push_back(FLOURINE);
-                  bonds.push_back(bond_t(atoms.size() - 1, atom_b, NULL));
-                  bonds.back().type = 1;
-                  bonds.back().exists = true;
-                  */
-                  double x = (atoms[bond->a].x + atoms[bond->b].x) / 2;  
-                  double y = (atoms[bond->a].y + atoms[bond->b].y) / 2;  
-                  atom_t POLONIUM;
-                  POLONIUM.exists = true;
-                  POLONIUM.label = "Po";
-                  POLONIUM.x = x;
-                  POLONIUM.y = y;
-                  atoms.push_back(POLONIUM);
-                  bond_t newbond;
-                  newbond.exists = true;
-                  newbond.split = false;
-                  newbond.type = 1;
-                  newbond.a = atoms.size() - 1;
-                  newbond.b = bond->b;
+                  atom_t *POLONIUM = new atom_t(x, y, bond->curve);
+                  POLONIUM->exists = true;
+                  POLONIUM->label = "Po";
+                  atoms.push_back(*POLONIUM);
+                  bond_t *newbond = new bond_t(atoms.size()-1, bond->b, bond->curve);
+                  bonds.push_back(*newbond);
                   bond->b = atoms.size() - 1;
             }
       }
-
 }
 
 void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints){
@@ -357,11 +317,13 @@ void find_brackets(Image &img, vector<bracketbox> &bracketboxes){
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
       david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
-      if(bracketpoints.size() < 2) return;
+      if(bracketpoints.size() != 2) return;
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
             bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
-      bracketboxes[bracketboxes.size() - 2].remove_brackets(img);
-      bracketboxes[bracketboxes.size() - 1].remove_brackets(img);
+      //bracketboxes[bracketboxes.size() - 2].remove_brackets(img);
+      //bracketboxes[bracketboxes.size() - 1].remove_brackets(img);
+      bracketboxes[0].remove_brackets(img);
+      bracketboxes[1].remove_brackets(img);
 }
 
 void plot_points(Image &img, const vector<point> &points){
