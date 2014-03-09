@@ -171,6 +171,7 @@ class bracketbox {
             char type;
 };
 
+void  edit_smiles(string &s);
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
 void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond);
 void  david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
@@ -182,6 +183,23 @@ void  plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> a
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
 void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels);
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);
+
+void edit_smiles(string &s){
+      string tmp = s;
+      vector<string> pieces;
+      unsigned begin = 0;
+      unsigned end = 0;
+      while(begin < tmp.size() && end < tmp.size()){
+            end = tmp.find("[Po]", begin);
+            if(end == string::npos) break;
+            pieces.push_back(tmp.substr(begin, end - begin)); 
+            begin = end + 4L;
+      }
+      int t = 0;
+      for(vector<string>::iterator itor = pieces.begin(); itor != pieces.end(); ++itor) {
+            cout << string((t++%2==0)?"EG: ":"RU: ") << *itor << endl;
+      }
+}
 
 void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){
       if(bracketboxes.size() != 2) return;
@@ -196,12 +214,12 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
                   ++n_bond;
                   double x = (atoms[bond->a].x + atoms[bond->b].x) / 2;  
                   double y = (atoms[bond->a].y + atoms[bond->b].y) / 2;  
-                  atom_t *POLONIUM = new atom_t(x, y, bond->curve);
-                  POLONIUM->exists = true;
-                  POLONIUM->label = "Po";
-                  atoms.push_back(*POLONIUM);
-                  bond_t *newbond = new bond_t(atoms.size()-1, bond->b, bond->curve);
-                  bonds.push_back(*newbond);
+                  atom_t POLONIUM(x, y, bond->curve);
+                  POLONIUM.exists = true;
+                  POLONIUM.label = "Po";
+                  atoms.push_back(POLONIUM);
+                  bond_t newbond(atoms.size()-1, bond->b, bond->curve);
+                  bonds.push_back(newbond);
                   bond->b = atoms.size() - 1;
             }
       }

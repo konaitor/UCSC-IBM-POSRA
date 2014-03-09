@@ -425,6 +425,9 @@ void split_fragments_and_assemble_structure_record(vector<atom_t> &atom,
                                           show_page ? &page_number : NULL,
                                           show_coordinates ? &coordinate_box : NULL, superatom, n_letters, show_learning, resolution_iteration, verbose);
 
+                        //nick_dev  
+                        edit_smiles(structure);
+
                         if (molecule_statistics.fragments > 0 && molecule_statistics.fragments < MAX_FRAGMENTS && molecule_statistics.num_atoms>MIN_A_COUNT && molecule_statistics.num_bonds>0)
                         {
                               array_of_structures[res_iter].push_back(structure);
@@ -975,6 +978,9 @@ int osra_process_image(
                                     find_intersection(bond,atom,bracketboxes);
                                     split_atom(bond, atom, n_atom, n_bond);
                                     plot_all(orig_box, k, "end", atom, bond, letters, label);
+                                    for(vector<letters_t>::iterator letter = letters.begin(); letter != letters.end(); ++letter){
+                                          if(letter->free) cout << letter->a << endl;
+                                    }
                                     //testing = false;
                               }
                               //nick_dev end
