@@ -1,41 +1,87 @@
 //Tests multiple diagrams through OSRA 
 #include <iostream>
+#include <fstream>
 #include <stdio.h>
 #include <vector>
+#include <unistd.h>
 using namespace std;
 
+//Flags:
+//-b : basic (no parens)
+//-p : parenthesis + brackets
+//-h : horizontal parenthesis + brackets
+//-n : nested parenthesis
+//-a : ALL
+
+void test_diagrams (string, string);
+
 int main(int argc, char **argv){
-      string command = "./src/osra -f can ./test/chemdraw/";
-      string test;
-      int numFiles = 10;
-      FILE *pipe;
-      string diagrams[] = {"4-chlorostyrene.gif", "8-caffeine.gif", "Clorgyline.gif",
-                           "diethoxymethyl_acetate.gif", "Diphenyl_N-ethanethiol_pyrrole.gif",
-                           "myristyl_nicotinate.gif", "octachlorostyrene.gif", "phenyl_salicylate.gif", 
-                           "Propyl_Gallate.gif", "Tris_nitromethane.gif" };
-      string SMILES[] = {
-                  "C=Cc1ccc(cc1)Cl",
-                  "Clc1cccc(c1)/C=C/c1nc2c(n1C)c(=O)n(c(=O)n2C)C",
-                  "C#CCN(CCCOc1ccc(cc1Cl)Cl)C",
-                  "CCOC(OC(=O)C)OCC",
-                  "SCCn1c(ccc1c1ccccc1)c1ccccc1",
-                  "CCCCCCCC",
-                  "ClC(=C(c1c(Cl)c(Cl)c(c(c1Cl)Cl)Cl)Cl)Cl",
-                  "O=C(c1ccccc1O)Oc1ccccc1",
-                  "CCCOC(=O)c1cc(O)c(c(c1)O)O",
-                  "N#CCCC([N+](=O)[OH2+])(CCC(=N)C)CCC#N",
-      };
-      for(int i = 0; i < numFiles; ++i){
-            test = command + diagrams[i];
-            pipe = popen (test.c_str(), "r");
-            char buff [ 64 ];
-            fgets (buff, sizeof (buff), pipe );
-            string s (buff);
-            s = s.erase (s.size()-1);
-            if(s == SMILES[i])
-                  printf ("[PASS]\n\t%s\n", s.c_str());
-            else
-                  printf ("[FAIL]\n\tExpected Output: %s\n\tActual output: %s\n", SMILES[i].c_str(), s.c_str());
-            pclose(pipe);
+      int c;
+      while ((c = getopt(argc, argv, "bphna")) != -1){
+            switch (c) {
+                  case 'b':
+                        test_diagrams("./test/basic/list.txt", "basic/");
+                        break;
+                  case 'p':
+                        test_diagrams("./test/parenthesis/list.txt", "parenthesis/");
+                        break;
+                  case 'h':
+                        test_diagrams("./test/horizontal/list.txt", "horizontal/");
+                        break;
+                  case 'n':
+                        test_diagrams("./test/nested/list.txt", "nested/");
+                        break;
+                  case 'a':
+                        test_diagrams("./test/basic/list.txt", "basic/");
+                        test_diagrams("./test/parenthesis/list.txt", "parenthesis/");
+                        test_diagrams("./test/horizontal/list.txt", "horizontal/");
+                        test_diagrams("./test/nested/list.txt", "nested/");
+                        break;
+                  case '?':
+                        cerr << "Argument Error. Valid arguments:\n";
+                        cerr << "   -b (basic)\n   -p (parens)\n   -h (horizontal)\n";
+                        cerr << "   -n (nested)\n   -a (all)" << endl;
+                  default:
+                        return 1;
+            }
       }
-}      
+      //if not arguments -- run basic test
+      if (argc == 1)
+            test_diagrams("./test/basic/list.txt", "basic/");
+}     
+
+void test_diagrams (string textFile, string folder){
+      string command = "./src/osra -f can ./test/";
+      string test;
+      FILE *pipe;
+      string fileName;
+      string smiles;
+
+      ifstream list (textFile.c_str());
+      if (list.is_open()){
+            while (true) {
+                  if (list.eof())
+                        break;
+                  getline(list, fileName);
+                  if (list.eof())
+                        break;
+                  test = command + folder + fileName;
+                  getline(list, smiles);
+                  pipe = popen (test.c_str(), "r");
+                  char buff [ 64 ];
+                  fgets (buff, sizeof (buff), pipe );
+                  string s (buff);
+                  s = s.erase (s.size()-1);
+
+                  if (s == smiles){
+                        printf("[PASS]\n\t%s\n", s.c_str());
+                  } else {
+                        printf("[FAIL]\n\tExpected Output: %s\n\tActual output: %s\n", smiles.c_str(), s.c_str());
+                  }
+            }
+      } else {
+            cout << "Unable to open file";
+      }
+
+
+}
