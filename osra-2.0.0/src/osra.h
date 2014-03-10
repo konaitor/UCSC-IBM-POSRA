@@ -59,7 +59,7 @@ atom_s(double xx=0, double yy=0, const potrace_path_t* p=NULL) :
   const potrace_path_t *curve;
   // bools: exists, corner, terminal
   //    atom exists, atom is at the corner (has two bonds leading to it), atom is a terminal atom
-  bool exists, corner, terminal;
+  bool exists, corner, terminal, ignore;
   // int: charge
   //    electric charge on the atom
   int charge;

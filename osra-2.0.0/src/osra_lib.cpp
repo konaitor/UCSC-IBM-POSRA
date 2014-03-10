@@ -824,6 +824,7 @@ int osra_process_image(
                               else
                                     box = thick_box;
                               box.write("thinned.gif");
+
                               //nick_dev begin
                               vector<bracketbox> bracketboxes;
                               if(testing) {
@@ -831,6 +832,7 @@ int osra_process_image(
                                     find_brackets(orig_box, bracketboxes);
                               }
                               //nick_dev end
+                              
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
 

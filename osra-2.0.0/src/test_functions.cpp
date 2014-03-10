@@ -21,7 +21,6 @@ extern "C" {
 using namespace std;
 using namespace Magick;
 
-
 static const string colors[] = { "firebrick", "crimson", "darkred",   "brown", 
                                  "magenta",   "SkyBlue", "turquoise", "gold", 
                                  "orange",    "red",     "green",     "yellow", 
@@ -275,7 +274,7 @@ void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int 
       // For each endpoint, loop through all other endpoints
       for (int i = 0; i < endpoints.size(); i++) {
             // Uncomment next line to show all endpoints:
-            //detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
+            detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "red");
             for (int j = 0; j < endpoints.size(); j++) {
                   // If x values are equivalent (+/- 1) and the endpoints are reasonable distance apart
                   // then procede to next test
@@ -283,47 +282,44 @@ void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int 
                                     endpoints.at(i).first == endpoints.at(j).first + 1 ||
                                     endpoints.at(i).first == endpoints.at(j).first - 1) && i != j &&
                               abs (endpoints.at(i).second - endpoints.at(j).second) > BRACKET_MIN_SIZE) {
+                        const unsigned int lower_index = (endpoints.at(i).second < endpoints.at(j).second ? i : j);
+                        const unsigned int upper_index = (endpoints.at(i).second > endpoints.at(j).second ? i : j);
+                        const unsigned int mid_y = (endpoints.at(i).second + endpoints.at(j).second) / 2;
+                        const unsigned int qtr0_y = (mid_y + endpoints.at(lower_index).second)/2;
+                        const unsigned int qtr1_y = (mid_y + endpoints.at(upper_index).second)/2;
+                        ColorGray qtr0 = detect.pixelColor(endpoints.at(upper_index).first, qtr0_y);
+                        ColorGray qtr1 = detect.pixelColor(endpoints.at(lower_index).first, qtr0_y);
+                        ColorGray qtr2 = detect.pixelColor(endpoints.at(upper_index).first, qtr1_y);
+                        ColorGray qtr3 = detect.pixelColor(endpoints.at(lower_index).first, qtr1_y);
 
-                        // Get color information of middle pixel (+/- 1) between the 2 endpoints
-                        // and quarter point pixels
-                        ColorGray mid0, mid1, mid2, qtr0, qtr1;
-                        int mid_y = (endpoints.at(i).second + endpoints.at(j).second) / 2;
-                        mid0 = detect.pixelColor(endpoints.at(i).first, mid_y);
-                        mid1 = detect.pixelColor(endpoints.at(i).first, mid_y+1);
-                        mid2 = detect.pixelColor(endpoints.at(i).first, mid_y-1);
-                        qtr0 = detect.pixelColor(endpoints.at(i).first, (mid_y + endpoints.at(i).second)/2);
-                        qtr1 = detect.pixelColor(endpoints.at(j).first, (mid_y + endpoints.at(j).second)/2);
-
+                        unsigned int non_white = 0;
+                        bool intersects = false;
+                        for (unsigned int k = qtr0_y; k <= qtr1_y; k++) {
+                            ColorGray c = detect.pixelColor(endpoints.at(i).first, k);
+                            if (c.shade() < 1) {
+                                intersects = true;
+                                break;
+                            }
+                        }
+                        for (unsigned int k = endpoints.at(lower_index).second; k < endpoints.at(upper_index).second; k++) {
+                            ColorGray c = detect.pixelColor(endpoints.at(i).first, k);
+                            if (c.shade() < 1) non_white++;
+                        }
                         // If at least one of the middle pixels are non-white and both of the quarter
                         // pixels are white, then add pair as endpoint
-                        if ((mid0.shade() < 1 || mid1.shade() < 1 || mid2.shade() < 1) && qtr0.shade() == 1 && qtr1.shade() == 1) {
-
+                        if (intersects && non_white < 10 && qtr0.shade() == 1 && qtr1.shade() == 1 && qtr2.shade() == 1 && qtr3.shade() == 1) {
                               // Drawing the green line between endpoints
-                              if (endpoints.at(j).second > endpoints.at(i).second) {
-                                    for (int b = endpoints.at(i).second; b < endpoints.at(j).second; b++)
-                                          detect.pixelColor (endpoints.at(j).first, b, "green");
-                              } else {
-                                    for (int b = endpoints.at(j).second; b < endpoints.at(i).second; b++)
-                                          detect.pixelColor (endpoints.at(j).first, b, "green");
-                              }
+                              for (int b = endpoints.at(lower_index).second; b < endpoints.at(upper_index).second; b++)
+                                    detect.pixelColor (endpoints.at(j).first, b, "green");
                               detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "blue");
                               detect.pixelColor (endpoints.at(j).first, endpoints.at(j).second, "blue");
-
-                              // Uncomment the next 2 lines to print the coords of the endpoints that have been
-                              // determined to represent a bracket:
-                              //cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
-                              //cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
+                              // Printing coordinates of bracket
+                              cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
+                              cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
                               bracketpoints.push_back(make_pair(endpoints.at(i), endpoints.at(j)));
 
-                              // Remove the detected endpoints from vector
-                              if (i > j) {
-                                    endpoints.erase(endpoints.begin() + i);
-                                    endpoints.erase(endpoints.begin() + j);
-                              }
-                              else {
-                                    endpoints.erase(endpoints.begin() + j);
-                                    endpoints.erase(endpoints.begin() + i);
-                              }
+                              endpoints.erase(endpoints.begin() + (i > j ? i : j));
+                              endpoints.erase(endpoints.begin() + (i < j ? i : j));
                         }                                   
                   }
             }
@@ -392,4 +388,3 @@ void plot_all(Image img, const int boxn, const string id, const vector<atom_t> a
       ss << boxn;
       img.write("plot_all_box_" + ss.str() + "_" + id + ".png");
 }
-
