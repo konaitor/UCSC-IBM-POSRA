@@ -314,8 +314,8 @@ void david_find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int 
                               detect.pixelColor (endpoints.at(i).first, endpoints.at(i).second, "blue");
                               detect.pixelColor (endpoints.at(j).first, endpoints.at(j).second, "blue");
                               // Printing coordinates of bracket
-                              cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
-                              cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
+                              //cout << endpoints.at(i).first << ", " << endpoints.at(i).second << endl;
+                              //cout << endpoints.at(j).first << ", " << endpoints.at(j).second << endl;
                               bracketpoints.push_back(make_pair(endpoints.at(i), endpoints.at(j)));
 
                               endpoints.erase(endpoints.begin() + (i > j ? i : j));
