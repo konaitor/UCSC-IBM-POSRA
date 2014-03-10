@@ -1,5 +1,11 @@
 # Definitions for OSRA #
 
+Parenthesis will most likely be detected somewhere inside of find_atoms
+inside of osra_structure.cpp. We will use potrace coordinates to detect
+the structure of a line
+
+Look into detect_curve in osra_common.cpp
+
 osra.cpp
       main
             TCLAP - Super GetOpt
@@ -33,5 +39,61 @@ osra_lib.cpp
             825 - Find atoms (see osra_structure.cpp) find vector curves / corners
             828 - Find chars (see osra_labels.cpp) Looks pretty intense
             833 - Find the average bond length
+            829 - Find plus minus (see osra_labels.cpp) 
+            831 - Find small bonds (see osra_structure.cpp)
 
+      split_fragments_and_assemble_structure_record
+            338 - declare atom / bond fragments
+            343 - 419 - Format / final touches
+            420 - get_formatted_structure (see osra_openbable.cpp) - Entry point to open babel stuff
+
+
+osra_structure.cpp
+      1259 - find_atoms - Use the potrace data to detect atom and eventually bond locations
+                          Push all control points!!!! Regardless of position
+            1267 - n is the number of contiguous segments potrace found
+            1268 - tag is a pointer to segment's type (either corner or curve_to)
+            1269 - c is a pointer to a list of control points see potrace lib
+            1270 - n_atom is the current atom being parsed
+            1271 - get the starting point
+            1277 - atomize it (see struct atom_s in osra.h)
+            1281 - add atom to the atom list
+            1285 - continue to parse atoms and push them into our atom vector
+                   and denote if it exists on a corner.  If it is not a corner
+                   it is a bezier curve and the atoms exist along the control
+                   points of the curve.
+            1339 - Get the next curve in the list of potrace curves and do it all again
+            1356 - Find the bonds (see find_bonds line 1204) note - 1 to 4 atoms have been pushed at this point
+
+      1204 - find_bonds - determine if an atom exists at said location from recently pushed atoms
+            1210 - start looking at the oldest, most recently pushed atom
+            1215 - If the potrace curve was a corner an atom exists there
+            1221 - If the direction changed between control points an atom exists there
+            1227 - Calculate if current atom is farther from the last than the next, ?
+            1239 - loop through the atoms, if an atom exists there than so does a bond!
+            1247 - Create a bond (see struct bond_s osra.h) and push it to our vector of bonds
+
+osra_labels.cpp
+      655 - find_chars - Find associated atom names to atoms
+            666 - Make sure that the curve does not overlap another
+            671-678 - set starting position / bounds
+            680 - For each potrace control point start with 0,0,width,height and start
+                  narrowing down a box similar to the region near the respective 
+                  control point.  We know somewhere in this area should exist an atom
+                  character. The area is also described by max_font_width / height
+            800 - Loop through pixels in this area testing for some discolored pixel
+                  with respect to the background color.  This will clamp the box region
+                  to the character. (get_pixel in osra_common.cpp, not much)
+            839 - Read a character with get_atom_label (see osra_ocr.cpp) too intense
+                  for now, but it parses a character.
+            843-860 - Record letter position / information
+
+osra_common.cpp
+      
+osra_openbabel.cpp
+      540 - get_formatted_structure 
+            550 - create_molecule (see line 265)
+
+      265 - create_molecule
+            :qa
 
