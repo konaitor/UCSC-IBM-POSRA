@@ -149,7 +149,7 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
 void find_brackets(Image &img, vector<bracketbox> &bracketboxes){ 
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
-      david_find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
+      find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
       if(bracketpoints.size() != 2) return;
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
             bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
