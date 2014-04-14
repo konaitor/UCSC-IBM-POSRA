@@ -30,7 +30,7 @@ TARGET_CPU		:= x86_64
 TARGET_OS		:= linux
 
 CXX			:= g++
-RM			:= /bin/rm
+RM			:= /usr/bin/rm
 LN_S			:= ln -s
 RANLIB			:= ranlib
 AR			:= /usr/bin/ar
@@ -47,7 +47,7 @@ OSRA_JAVA		:=
 # Notes: see "configure --enable-static-linking" to enable static linking; use "configure --enable-profiling" to include extra debug info.
 
 CXXFLAGS		:= -fopenmp -g -O2
-CPPFLAGS		:=  -I/usr/local/include/GraphicsMagick -I/usr/local/include/openbabel-2.0 -I/usr/local/include/gocr -I/usr/local/include 
+CPPFLAGS		:=  -I/usr/local/include/GraphicsMagick -I/usr/include/openbabel-2.0 -I/usr/local/include/gocr -I/usr/local/include 
 LDFLAGS			:= -L/usr/local/lib 
 # Important that this variable is re-evaluated each time when used: 
 LDSHAREDFLAGS		= -shared -Wl,-soname,$@.$(LIB_MAJOR_VERSION)

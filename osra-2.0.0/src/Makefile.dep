@@ -893,41 +893,41 @@ osra_ocr.o: osra_ocr.cpp osra_common.h osra.h \
  /usr/local/include/gocr/gocr.h /usr/local/include/gocr/unicode.h \
  /usr/local/include/gocr/list.h osra_ocr.h
 osra_openbabel.o: osra_openbabel.cpp \
- /usr/local/include/openbabel-2.0/openbabel/mol.h \
- /usr/local/include/openbabel-2.0/openbabel/babelconfig.h \
- /usr/local/include/openbabel-2.0/openbabel/atom.h \
- /usr/local/include/openbabel-2.0/openbabel/base.h \
- /usr/local/include/openbabel-2.0/openbabel/tokenst.h \
- /usr/local/include/openbabel-2.0/openbabel/residue.h \
- /usr/local/include/openbabel-2.0/openbabel/math/vector3.h \
- /usr/local/include/openbabel-2.0/openbabel/rand.h \
- /usr/local/include/openbabel-2.0/openbabel/bond.h \
- /usr/local/include/openbabel-2.0/openbabel/data.h \
- /usr/local/include/openbabel-2.0/openbabel/chains.h \
- /usr/local/include/openbabel-2.0/openbabel/bitvec.h \
- /usr/local/include/openbabel-2.0/openbabel/ring.h \
- /usr/local/include/openbabel-2.0/openbabel/typer.h \
- /usr/local/include/openbabel-2.0/openbabel/parsmart.h \
- /usr/local/include/openbabel-2.0/openbabel/generic.h \
- /usr/local/include/openbabel-2.0/openbabel/math/spacegroup.h \
- /usr/local/include/openbabel-2.0/openbabel/math/transform3d.h \
- /usr/local/include/openbabel-2.0/openbabel/math/matrix3x3.h \
- /usr/local/include/openbabel-2.0/openbabel/oberror.h \
- /usr/local/include/openbabel-2.0/openbabel/obutil.h \
- /usr/local/include/openbabel-2.0/openbabel/obiter.h \
- /usr/local/include/openbabel-2.0/openbabel/internalcoord.h \
- /usr/local/include/openbabel-2.0/openbabel/obconversion.h \
- /usr/local/include/openbabel-2.0/openbabel/dlhandler.h \
- /usr/local/include/openbabel-2.0/openbabel/format.h \
- /usr/local/include/openbabel-2.0/openbabel/plugin.h \
- /usr/local/include/openbabel-2.0/openbabel/lineend.h \
- /usr/local/include/openbabel-2.0/openbabel/builder.h \
- /usr/local/include/openbabel-2.0/openbabel/stereo/stereo.h \
- /usr/local/include/openbabel-2.0/openbabel/isomorphism.h \
- /usr/local/include/openbabel-2.0/openbabel/alias.h \
- /usr/local/include/openbabel-2.0/openbabel/shared_ptr.h \
- /usr/local/include/openbabel-2.0/openbabel/stereo/tetrahedral.h \
- /usr/local/include/openbabel-2.0/openbabel/stereo/tetranonplanar.h \
+ /usr/include/openbabel-2.0/openbabel/mol.h \
+ /usr/include/openbabel-2.0/openbabel/babelconfig.h \
+ /usr/include/openbabel-2.0/openbabel/atom.h \
+ /usr/include/openbabel-2.0/openbabel/base.h \
+ /usr/include/openbabel-2.0/openbabel/tokenst.h \
+ /usr/include/openbabel-2.0/openbabel/residue.h \
+ /usr/include/openbabel-2.0/openbabel/math/vector3.h \
+ /usr/include/openbabel-2.0/openbabel/rand.h \
+ /usr/include/openbabel-2.0/openbabel/bond.h \
+ /usr/include/openbabel-2.0/openbabel/data.h \
+ /usr/include/openbabel-2.0/openbabel/chains.h \
+ /usr/include/openbabel-2.0/openbabel/bitvec.h \
+ /usr/include/openbabel-2.0/openbabel/ring.h \
+ /usr/include/openbabel-2.0/openbabel/typer.h \
+ /usr/include/openbabel-2.0/openbabel/parsmart.h \
+ /usr/include/openbabel-2.0/openbabel/generic.h \
+ /usr/include/openbabel-2.0/openbabel/math/spacegroup.h \
+ /usr/include/openbabel-2.0/openbabel/math/transform3d.h \
+ /usr/include/openbabel-2.0/openbabel/math/matrix3x3.h \
+ /usr/include/openbabel-2.0/openbabel/oberror.h \
+ /usr/include/openbabel-2.0/openbabel/obutil.h \
+ /usr/include/openbabel-2.0/openbabel/obiter.h \
+ /usr/include/openbabel-2.0/openbabel/internalcoord.h \
+ /usr/include/openbabel-2.0/openbabel/obconversion.h \
+ /usr/include/openbabel-2.0/openbabel/dlhandler.h \
+ /usr/include/openbabel-2.0/openbabel/format.h \
+ /usr/include/openbabel-2.0/openbabel/plugin.h \
+ /usr/include/openbabel-2.0/openbabel/lineend.h \
+ /usr/include/openbabel-2.0/openbabel/builder.h \
+ /usr/include/openbabel-2.0/openbabel/stereo/stereo.h \
+ /usr/include/openbabel-2.0/openbabel/isomorphism.h \
+ /usr/include/openbabel-2.0/openbabel/alias.h \
+ /usr/include/openbabel-2.0/openbabel/shared_ptr.h \
+ /usr/include/openbabel-2.0/openbabel/stereo/tetrahedral.h \
+ /usr/include/openbabel-2.0/openbabel/stereo/tetranonplanar.h \
  osra_common.h osra.h /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/GraphicsMagick/Magick++/Include.h \
  /usr/local/include/GraphicsMagick/magick/magick_config.h \
@@ -1006,34 +1006,34 @@ osra_openbabel.o: osra_openbabel.cpp \
  /usr/local/include/GraphicsMagick/Magick++/Montage.h osra_segment.h \
  osra_openbabel.h osra_stl.h osra_labels.h osra_fragments.h mcdlutil.h
 mcdlutil.o: mcdlutil.cpp \
- /usr/local/include/openbabel-2.0/openbabel/babelconfig.h \
- /usr/local/include/openbabel-2.0/openbabel/mol.h \
- /usr/local/include/openbabel-2.0/openbabel/atom.h \
- /usr/local/include/openbabel-2.0/openbabel/base.h \
- /usr/local/include/openbabel-2.0/openbabel/tokenst.h \
- /usr/local/include/openbabel-2.0/openbabel/residue.h \
- /usr/local/include/openbabel-2.0/openbabel/math/vector3.h \
- /usr/local/include/openbabel-2.0/openbabel/rand.h \
- /usr/local/include/openbabel-2.0/openbabel/bond.h \
- /usr/local/include/openbabel-2.0/openbabel/data.h \
- /usr/local/include/openbabel-2.0/openbabel/chains.h \
- /usr/local/include/openbabel-2.0/openbabel/bitvec.h \
- /usr/local/include/openbabel-2.0/openbabel/ring.h \
- /usr/local/include/openbabel-2.0/openbabel/typer.h \
- /usr/local/include/openbabel-2.0/openbabel/parsmart.h \
- /usr/local/include/openbabel-2.0/openbabel/generic.h \
- /usr/local/include/openbabel-2.0/openbabel/math/spacegroup.h \
- /usr/local/include/openbabel-2.0/openbabel/math/transform3d.h \
- /usr/local/include/openbabel-2.0/openbabel/math/matrix3x3.h \
- /usr/local/include/openbabel-2.0/openbabel/oberror.h \
- /usr/local/include/openbabel-2.0/openbabel/obutil.h \
- /usr/local/include/openbabel-2.0/openbabel/obiter.h \
- /usr/local/include/openbabel-2.0/openbabel/internalcoord.h mcdlutil.h \
- /usr/local/include/openbabel-2.0/openbabel/obconversion.h \
- /usr/local/include/openbabel-2.0/openbabel/dlhandler.h \
- /usr/local/include/openbabel-2.0/openbabel/format.h \
- /usr/local/include/openbabel-2.0/openbabel/plugin.h \
- /usr/local/include/openbabel-2.0/openbabel/lineend.h
+ /usr/include/openbabel-2.0/openbabel/babelconfig.h \
+ /usr/include/openbabel-2.0/openbabel/mol.h \
+ /usr/include/openbabel-2.0/openbabel/atom.h \
+ /usr/include/openbabel-2.0/openbabel/base.h \
+ /usr/include/openbabel-2.0/openbabel/tokenst.h \
+ /usr/include/openbabel-2.0/openbabel/residue.h \
+ /usr/include/openbabel-2.0/openbabel/math/vector3.h \
+ /usr/include/openbabel-2.0/openbabel/rand.h \
+ /usr/include/openbabel-2.0/openbabel/bond.h \
+ /usr/include/openbabel-2.0/openbabel/data.h \
+ /usr/include/openbabel-2.0/openbabel/chains.h \
+ /usr/include/openbabel-2.0/openbabel/bitvec.h \
+ /usr/include/openbabel-2.0/openbabel/ring.h \
+ /usr/include/openbabel-2.0/openbabel/typer.h \
+ /usr/include/openbabel-2.0/openbabel/parsmart.h \
+ /usr/include/openbabel-2.0/openbabel/generic.h \
+ /usr/include/openbabel-2.0/openbabel/math/spacegroup.h \
+ /usr/include/openbabel-2.0/openbabel/math/transform3d.h \
+ /usr/include/openbabel-2.0/openbabel/math/matrix3x3.h \
+ /usr/include/openbabel-2.0/openbabel/oberror.h \
+ /usr/include/openbabel-2.0/openbabel/obutil.h \
+ /usr/include/openbabel-2.0/openbabel/obiter.h \
+ /usr/include/openbabel-2.0/openbabel/internalcoord.h mcdlutil.h \
+ /usr/include/openbabel-2.0/openbabel/obconversion.h \
+ /usr/include/openbabel-2.0/openbabel/dlhandler.h \
+ /usr/include/openbabel-2.0/openbabel/format.h \
+ /usr/include/openbabel-2.0/openbabel/plugin.h \
+ /usr/include/openbabel-2.0/openbabel/lineend.h
 unpaper.o: unpaper.cpp /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/GraphicsMagick/Magick++/Include.h \
  /usr/local/include/GraphicsMagick/magick/magick_config.h \
@@ -1111,36 +1111,36 @@ unpaper.o: unpaper.cpp /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/GraphicsMagick/Magick++/CoderInfo.h \
  /usr/local/include/GraphicsMagick/Magick++/Montage.h unpaper.h
 osra_reaction.o: osra_reaction.cpp \
- /usr/local/include/openbabel-2.0/openbabel/mol.h \
- /usr/local/include/openbabel-2.0/openbabel/babelconfig.h \
- /usr/local/include/openbabel-2.0/openbabel/atom.h \
- /usr/local/include/openbabel-2.0/openbabel/base.h \
- /usr/local/include/openbabel-2.0/openbabel/tokenst.h \
- /usr/local/include/openbabel-2.0/openbabel/residue.h \
- /usr/local/include/openbabel-2.0/openbabel/math/vector3.h \
- /usr/local/include/openbabel-2.0/openbabel/rand.h \
- /usr/local/include/openbabel-2.0/openbabel/bond.h \
- /usr/local/include/openbabel-2.0/openbabel/data.h \
- /usr/local/include/openbabel-2.0/openbabel/chains.h \
- /usr/local/include/openbabel-2.0/openbabel/bitvec.h \
- /usr/local/include/openbabel-2.0/openbabel/ring.h \
- /usr/local/include/openbabel-2.0/openbabel/typer.h \
- /usr/local/include/openbabel-2.0/openbabel/parsmart.h \
- /usr/local/include/openbabel-2.0/openbabel/generic.h \
- /usr/local/include/openbabel-2.0/openbabel/math/spacegroup.h \
- /usr/local/include/openbabel-2.0/openbabel/math/transform3d.h \
- /usr/local/include/openbabel-2.0/openbabel/math/matrix3x3.h \
- /usr/local/include/openbabel-2.0/openbabel/oberror.h \
- /usr/local/include/openbabel-2.0/openbabel/obutil.h \
- /usr/local/include/openbabel-2.0/openbabel/obiter.h \
- /usr/local/include/openbabel-2.0/openbabel/internalcoord.h \
- /usr/local/include/openbabel-2.0/openbabel/obconversion.h \
- /usr/local/include/openbabel-2.0/openbabel/dlhandler.h \
- /usr/local/include/openbabel-2.0/openbabel/format.h \
- /usr/local/include/openbabel-2.0/openbabel/plugin.h \
- /usr/local/include/openbabel-2.0/openbabel/lineend.h \
- /usr/local/include/openbabel-2.0/openbabel/reaction.h \
- /usr/local/include/openbabel-2.0/openbabel/shared_ptr.h osra_segment.h \
+ /usr/include/openbabel-2.0/openbabel/mol.h \
+ /usr/include/openbabel-2.0/openbabel/babelconfig.h \
+ /usr/include/openbabel-2.0/openbabel/atom.h \
+ /usr/include/openbabel-2.0/openbabel/base.h \
+ /usr/include/openbabel-2.0/openbabel/tokenst.h \
+ /usr/include/openbabel-2.0/openbabel/residue.h \
+ /usr/include/openbabel-2.0/openbabel/math/vector3.h \
+ /usr/include/openbabel-2.0/openbabel/rand.h \
+ /usr/include/openbabel-2.0/openbabel/bond.h \
+ /usr/include/openbabel-2.0/openbabel/data.h \
+ /usr/include/openbabel-2.0/openbabel/chains.h \
+ /usr/include/openbabel-2.0/openbabel/bitvec.h \
+ /usr/include/openbabel-2.0/openbabel/ring.h \
+ /usr/include/openbabel-2.0/openbabel/typer.h \
+ /usr/include/openbabel-2.0/openbabel/parsmart.h \
+ /usr/include/openbabel-2.0/openbabel/generic.h \
+ /usr/include/openbabel-2.0/openbabel/math/spacegroup.h \
+ /usr/include/openbabel-2.0/openbabel/math/transform3d.h \
+ /usr/include/openbabel-2.0/openbabel/math/matrix3x3.h \
+ /usr/include/openbabel-2.0/openbabel/oberror.h \
+ /usr/include/openbabel-2.0/openbabel/obutil.h \
+ /usr/include/openbabel-2.0/openbabel/obiter.h \
+ /usr/include/openbabel-2.0/openbabel/internalcoord.h \
+ /usr/include/openbabel-2.0/openbabel/obconversion.h \
+ /usr/include/openbabel-2.0/openbabel/dlhandler.h \
+ /usr/include/openbabel-2.0/openbabel/format.h \
+ /usr/include/openbabel-2.0/openbabel/plugin.h \
+ /usr/include/openbabel-2.0/openbabel/lineend.h \
+ /usr/include/openbabel-2.0/openbabel/reaction.h \
+ /usr/include/openbabel-2.0/openbabel/shared_ptr.h osra_segment.h \
  /usr/local/include/GraphicsMagick/Magick++.h \
  /usr/local/include/GraphicsMagick/Magick++/Include.h \
  /usr/local/include/GraphicsMagick/magick/magick_config.h \
