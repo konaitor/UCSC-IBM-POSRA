@@ -19,7 +19,7 @@ St, Fifth Floor, Boston, MA 02110-1301, USA
 
 //nick_dev
 #include <string.h>
-#include "test_functions.cpp"
+#include "osra_polymer.h"
 
 #include <stdio.h> // fclose
 #include <stdlib.h> // malloc(), free()
