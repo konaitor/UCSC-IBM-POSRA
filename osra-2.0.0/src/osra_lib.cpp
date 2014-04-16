@@ -426,7 +426,7 @@ void split_fragments_and_assemble_structure_record(vector<atom_t> &atom,
                                           show_coordinates ? &coordinate_box : NULL, superatom, n_letters, show_learning, resolution_iteration, verbose);
 
                         //nick_dev  
-                        edit_smiles(structure);
+                        //edit_smiles(structure);
 
                         if (molecule_statistics.fragments > 0 && molecule_statistics.fragments < MAX_FRAGMENTS && molecule_statistics.num_atoms>MIN_A_COUNT && molecule_statistics.num_bonds>0)
                         {
@@ -669,9 +669,6 @@ int osra_process_image(
       vector<vector<vector<Image> > > array_of_images_page(page,vector<vector<Image> > (num_resolutions));
       vector<vector<vector<box_t> > > array_of_boxes_page(page,vector<vector<box_t> >(num_resolutions));
 
-      //nick_dev
-      bool testing = true;
-
 #pragma omp parallel for default(shared) private(OCR_JOB,JOB)
       for (int l = 0; l < page; l++)
       {
@@ -827,10 +824,8 @@ int osra_process_image(
 
                               //nick_dev begin
                               vector<bracketbox> bracketboxes;
-                              if(testing) {
-                                    find_brackets(box, *(new vector<bracketbox>()));
-                                    find_brackets(orig_box, bracketboxes);
-                              }
+                              find_brackets(box, *(new vector<bracketbox>()));
+                              find_brackets(orig_box, bracketboxes);
                               //nick_dev end
                               
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
@@ -976,12 +971,9 @@ int osra_process_image(
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
                               //nick_dev begin
-                              if(testing) {
-                                    find_intersection(bond,atom,bracketboxes);
-                                    split_atom(bond, atom, n_atom, n_bond);
-                                    plot_all(orig_box, k, "end", atom, bond, letters, label);
-                                    //testing = false;
-                              }
+                              find_intersection(bond,atom,bracketboxes);
+                              split_atom(bond, atom, n_atom, n_bond);
+                              plot_all(orig_box, k, "end", atom, bond, letters, label);
                               //nick_dev end
 
                               if (verbose)
