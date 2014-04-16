@@ -66,7 +66,7 @@ class Polymer {
       private:
             string SMILES;
             string file_name;
-            string 
+            string degree;
 };
 
 class point {
