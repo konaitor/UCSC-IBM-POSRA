@@ -52,15 +52,15 @@ class Polymer {
             Polymer(string SMILES):SMILES(SMILES){};
 
             void set_SMILES(string SMILES) {
-                  this.SMILES = SMILES;
+                  this->SMILES = SMILES;
             };
 
             void set_file_name(string file_name) {
-                  this.file_name = file_name;
+                  this->file_name = file_name;
             };
 
             void set_degree(const string degree) {
-                  this.degree = degree;
+                  this->degree = degree;
             };
 
       private:
