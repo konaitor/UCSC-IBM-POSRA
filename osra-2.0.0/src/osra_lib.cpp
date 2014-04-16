@@ -973,19 +973,11 @@ int osra_process_image(
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
                               //nick_dev begin
+                              Polymer polymer;
                               find_intersection(bond,atom,bracketboxes);
                               split_atom(bond, atom, n_atom, n_bond);
+                              find_degree(polymer, letters, label);
                               plot_all(orig_box, k, "end", atom, bond, letters, label);
-                              cout << "Free Labels" << endl;
-                              vector<label_t>::iterator itor = label.begin();
-                              for (;itor != label.end(); ++itor) {
-                                    cout << itor->a << endl;
-                              }
-                              cout << "Free Letters" << endl;
-                              vector<letters_t>::iterator litor = letters.begin();
-                              for (;litor != letters.end(); ++litor) {
-                                    if(litor->free) cout << litor->a << endl;
-                              }
                               //nick_dev end
 
                               if (verbose)

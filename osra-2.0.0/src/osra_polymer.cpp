@@ -27,6 +27,29 @@ void edit_smiles(string &s) {
             cout << string((t++%2==0)?"EG: ":"RU: ") << *itor << endl;
 }
 
+void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vector<label_t> labels) {
+      char possible_letters[] = "nxyXY";
+      vector<string> degrees;
+      for (vector<label_t>::const_iterator label = labels.begin(); label != labels.end(); ++label) {
+            int degree;
+            istringstream iss(label->a);
+            iss >> degree;
+            if (degree > 0) degrees.push_back(label->a);
+      }
+      for (vector<letters_t>::const_iterator letter = letters.begin(); letter != letters.end(); ++letter) {
+            if (letter->free) {
+                  for (int i = 0; i < (sizeof(possible_letters) / sizeof(char)); ++i) {
+                        // If a free (unassigned) letter is a possible degree specifier push it back!
+                        if (letter->a == possible_letters[i]) degrees.push_back(string(1L, letter->a));
+                  }
+            }
+      }
+      for (vector<string>::iterator degree = degrees.begin(); degree != degrees.end(); ++degree) {
+            cout << *degree << endl;
+      }
+
+}
+
 void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes) {
       if (bracketboxes.size() != 2) return;
       for (vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)

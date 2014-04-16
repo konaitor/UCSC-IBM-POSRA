@@ -49,7 +49,7 @@ enum color_index {
 */
 class Polymer {
       public:
-            Polymer(string SMILES):SMILES(SMILES){};
+            Polymer(){};
 
             void set_SMILES(string SMILES) {
                   this->SMILES = SMILES;
@@ -201,6 +201,8 @@ class bracketbox {
   *  or repeat unit identifiers.
 */
 void  edit_smiles(string &s);
+
+void  find_degree(Polymer &, const vector<letters_t>, const vector<label_t>);
 
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
 
