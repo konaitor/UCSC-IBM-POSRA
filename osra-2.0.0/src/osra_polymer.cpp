@@ -3,39 +3,57 @@
 using namespace std;
 using namespace Magick;
 
-void edit_smiles(string &s){
+void edit_smiles(string &s) {
       string tmp = s;
       vector<string> pieces;
       unsigned begin = 0;
       unsigned end = 0;
-      while(begin < tmp.size() && end < tmp.size()){
+      while (begin < tmp.size() && end < tmp.size()) {
             end = tmp.find("[Po]", begin);
-            if(end == string::npos) break;
+            if (end == string::npos) break;
+            pieces.push_back(tmp.substr(begin, end - begin)); 
+            begin = end + 4L;
+      }
+      begin = 0;
+      end = 0;
+      while (begin < tmp.size() && end < tmp.size()) {
+            end = tmp.find("[Lv]", begin);
+            if (end == string::npos) break;
             pieces.push_back(tmp.substr(begin, end - begin)); 
             begin = end + 4L;
       }
       int t = 0;
-      for(vector<string>::iterator itor = pieces.begin(); itor != pieces.end(); ++itor)
+      for (vector<string>::iterator itor = pieces.begin(); itor != pieces.end(); ++itor)
             cout << string((t++%2==0)?"EG: ":"RU: ") << *itor << endl;
 }
 
-void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes){
-      if(bracketboxes.size() != 2) return;
-      for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
-            if(bond->exists) bond->split = (bracketboxes[0].intersects(*bond, atoms) || bracketboxes[1].intersects(*bond, atoms));
+void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes) {
+      if (bracketboxes.size() != 2) return;
+      for (vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
+            if (bond->exists) {
+                  bool bracket0 = bracketboxes[0].intersects(*bond, atoms); // Check if the bonds intersects either bracket
+                  bool bracket1 = bracketboxes[1].intersects(*bond, atoms); 
+                  bond->split = (bracket0 || bracket1);
+                  // If the bond is split copy the corresponding orientation to the bond for later use
+                  if (bond->split) 
+                        bond->bracket_orientation = (bracket0) ? bracketboxes[0].get_orientation() : bracketboxes[1].get_orientation();
+            }
 }
 
-void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond){
-      for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond){
-            if(bond->split){
-                  ++n_atom;
-                  ++n_bond;
-                  double x = (atoms[bond->a].x + atoms[bond->b].x) / 2;  
+void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond) {
+      // Iterate through all of the bonds checking which ones have been marked to be split
+      for(vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond) {
+            if (bond->split) {
+                  ++n_atom; // Increment the Total number of atoms, since were adding a polonium
+                  ++n_bond; // Increment the total number of bonds, since were adding an atom
+                  double x = (atoms[bond->a].x + atoms[bond->b].x) / 2; 
                   double y = (atoms[bond->a].y + atoms[bond->b].y) / 2;  
-                  atom_t POLONIUM(x, y, bond->curve);
-                  POLONIUM.exists = true;
-                  POLONIUM.label = "Po";
-                  atoms.push_back(POLONIUM);
+                  atom_t pseudo_atom(x, y, bond->curve); // Create a new atom
+                  pseudo_atom.exists = true;
+                  // Assign Polonium to left oriented brackets and Livermorium to right
+                  pseudo_atom.label = (bond->bracket_orientation == 'l') ? "Po" : "Lv";
+                  atoms.push_back(pseudo_atom);
+                  // Create a new bond
                   bond_t newbond(atoms.size()-1, bond->b, bond->curve);
                   bonds.push_back(newbond);
                   bond->b = atoms.size() - 1;
@@ -43,7 +61,7 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
       }
 }
 
-void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints){
+void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints) {
       const unsigned int SIDE_GROUP_SIZE = 2;
       const unsigned int BRACKET_MIN_SIZE = 5;
       for (int i = 0; i < width; i++) {
@@ -146,7 +164,7 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
       detect.write("out.png");
 }
 
-void find_brackets(Image &img, vector<bracketbox> &bracketboxes){ 
+void find_brackets(Image &img, vector<bracketbox> &bracketboxes) { 
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
       find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
@@ -159,9 +177,9 @@ void find_brackets(Image &img, vector<bracketbox> &bracketboxes){
       bracketboxes[1].remove_brackets(img);
 }
 
-void plot_points(Image &img, const vector<point> &points){
+void plot_points(Image &img, const vector<point> &points) {
       for(vector<point>::const_iterator itor = points.begin(); itor != points.end(); ++itor)
-            if(itor->color != CLEAR){
+            if(itor->color != CLEAR) {
                   int x = itor->x, y = itor->y;
                   if(x < 0)             x = 0;
                   if(x > img.columns()) x = img.columns() - 1;
@@ -171,14 +189,14 @@ void plot_points(Image &img, const vector<point> &points){
             }
 }
 
-void plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color){
+void plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color) {
       for(vector<atom_t>::const_iterator itor = atoms.begin(); itor != atoms.end(); ++itor)
             if(itor->exists) img.pixelColor(itor->x, itor->y, color);
 }
 
-void plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> atoms, const std::string color){
+void plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> atoms, const std::string color) {
       for(vector<bond_t>::const_iterator itor = bonds.begin(); itor != bonds.end(); ++itor)
-            if(itor->exists){
+            if(itor->exists) {
                   int x = (atoms[itor->a].x + atoms[itor->b].x) / 2;
                   int y = (atoms[itor->a].y + atoms[itor->b].y) / 2;
                   if(itor->split) img.pixelColor(x, y, "green");
@@ -186,19 +204,19 @@ void plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> at
             }
 }
 
-void plot_letters(Image &img, const vector<letters_t> &letters, const std::string color){
+void plot_letters(Image &img, const vector<letters_t> &letters, const std::string color) {
       for(vector<letters_t>::const_iterator itor = letters.begin(); itor != letters.end(); ++itor)
             img.pixelColor(itor->x, itor->y, color);
 }
 
-void plot_labels(Image &img, const vector<label_t> &labels, const std::string color){
-      for(vector<label_t>::const_iterator itor = labels.begin(); itor != labels.end(); ++itor){
+void plot_labels(Image &img, const vector<label_t> &labels, const std::string color) {
+      for(vector<label_t>::const_iterator itor = labels.begin(); itor != labels.end(); ++itor) {
             img.pixelColor(itor->x1, itor->y1, color);
             img.pixelColor(itor->x2, itor->y2, color);
       }
 }
 
-void plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels){
+void plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels) {
       plot_atoms(img, atoms, "blue");
       plot_bonds(img, bonds, atoms, "red");
       plot_letters(img, letters, "orange");

@@ -161,20 +161,40 @@ class bracketbox {
                   return (x1 < right && x1 > left && midy > tly && midy < bry);
             };
 
+            char get_orientation() {
+                  return orientation;
+            }
+
       private:
             int x1, x2, y1, y2, width, height, tlx, tly, brx, bry, cx1, cy1, cx2, cy2;
             char orientation;
 };
 
+/** Edit Smiles
+  *  Take the resulting smiles string from OSRA and splice and format the string
+  *  by removing pseudo poloniums and replacing them with respective end group
+  *  or repeat unit identifiers.
+*/
 void  edit_smiles(string &s);
+
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+
 void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond);
+
 void  find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
+
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
+
 void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+
 void  find_brackets(Image &img, vector<bracketbox> &bracketboxes);
+
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
+
 void  plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> atoms, const std::string color);
+
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
+
 void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels);
+
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);
