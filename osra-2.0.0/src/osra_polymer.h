@@ -44,6 +44,31 @@ enum color_index {
       CLEAR     = 255,
 };
 
+/* Polymer
+ * General data sctructure to hold pertainent information, interfacing with the database.
+*/
+class Polymer {
+      public:
+            Polymer(string SMILES):SMILES(SMILES){};
+
+            void set_SMILES(string SMILES) {
+                  this.SMILES = SMILES;
+            };
+
+            void set_file_name(string file_name) {
+                  this.file_name = file_name;
+            };
+
+            void set_degree(const string degree) {
+                  this.degree = degree;
+            };
+
+      private:
+            string SMILES;
+            string file_name;
+            string 
+};
+
 class point {
       public:
             point(){};

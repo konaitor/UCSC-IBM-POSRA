@@ -825,7 +825,9 @@ int osra_process_image(
                               //nick_dev begin
                               vector<bracketbox> bracketboxes;
                               find_brackets(box, *(new vector<bracketbox>()));
+                              //box.write("removed.png");
                               find_brackets(orig_box, bracketboxes);
+                              orig_box.write("orig_removed.png");
                               //nick_dev end
                               
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
@@ -974,6 +976,16 @@ int osra_process_image(
                               find_intersection(bond,atom,bracketboxes);
                               split_atom(bond, atom, n_atom, n_bond);
                               plot_all(orig_box, k, "end", atom, bond, letters, label);
+                              cout << "Free Labels" << endl;
+                              vector<label_t>::iterator itor = label.begin();
+                              for (;itor != label.end(); ++itor) {
+                                    cout << itor->a << endl;
+                              }
+                              cout << "Free Letters" << endl;
+                              vector<letters_t>::iterator litor = letters.begin();
+                              for (;litor != letters.end(); ++litor) {
+                                    if(litor->free) cout << litor->a << endl;
+                              }
                               //nick_dev end
 
                               if (verbose)
