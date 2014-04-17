@@ -66,13 +66,14 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
                   }
             }
       }
+      // Debug print, need to formalize and associate with a bracket within a polymer
       for (vector<string>::iterator degree = degrees.begin(); degree != degrees.end(); ++degree) {
             cout << *degree << endl;
       }
 
 }
 
-void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes) {
+void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<Bracket> &bracketboxes) {
       if (bracketboxes.size() != 2) return;
       for (vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
             if (bond->exists) {
@@ -209,13 +210,13 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
       detect.write("out.png");
 }
 
-void find_brackets(Image &img, vector<bracketbox> &bracketboxes) { 
+void find_brackets(Image &img, vector<Bracket> &bracketboxes) { 
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
       find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
       if(bracketpoints.size() != 2) return;
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
-            bracketboxes.push_back(bracketbox(itor->first, itor->second, img)); 
+            bracketboxes.push_back(Bracket(itor->first, itor->second, img)); 
       //bracketboxes[bracketboxes.size() - 2].remove_brackets(img);
       //bracketboxes[bracketboxes.size() - 1].remove_brackets(img);
       bracketboxes[0].remove_brackets(img);

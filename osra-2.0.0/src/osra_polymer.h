@@ -44,6 +44,10 @@ enum color_index {
       CLEAR     = 255,
 };
 
+class Bracket;
+class Polymer;
+class point;
+
 /* Polymer
  * General data sctructure to hold pertainent information, interfacing with the database.
 */
@@ -67,6 +71,7 @@ class Polymer {
             string SMILES;
             string file_name;
             string degree;
+            vector<pair<Bracket, Bracket> > brackets;
 };
 
 class point {
@@ -77,9 +82,9 @@ class point {
             unsigned char color;
 };
 
-class bracketbox {
+class Bracket {
       public:
-            /* -- bracketbox --
+            /* -- Bracket --
              * CURRENTLY ONLY WORKS ON VERTICALLY ORIENTED BRACKETS 
              * Bounding box around brackets (parenthesis) that will enclose POTRACE points to throw away.
              * p1, p2 initialize extrema of brackets (Endpoints)
@@ -88,7 +93,7 @@ class bracketbox {
              * brx, and bry denote the lower right hand corner of the box
              * cx*, cy* represent where the bond is broken by the box
             */
-            bracketbox(const pair<int, int> p1, const pair<int, int> p2, Image img): 
+            Bracket(const pair<int, int> p1, const pair<int, int> p2, Image img): 
                   x1(p1.first), y1(p1.second), x2(p2.first), y2(p2.second) 
             { 
                   height = abs(y1 - y2);
@@ -204,7 +209,7 @@ void  edit_smiles(string &s);
 
 void  find_degree(Polymer &, const vector<letters_t>, const vector<label_t>);
 
-void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<Bracket> &bracketboxes);
 
 void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond);
 
@@ -212,9 +217,9 @@ void  find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width
 
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
 
-void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<Bracket> &bracketboxes);
 
-void  find_brackets(Image &img, vector<bracketbox> &bracketboxes);
+void  find_brackets(Image &img, vector<Bracket> &bracketboxes);
 
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
 

@@ -823,8 +823,8 @@ int osra_process_image(
                               box.write("thinned.gif");
 
                               //nick_dev begin
-                              vector<bracketbox> bracketboxes;
-                              find_brackets(box, *(new vector<bracketbox>()));
+                              vector<Bracket> bracketboxes;
+                              find_brackets(box, *(new vector<Bracket>()));
                               //box.write("removed.png");
                               find_brackets(orig_box, bracketboxes);
                               orig_box.write("orig_removed.png");
