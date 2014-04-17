@@ -74,7 +74,9 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
 }
 
 void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<Bracket> &bracketboxes) {
+      // As of now it only works on a single pair of brackets
       if (bracketboxes.size() != 2) return;
+      // Iterate through all of the bonds checking to see which ones intersect a detected Bracket
       for (vector<bond_t>::iterator bond = bonds.begin(); bond != bonds.end(); ++bond)
             if (bond->exists) {
                   bool bracket0 = bracketboxes[0].intersects(*bond, atoms); // Check if the bonds intersects either bracket
@@ -84,6 +86,28 @@ void find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vecto
                   if (bond->split) 
                         bond->bracket_orientation = (bracket0) ? bracketboxes[0].get_orientation() : bracketboxes[1].get_orientation();
             }
+}
+
+void pair_brackets(Polymer &polymer, const vector<Bracket> &brackets) {
+      // i: Keeps track of bracket pairs, for every left there must be a right!
+      int i = 0;
+      for (vector<Bracket>::const_iterator bracket = brackets.begin(); bracket != brackets.end(); ++bracket) {
+            if (i < 0) {
+                  cerr << "Unmatched bracket" << cout;
+                  break;
+            }
+            if (bracket->get_orientation() == 'l') {
+                  polymer.brackets.push_back(pair<Bracket, Bracket>(Bracket(), Bracket()));
+                  polymer.brackets.back().first = *bracket;
+                  ++i;
+            } else {
+                  --i;
+                  polymer.brackets[i].second = *bracket;
+            }
+      }
+      if (i > 0) {
+            cerr << "Unmatched bracket" << cout;
+      }
 }
 
 void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond) {
@@ -213,12 +237,16 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
 void find_brackets(Image &img, vector<Bracket> &bracketboxes) { 
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
+      // Find endpoints in the image
       find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
       if(bracketpoints.size() != 2) return;
+      // Iterate over endpoints and convert them into Brackets
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
             bracketboxes.push_back(Bracket(itor->first, itor->second, img)); 
       //bracketboxes[bracketboxes.size() - 2].remove_brackets(img);
       //bracketboxes[bracketboxes.size() - 1].remove_brackets(img);
+
+      // Remove the brackets from the image entirely
       bracketboxes[0].remove_brackets(img);
       bracketboxes[1].remove_brackets(img);
 }

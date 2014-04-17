@@ -67,11 +67,12 @@ class Polymer {
                   this->degree = degree;
             };
 
+            vector<pair<Bracket, Bracket> > brackets;
+
       private:
             string SMILES;
             string file_name;
             string degree;
-            vector<pair<Bracket, Bracket> > brackets;
 };
 
 class point {
@@ -93,6 +94,9 @@ class Bracket {
              * brx, and bry denote the lower right hand corner of the box
              * cx*, cy* represent where the bond is broken by the box
             */
+
+            Bracket(){};
+
             Bracket(const pair<int, int> p1, const pair<int, int> p2, Image img): 
                   x1(p1.first), y1(p1.second), x2(p2.first), y2(p2.second) 
             { 
@@ -169,7 +173,7 @@ class Bracket {
                               }
                   }
             };
-
+            
             void remove_brackets(Image &img){
                   img.fillColor("white");
                   img.strokeColor("white");
@@ -191,7 +195,7 @@ class Bracket {
                   return (x1 < right && x1 > left && midy > tly && midy < bry);
             };
 
-            char get_orientation() {
+            char get_orientation() const {
                   return orientation;
             }
 
@@ -207,19 +211,58 @@ class Bracket {
 */
 void  edit_smiles(string &s);
 
+/** Find Degree
+  *  Search through characters and strings that OSRA could not associate, and 
+  *  try and associate those to a bracket.  Looks specifically for integers
+  *  or typical degree characters, i.e. 'n', 'x', 'y', etc.
+*/
 void  find_degree(Polymer &, const vector<letters_t>, const vector<label_t>);
 
+/** Find Intersection
+  *  Iterate through all of the bonds in the structure and determine those of
+  *  which that intersect a bracket and will therefore be split.  A bond that
+  *  is marked to be split is a boundary between a repeat unit and an end group
+  *  and these need to be distinguished.
+*/
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<Bracket> &bracketboxes);
 
+/** Pair Brackets
+  *  After all the brackets have been found, and after OSRA has done most of the
+  *  image processing for that matter, we want to associate pairs of brackets
+  *  so they can be properly matched with their associative repeat / end groups.
+*/
+void  pair_brackets(Polymer &, const vector<Bracket> &);
+
+/** Split Atom
+  *  This function takes the structure that was just compiled in OSRA and splits
+  *  the structure at appropriate boundaries, that is between repeat units and
+  *  end groups.  At these boundaries a bivalent atom is substituted so that
+  *  OpenBabel can still parse the structure as a contiguous *monomer*, in this
+  *  case the bivalent atoms are Polonium (Po) for left oriented brackets and
+  *  Livermorium (Lv) for right oriented brackets.  This is important, because
+  *  later we will split the resulting SMILES string appropriately to accurately
+  *  reflect the inputted Polymer.
+*/
 void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond);
 
+/** Find Endpoints
+  *  Scan through the entire image on a pixel level and detect endpoints.  Endpoints
+  *  are good indicators as to where a bracket exists.  After all endpoints are found
+  *  we can look for symmetries in the diagram as bracket pairs naturally have both
+  *  a vertical and horizontal symmetry which is rare on most chemical diagrams.
+*/
 void  find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
 
-void  plot_points(Image &img, const vector<point> &points, const char **colors);
-
-void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<Bracket> &bracketboxes);
-
+/** Find Brackets
+  *  The main entry point from OSRA to POSRA.  Encapsulates many of the functions
+  *  above.
+*/
 void  find_brackets(Image &img, vector<Bracket> &bracketboxes);
+
+/** The following functions are utility functions for writing images with useful
+  * information for debugging.
+*/
+void  plot_points(Image &img, const vector<point> &points, const char **colors);
 
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
 

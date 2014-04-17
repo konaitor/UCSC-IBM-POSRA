@@ -975,6 +975,7 @@ int osra_process_image(
                               //nick_dev begin
                               Polymer polymer;
                               find_intersection(bond,atom,bracketboxes);
+                              pair_brackets(polymer, bracketboxes);
                               split_atom(bond, atom, n_atom, n_bond);
                               find_degree(polymer, letters, label);
                               plot_all(orig_box, k, "end", atom, bond, letters, label);
