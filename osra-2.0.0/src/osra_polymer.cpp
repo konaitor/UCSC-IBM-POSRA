@@ -28,14 +28,36 @@ void edit_smiles(string &s) {
 }
 
 void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vector<label_t> labels) {
+      // Possible degree characters
       char possible_letters[] = "nxyXY";
+      // Somtimes OCRAD misinterprets a number for a character i.e. 50 -> 5O
+      map<char, char> misread_numbers;
+      misread_numbers['O'] = '0';
+      misread_numbers['o'] = '0';
+      // A collection of possible, or multiple degree characters, these could be a single character
+      //  like n, or a string like "50"
       vector<string> degrees;
+      // First we check for strings, i.e. "50"
       for (vector<label_t>::const_iterator label = labels.begin(); label != labels.end(); ++label) {
             int degree;
             istringstream iss(label->a);
             iss >> degree;
-            if (degree > 0) degrees.push_back(label->a);
+            // Check if it's a valid number
+            if (degree > 0) {
+                  string s;
+                  for (string::const_iterator itor = label->a.begin(); itor != label->a.end(); ++itor) {
+                        // Map characters to number characters
+                        char c = misread_numbers[*itor];
+                        // If c maps to something it will be nonzero, and we know it was a hit in our map
+                        if (c) 
+                              s.push_back(c); 
+                        else 
+                              s.push_back(*itor);
+                  }
+                  degrees.push_back(s);
+            }
       }
+      // Next we check for characters, i.e. 'n'
       for (vector<letters_t>::const_iterator letter = letters.begin(); letter != letters.end(); ++letter) {
             if (letter->free) {
                   for (int i = 0; i < (sizeof(possible_letters) / sizeof(char)); ++i) {
