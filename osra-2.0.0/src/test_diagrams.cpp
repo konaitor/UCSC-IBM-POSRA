@@ -1,4 +1,4 @@
-//Tests multiple diagrams through OSRA 
+//Tests batches of diagrams through OSRA 
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
@@ -17,6 +17,7 @@ void test_diagrams (string, string);
 
 int main(int argc, char **argv){
       int c;
+      //cases for each flag
       while ((c = getopt(argc, argv, "bphna")) != -1){
             switch (c) {
                   case 'b':
@@ -45,7 +46,7 @@ int main(int argc, char **argv){
                         return 1;
             }
       }
-      //if not arguments -- run basic test
+      //if no flags -- run basic test
       if (argc == 1)
             test_diagrams("./test/basic/list.txt", "basic/");
 }     
@@ -62,10 +63,12 @@ void test_diagrams (string textFile, string folder){
             while (true) {
                   if (list.eof())
                         break;
+                  //get name of the file to test from list.txt
                   getline(list, fileName);
                   if (list.eof())
                         break;
                   test = command + folder + fileName;
+                  //get 'correct' smiles string to test against osra's output from list.txt
                   getline(list, smiles);
                   pipe = popen (test.c_str(), "r");
                   char buff [ 64 ];
@@ -74,8 +77,10 @@ void test_diagrams (string textFile, string folder){
                   s = s.erase (s.size()-1);
 
                   if (s == smiles){
+                        //if osra's output == 'correct' smiles string
                         printf("[PASS]\n\t%s\n", s.c_str());
                   } else {
+                        //output != smiles string
                         printf("[FAIL]\n\tExpected Output: %s\n\tActual output: %s\n", smiles.c_str(), s.c_str());
                   }
             }
