@@ -45,16 +45,27 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
             // Check if it's a valid number
             if (degree > 0) {
                   string s;
+                  bool not_number = false;
                   for (string::const_iterator itor = label->a.begin(); itor != label->a.end(); ++itor) {
                         // Map characters to number characters
                         char c = misread_numbers[*itor];
                         // If c maps to something it will be nonzero, and we know it was a hit in our map
                         if (c) 
                               s.push_back(c); 
-                        else 
-                              s.push_back(*itor);
+                        else {
+                              int num;
+                              istringstream iss(string(1L, c));
+                              iss >> num;
+                              if (num > 0) 
+                                    s.push_back(*itor);
+                              else {
+                                    not_number = true;
+                                    break;
+                              }
+                        }
                   }
-                  degrees.push_back(s);
+                  if (!not_number)
+                        degrees.push_back(s);
             }
       }
       // Next we check for characters, i.e. 'n'
@@ -66,9 +77,16 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
                   }
             }
       }
+      /*
       // Debug print, need to formalize and associate with a bracket within a polymer
       for (vector<string>::iterator degree = degrees.begin(); degree != degrees.end(); ++degree) {
             cout << *degree << endl;
+      }
+      */
+      // Right now it just takes the first degree that it could be associated with
+      if (!degrees.empty()) {
+            polymer.set_degree(degrees.front());
+            cout << polymer.get_degree() << endl;
       }
 
 }
@@ -144,12 +162,12 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
                   for (int n = 1; n <= SIDE_GROUP_SIZE; n++ ) {
                         north.push_back (detect.pixelColor(i,j-n));
                         north.push_back (detect.pixelColor(i+1,j-n));
-                        west.push_back (detect.pixelColor(i-n,j));
-                        west.push_back (detect.pixelColor(i-n,j+1));
+                        west.push_back  (detect.pixelColor(i-n,j));
+                        west.push_back  (detect.pixelColor(i-n,j+1));
                         south.push_back (detect.pixelColor(i,j+(n+1)));
                         south.push_back (detect.pixelColor(i+1,j+(n+1)));
-                        east.push_back (detect.pixelColor(i+(n+1),j));
-                        east.push_back (detect.pixelColor(i+(n+1),j+1));
+                        east.push_back  (detect.pixelColor(i+(n+1),j));
+                        east.push_back  (detect.pixelColor(i+(n+1),j+1));
                   }
                   // Add each side-group vector the the sides vector
                   sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
@@ -163,6 +181,7 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
                               }
                         }
                   }
+                  if (adj_groups == 0) continue;
 
                   // If the current pixel, or the pixel to its immediate right are non-white,
                   // and 3 of the adjacent groups are completely white, then add the current

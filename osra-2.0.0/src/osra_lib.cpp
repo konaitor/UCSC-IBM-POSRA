@@ -807,6 +807,14 @@ int osra_process_image(
                                     orig_box.pixelColor(x - boxes[k].x1 + FRAME, y - boxes[k].y1 + FRAME, color);
                               }
 
+                              //nick_dev begin
+                              vector<Bracket> bracketboxes;
+                              //find_brackets(box, *(new vector<Bracket>()));
+                              //box.write("removed.png");
+                              find_brackets(orig_box, bracketboxes);
+                              //orig_box.write("orig_removed.png");
+                              //nick_dev end
+
                               int width = orig_box.columns();
                               int height = orig_box.rows();
                               Image thick_box;
@@ -822,14 +830,7 @@ int osra_process_image(
                                     box = thick_box;
                               box.write("thinned.gif");
 
-                              //nick_dev begin
-                              vector<Bracket> bracketboxes;
-                              find_brackets(box, *(new vector<Bracket>()));
-                              //box.write("removed.png");
-                              find_brackets(orig_box, bracketboxes);
-                              orig_box.write("orig_removed.png");
-                              //nick_dev end
-                              
+                              //
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
 
@@ -978,7 +979,7 @@ int osra_process_image(
                               pair_brackets(polymer, bracketboxes);
                               split_atom(bond, atom, n_atom, n_bond);
                               find_degree(polymer, letters, label);
-                              plot_all(orig_box, k, "end", atom, bond, letters, label);
+                              //plot_all(orig_box, k, "end", atom, bond, letters, label);
                               //nick_dev end
 
                               if (verbose)
@@ -1102,6 +1103,8 @@ int osra_process_image(
                         if (output_format != "mol" && !is_reaction)
                         {
                               out_stream << pages_of_structures[l][i];
+                              // Hans, canonical and z coords
+                              /*
                               if (output_format == "can" || output_format == "smi") { // create 3D sdf representation
                                     OBMol sdfmol;
                                     OBConversion sdfconv;
@@ -1117,6 +1120,7 @@ int osra_process_image(
                                           out_stream  << sdfconv.WriteString(&sdfmol, true) << endl;
                                     }
                               }
+                              */
                         }
                               // Dump this structure into a separate file:
                               if (!output_image_file_prefix.empty())

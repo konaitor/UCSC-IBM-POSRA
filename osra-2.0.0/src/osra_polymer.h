@@ -67,6 +67,10 @@ class Polymer {
                   this->degree = degree;
             };
 
+            string get_degree() {
+                  return this->degree;
+            }
+
             vector<pair<Bracket, Bracket> > brackets;
 
       private:
