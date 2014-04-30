@@ -230,6 +230,14 @@ void  find_degree(Polymer &, const vector<letters_t>, const vector<label_t>);
 */
 void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<Bracket> &bracketboxes);
 
+/** Get Potrace Points
+  *  Converts potrace control points into a vector of pairs where each pair is
+  *  a control point.  This makes it easier to access later during the find
+  *  endpoints processing.  Since potrace has done a lot of the work for us,
+  *  this should speed up and reduce errors during endpoint detection.
+*/
+vector<pair<int, int> > get_potrace_points(const potrace_path_t *p);
+
 /** Pair Brackets
   *  After all the brackets have been found, and after OSRA has done most of the
   *  image processing for that matter, we want to associate pairs of brackets
@@ -255,13 +263,13 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
   *  we can look for symmetries in the diagram as bracket pairs naturally have both
   *  a vertical and horizontal symmetry which is rare on most chemical diagrams.
 */
-void  find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
+void find_endpoints(Image detect, vector<pair<int, int> > &potrace_points, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
 
 /** Find Brackets
   *  The main entry point from OSRA to POSRA.  Encapsulates many of the functions
   *  above.
 */
-void  find_brackets(Image &img, vector<Bracket> &bracketboxes);
+void  find_brackets(Image &img, const potrace_path_t *p, vector<Bracket> &bracketboxes);
 
 /** The following functions are utility functions for writing images with useful
   * information for debugging.

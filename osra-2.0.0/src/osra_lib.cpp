@@ -807,14 +807,6 @@ int osra_process_image(
                                     orig_box.pixelColor(x - boxes[k].x1 + FRAME, y - boxes[k].y1 + FRAME, color);
                               }
 
-                              //nick_dev begin
-                              vector<Bracket> bracketboxes;
-                              //find_brackets(box, *(new vector<Bracket>()));
-                              //box.write("removed.png");
-                              find_brackets(orig_box, bracketboxes);
-                              //orig_box.write("orig_removed.png");
-                              //nick_dev end
-
                               int width = orig_box.columns();
                               int height = orig_box.rows();
                               Image thick_box;
@@ -828,13 +820,19 @@ int osra_process_image(
                                     box = thin_image(thick_box, THRESHOLD_BOND, bgColor);
                               else
                                     box = thick_box;
-                              box.write("thinned.gif");
 
-                              //
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
 
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
+
+                              //nick_dev begin
+                              vector<Bracket> bracketboxes;
+                              find_brackets(orig_box, p,  *(new vector<Bracket>()));
+                              //box.write("removed.png");
+                              find_brackets(box, p, bracketboxes);
+                              //orig_box.write("orig_removed.png");
+                              //nick_dev end
 
                               int real_font_width, real_font_height;
                               n_letters = find_chars(p, orig_box, letters, atom, bond, n_atom, n_bond, height, width, bgColor,

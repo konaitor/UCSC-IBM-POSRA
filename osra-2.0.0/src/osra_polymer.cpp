@@ -27,6 +27,20 @@ void edit_smiles(string &s) {
             cout << string((t++%2==0)?"EG: ":"RU: ") << *itor << endl;
 }
 
+vector<pair<int, int> > get_potrace_points (const potrace_path_t *p) {
+     vector<pair<int, int> > res;
+     for (const potrace_path_t *curr = p; curr != NULL; curr = curr->next) {
+            potrace_dpoint_t (*c)[3] = curr->curve.c;
+            for (int i=0;i<curr->curve.n;++i) {
+                  if (curr->curve.tag[i] == POTRACE_CURVETO)
+                        res.push_back(make_pair(c[i][0].x, c[i][0].y));
+                  res.push_back(make_pair(c[i][1].x, c[i][1].y));
+                  res.push_back(make_pair(c[i][2].x, c[i][2].y));
+            }
+      }
+      return res;
+}
+
 void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vector<label_t> labels) {
       // Possible degree characters
       char possible_letters[] = "nxyXY";
@@ -149,51 +163,57 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
       }
 }
 
-void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints) {
+void find_endpoints(Image detect, vector<pair<int, int> > &potrace_points, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints) {
       const unsigned int SIDE_GROUP_SIZE = 2;
       const unsigned int BRACKET_MIN_SIZE = 5;
-      for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                  int adj_groups = 0; // The number of side groups that contain at least 1 non-white pixel
-                  vector<ColorGray> north, south, east, west;
-                  vector<vector<ColorGray > > sides;
+      for (vector<pair<int, int> >::iterator point = potrace_points.begin(); point != potrace_points.end(); ++point) {
+            int i = point->first;
+            int j = point->second; 
+            // Clamp to the image width / height
+            if (i + SIDE_GROUP_SIZE >= width  ||
+                i - SIDE_GROUP_SIZE <  0      ||
+                j + SIDE_GROUP_SIZE >= height ||
+                j - SIDE_GROUP_SIZE <  0)
+                  continue;
+            int adj_groups = 0; // The number of side groups that contain at least 1 non-white pixel
+            vector<ColorGray> north, south, east, west;
+            vector<vector<ColorGray > > sides;
 
-                  // Populate the side-groups vectors with the correct Color objects
-                  for (int n = 1; n <= SIDE_GROUP_SIZE; n++ ) {
-                        north.push_back (detect.pixelColor(i,j-n));
-                        north.push_back (detect.pixelColor(i+1,j-n));
-                        west.push_back  (detect.pixelColor(i-n,j));
-                        west.push_back  (detect.pixelColor(i-n,j+1));
-                        south.push_back (detect.pixelColor(i,j+(n+1)));
-                        south.push_back (detect.pixelColor(i+1,j+(n+1)));
-                        east.push_back  (detect.pixelColor(i+(n+1),j));
-                        east.push_back  (detect.pixelColor(i+(n+1),j+1));
-                  }
-                  // Add each side-group vector the the sides vector
-                  sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
+            // Populate the side-groups vectors with the correct Color objects
+            for (int n = 1; n <= SIDE_GROUP_SIZE; n++ ) {
+                  north.push_back (detect.pixelColor(i,j-n));
+                  north.push_back (detect.pixelColor(i+1,j-n));
+                  west.push_back  (detect.pixelColor(i-n,j));
+                  west.push_back  (detect.pixelColor(i-n,j+1));
+                  south.push_back (detect.pixelColor(i,j+(n+1)));
+                  south.push_back (detect.pixelColor(i+1,j+(n+1)));
+                  east.push_back  (detect.pixelColor(i+(n+1),j));
+                  east.push_back  (detect.pixelColor(i+(n+1),j+1));
+            }
+            // Add each side-group vector the the sides vector
+            sides.push_back(north); sides.push_back(south); sides.push_back(east); sides.push_back(west);
 
-                  // Check if each side group contains at least 1 non-white pixel
-                  for (int c = 0; c < sides.size(); c++) {
-                        for (int d = 0; d < sides.at(c).size(); d++) {
-                              if (sides.at(c).at(d).shade() < 1) {
-                                    adj_groups++;
-                                    break;
-                              }
+            // Check if each side group contains at least 1 non-white pixel
+            for (int c = 0; c < sides.size(); c++) {
+                  for (int d = 0; d < sides.at(c).size(); d++) {
+                        if (sides.at(c).at(d).shade() < 1) {
+                              adj_groups++;
+                              break;
                         }
                   }
-                  if (adj_groups == 0) continue;
+            }
+            if (adj_groups == 0) continue;
 
-                  // If the current pixel, or the pixel to its immediate right are non-white,
-                  // and 3 of the adjacent groups are completely white, then add the current
-                  // pixel (or immediate right) to list of endpoints.
-                  ColorGray current_pixel = detect.pixelColor(i,j);
-                  ColorGray current_right = detect.pixelColor(i+1,j);
-                  if (adj_groups == 1 && (current_pixel.shade() < 1 || current_right.shade() < 1)) {
-                        if (current_pixel.shade() < 1 && current_right.shade() == 1)
-                              endpoints.push_back(make_pair(i,j));
-                        else if (current_pixel.shade() == 1 && current_right.shade() < 1)
-                              endpoints.push_back(make_pair(i+1,j));
-                  }
+            // If the current pixel, or the pixel to its immediate right are non-white,
+            // and 3 of the adjacent groups are completely white, then add the current
+            // pixel (or immediate right) to list of endpoints.
+            ColorGray current_pixel = detect.pixelColor(i,j);
+            ColorGray current_right = detect.pixelColor(i+1,j);
+            if (adj_groups == 1 && (current_pixel.shade() < 1 || current_right.shade() < 1)) {
+                  if (current_pixel.shade() < 1 && current_right.shade() == 1)
+                        endpoints.push_back(make_pair(i,j));
+                  else if (current_pixel.shade() == 1 && current_right.shade() < 1)
+                        endpoints.push_back(make_pair(i+1,j));
             }
       }
 
@@ -253,21 +273,21 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
       detect.write("out.png");
 }
 
-void find_brackets(Image &img, vector<Bracket> &bracketboxes) { 
+void find_brackets(Image &img, const potrace_path_t *p, vector<Bracket> &bracketboxes) { 
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
-      // Find endpoints in the image
-      find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
-      if(bracketpoints.size() != 2) return;
-      // Iterate over endpoints and convert them into Brackets
-      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
-            bracketboxes.push_back(Bracket(itor->first, itor->second, img)); 
-      //bracketboxes[bracketboxes.size() - 2].remove_brackets(img);
-      //bracketboxes[bracketboxes.size() - 1].remove_brackets(img);
+      vector<pair<int, int> > potrace_points = get_potrace_points(p); // We will search through potrace's control points
 
-      // Remove the brackets from the image entirely
-      bracketboxes[0].remove_brackets(img);
-      bracketboxes[1].remove_brackets(img);
+      // Find endpoints in the image
+      find_endpoints(img, potrace_points, endpoints, img.columns(), img.rows(), bracketpoints);
+      if(bracketpoints.size() != 2) return;
+
+      // Iterate over endpoints and convert them into Brackets
+      for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor) {
+            bracketboxes.push_back(Bracket(itor->first, itor->second, img)); 
+            // Remove the brackets from the image entirely
+            bracketboxes.back().remove_brackets(img);
+      }
 }
 
 void plot_points(Image &img, const vector<point> &points) {
