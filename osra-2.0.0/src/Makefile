@@ -11,7 +11,7 @@ LIB_VERSION	:= $(LIB_MAJOR_VERSION).$(LIB_MINOR_VERSION).$(LIB_PATCH_VERSION)
 
 TARGETS		:= osra$(EXEEXT)
 
-OBJ_LIB		:=  osra_lib.o osra_grayscale.o osra_fragments.o osra_segment.o osra_labels.o osra_thin.o osra_common.o osra_stl.o osra_structure.o osra_anisotropic.o osra_ocr.o osra_openbabel.o mcdlutil.o unpaper.o osra_reaction.o
+OBJ_LIB		:=  osra_lib.o osra_grayscale.o osra_fragments.o osra_segment.o osra_labels.o osra_thin.o osra_common.o osra_stl.o osra_structure.o osra_anisotropic.o osra_ocr.o osra_openbabel.o mcdlutil.o unpaper.o osra_reaction.o osra_polymer.o
 
 ifdef TESSERACT_LIB
 OBJ_LIB		+= osra_ocr_tesseract.o

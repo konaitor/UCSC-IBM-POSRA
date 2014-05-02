@@ -94,6 +94,8 @@ bond_s(int i=0, int j=0, const potrace_path_t* p=NULL) :
   bool arom;
   //If a bracket cuts the bond
   bool split;
+  //The orientation of the bracket that bond splits
+  char bracket_orientation;
   // bool: conjoined
   //    true for a double bond which is joined at one end on the image
   bool conjoined;

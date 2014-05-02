@@ -44,6 +44,41 @@ enum color_index {
       CLEAR     = 255,
 };
 
+class Bracket;
+class Polymer;
+class point;
+
+/* Polymer
+ * General data sctructure to hold pertainent information, interfacing with the database.
+*/
+class Polymer {
+      public:
+            Polymer(){};
+
+            void set_SMILES(string SMILES) {
+                  this->SMILES = SMILES;
+            };
+
+            void set_file_name(string file_name) {
+                  this->file_name = file_name;
+            };
+
+            void set_degree(const string degree) {
+                  this->degree = degree;
+            };
+
+            string get_degree() {
+                  return this->degree;
+            }
+
+            vector<pair<Bracket, Bracket> > brackets;
+
+      private:
+            string SMILES;
+            string file_name;
+            string degree;
+};
+
 class point {
       public:
             point(){};
@@ -52,9 +87,9 @@ class point {
             unsigned char color;
 };
 
-class bracketbox {
+class Bracket {
       public:
-            /* -- bracketbox --
+            /* -- Bracket --
              * CURRENTLY ONLY WORKS ON VERTICALLY ORIENTED BRACKETS 
              * Bounding box around brackets (parenthesis) that will enclose POTRACE points to throw away.
              * p1, p2 initialize extrema of brackets (Endpoints)
@@ -63,7 +98,9 @@ class bracketbox {
              * brx, and bry denote the lower right hand corner of the box
              * cx*, cy* represent where the bond is broken by the box
             */
-            bracketbox(const pair<int, int> p1, const pair<int, int> p2, Image img): 
+            Bracket(){};
+
+            Bracket(const pair<int, int> p1, const pair<int, int> p2, Image img): 
                   x1(p1.first), y1(p1.second), x2(p2.first), y2(p2.second) 
             { 
                   height = abs(y1 - y2);
@@ -161,20 +198,89 @@ class bracketbox {
                   return (x1 < right && x1 > left && midy > tly && midy < bry);
             };
 
+            char get_orientation() const {
+                  return orientation;
+            }
+
       private:
             int x1, x2, y1, y2, width, height, tlx, tly, brx, bry, cx1, cy1, cx2, cy2;
             char orientation;
 };
 
+/** Edit Smiles
+  *  Take the resulting smiles string from OSRA and splice and format the string
+  *  by removing pseudo poloniums and replacing them with respective end group
+  *  or repeat unit identifiers.
+*/
 void  edit_smiles(string &s);
-void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
+
+/** Find Degree
+  *  Search through characters and strings that OSRA could not associate, and 
+  *  try and associate those to a bracket.  Looks specifically for integers
+  *  or typical degree characters, i.e. 'n', 'x', 'y', etc.
+*/
+void  find_degree(Polymer &, const vector<letters_t>, const vector<label_t>);
+
+/** Find Intersection
+  *  Iterate through all of the bonds in the structure and determine those of
+  *  which that intersect a bracket and will therefore be split.  A bond that
+  *  is marked to be split is a boundary between a repeat unit and an end group
+  *  and these need to be distinguished.
+*/
+void  find_intersection(vector<bond_t> &bonds, const vector<atom_t> &atoms, vector<Bracket> &bracketboxes);
+
+/** Get Potrace Points
+  *  Converts potrace control points into a vector of pairs where each pair is
+  *  a control point.  This makes it easier to access later during the find
+  *  endpoints processing.  Since potrace has done a lot of the work for us,
+  *  this should speed up and reduce errors during endpoint detection.
+*/
+vector<pair<int, int> > get_potrace_points(const potrace_path_t *p);
+
+/** Pair Brackets
+  *  After all the brackets have been found, and after OSRA has done most of the
+  *  image processing for that matter, we want to associate pairs of brackets
+  *  so they can be properly matched with their associative repeat / end groups.
+*/
+void  pair_brackets(Polymer &, const vector<Bracket> &);
+
+/** Split Atom
+  *  This function takes the structure that was just compiled in OSRA and splits
+  *  the structure at appropriate boundaries, that is between repeat units and
+  *  end groups.  At these boundaries a bivalent atom is substituted so that
+  *  OpenBabel can still parse the structure as a contiguous *monomer*, in this
+  *  case the bivalent atoms are Polonium (Po) for left oriented brackets and
+  *  Livermorium (Lv) for right oriented brackets.  This is important, because
+  *  later we will split the resulting SMILES string appropriately to accurately
+  *  reflect the inputted Polymer.
+*/
 void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int &n_bond);
-void  find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
+
+/** Find Endpoints
+  *  Scan through the entire image on a pixel level and detect endpoints.  Endpoints
+  *  are good indicators as to where a bracket exists.  After all endpoints are found
+  *  we can look for symmetries in the diagram as bracket pairs naturally have both
+  *  a vertical and horizontal symmetry which is rare on most chemical diagrams.
+*/
+void find_endpoints(Image detect, vector<pair<int, int> > &potrace_points, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
+
+/** Find Brackets
+  *  The main entry point from OSRA to POSRA.  Encapsulates many of the functions
+  *  above.
+*/
+void  find_brackets(Image &img, const potrace_path_t *p, vector<Bracket> &bracketboxes);
+
+/** The following functions are utility functions for writing images with useful
+  * information for debugging.
+*/
 void  plot_points(Image &img, const vector<point> &points, const char **colors);
-void  find_paren(Image &img, const potrace_path_t *p, vector<atom_t> &atoms, vector<bracketbox> &bracketboxes);
-void  find_brackets(Image &img, vector<bracketbox> &bracketboxes);
+
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
+
 void  plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> atoms, const std::string color);
+
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
+
 void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels);
+
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);

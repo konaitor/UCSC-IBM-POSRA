@@ -426,7 +426,7 @@ void split_fragments_and_assemble_structure_record(vector<atom_t> &atom,
                                           show_coordinates ? &coordinate_box : NULL, superatom, n_letters, show_learning, resolution_iteration, verbose);
 
                         //nick_dev  
-                        edit_smiles(structure);
+                        //edit_smiles(structure);
 
                         if (molecule_statistics.fragments > 0 && molecule_statistics.fragments < MAX_FRAGMENTS && molecule_statistics.num_atoms>MIN_A_COUNT && molecule_statistics.num_bonds>0)
                         {
@@ -669,9 +669,6 @@ int osra_process_image(
       vector<vector<vector<Image> > > array_of_images_page(page,vector<vector<Image> > (num_resolutions));
       vector<vector<vector<box_t> > > array_of_boxes_page(page,vector<vector<box_t> >(num_resolutions));
 
-      //nick_dev
-      bool testing = true;
-
 #pragma omp parallel for default(shared) private(OCR_JOB,JOB)
       for (int l = 0; l < page; l++)
       {
@@ -823,20 +820,19 @@ int osra_process_image(
                                     box = thin_image(thick_box, THRESHOLD_BOND, bgColor);
                               else
                                     box = thick_box;
-                              box.write("thinned.gif");
 
-                              //nick_dev begin
-                              vector<bracketbox> bracketboxes;
-                              if(testing) {
-                                    find_brackets(box, *(new vector<bracketbox>()));
-                                    find_brackets(orig_box, bracketboxes);
-                              }
-                              //nick_dev end
-                              
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
 
                               n_atom = find_atoms(p, atom, bond, &n_bond,width,height);
+
+                              //nick_dev begin
+                              vector<Bracket> bracketboxes;
+                              find_brackets(orig_box, p,  *(new vector<Bracket>()));
+                              //box.write("removed.png");
+                              find_brackets(box, p, bracketboxes);
+                              //orig_box.write("orig_removed.png");
+                              //nick_dev end
 
                               int real_font_width, real_font_height;
                               n_letters = find_chars(p, orig_box, letters, atom, bond, n_atom, n_bond, height, width, bgColor,
@@ -976,12 +972,12 @@ int osra_process_image(
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
                               //nick_dev begin
-                              if(testing) {
-                                    find_intersection(bond,atom,bracketboxes);
-                                    split_atom(bond, atom, n_atom, n_bond);
-                                    plot_all(orig_box, k, "end", atom, bond, letters, label);
-                                    //testing = false;
-                              }
+                              Polymer polymer;
+                              find_intersection(bond,atom,bracketboxes);
+                              pair_brackets(polymer, bracketboxes);
+                              split_atom(bond, atom, n_atom, n_bond);
+                              find_degree(polymer, letters, label);
+                              //plot_all(orig_box, k, "end", atom, bond, letters, label);
                               //nick_dev end
 
                               if (verbose)
@@ -1105,6 +1101,8 @@ int osra_process_image(
                         if (output_format != "mol" && !is_reaction)
                         {
                               out_stream << pages_of_structures[l][i];
+                              // Hans, canonical and z coords
+                              /*
                               if (output_format == "can" || output_format == "smi") { // create 3D sdf representation
                                     OBMol sdfmol;
                                     OBConversion sdfconv;
@@ -1120,6 +1118,7 @@ int osra_process_image(
                                           out_stream  << sdfconv.WriteString(&sdfmol, true) << endl;
                                     }
                               }
+                              */
                         }
                               // Dump this structure into a separate file:
                               if (!output_image_file_prefix.empty())
