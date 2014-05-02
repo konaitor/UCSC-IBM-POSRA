@@ -833,9 +833,9 @@ int osra_process_image(
 
                               //nick_dev begin
                               vector<Bracket> bracketboxes;
-                              find_brackets(orig_box, p,  *(new vector<Bracket>()));
+                              find_brackets(box, p,  *(new vector<Bracket>()));
                               //box.write("removed.png");
-                              find_brackets(box, p, bracketboxes);
+                              find_brackets(orig_box, p, bracketboxes);
                               //orig_box.write("orig_removed.png");
                               //nick_dev end
 
