@@ -574,7 +574,7 @@ int osra_process_image(
 #ifdef OSRA_LIB
       Blob blob(image_data, image_length);
 #endif
-
+      //Load the image with GraphicsMagick
       try
       {
             Image image_typer;
@@ -641,12 +641,13 @@ int osra_process_image(
       if (output_format == "cmlr" || output_format == "rsmi" || output_format =="rxn")
             is_reaction = true;
 
+      //if input has multiple pages (PDF)
 #ifdef OSRA_LIB
       int page = 1;
 #else
       int page = count_pages(input_file);
 #endif
-
+      //vectors to hold Images/Data/boxes
       vector<vector<string> > pages_of_structures(page, vector<string> (0));
       vector<vector<Image> > pages_of_images(page, vector<Image> (0));
       vector<vector<double> > pages_of_avg_bonds(page, vector<double> (0));
@@ -698,17 +699,18 @@ int osra_process_image(
             }
 #endif
             image.modifyImage();
+            //Convert image to grayscale
             bool adaptive = convert_to_gray(image, invert, adaptive_option, verbose);
 
 
-
+            //Image and bond vectors
             vector<vector<string> > array_of_structures(num_resolutions);
             vector<vector<double> > array_of_avg_bonds(num_resolutions), array_of_ind_conf(num_resolutions);
             vector<vector<Image> > array_of_images(num_resolutions);
             vector<vector<box_t> > array_of_boxes(num_resolutions);
 
 
-
+            //Scaling of the image
             if (input_resolution > 300)
             {
                   int percent = (100 * 300) / input_resolution;
@@ -720,7 +722,7 @@ int osra_process_image(
 
             if (verbose)
                   cout << "Input resolutions are " << select_resolution << endl;
-
+            //get Background color
             ColorGray bgColor = getBgColor(image);
             if (rotate != 0)
             {
@@ -731,6 +733,7 @@ int osra_process_image(
             double rotation = 0;
             int unpaper_dx = 0;
             int unpaper_dy = 0;
+            //Deskews and cleans scanned documents (unpaper.cpp)
             for (int i = 0; i < do_unpaper; i++)
             {
                   double radians=0;
@@ -740,13 +743,13 @@ int osra_process_image(
                   unpaper_dx +=dx;
                   unpaper_dy +=dy;
             }
-
+            //find segments removes tables/text and leaves diagrams.
             // 0.1 is used for THRESHOLD_BOND here to allow for farther processing.
             list<list<list<point_t> > > clusters = find_segments(image, 0.1, bgColor, adaptive, is_reaction, arrows[l], pluses[l], verbose);
 
             if (verbose)
                   cout << "Number of clusters: " << clusters.size() << '.' << endl;
-
+            //break up clusters into boxes      
             vector<box_t> boxes;
             int n_boxes = prune_clusters(clusters, boxes);
             std::sort(boxes.begin(), boxes.end(), comp_boxes);
@@ -757,7 +760,7 @@ int osra_process_image(
             // This will hide the output "Warning: non-positive median line gap" from GOCR. Remove after this is fixed:
             fclose(stderr);
             OpenBabel::obErrorLog.StopLogging();
-
+            //try images at different resolutions
             for (int res_iter = 0; res_iter < num_resolutions; res_iter++)
             {
                   int total_boxes = 0;
@@ -784,6 +787,8 @@ int osra_process_image(
                   //dbg.backgroundColor("white");
                   //dbg.erase();
                   //dbg.type(TrueColorType);
+
+                  //loop through boxes at each resolution
                   for (int k = 0; k < n_boxes; k++)
                         if ((boxes[k].x2 - boxes[k].x1) > max_font_width && (boxes[k].y2 - boxes[k].y1) > max_font_height
                                     && !boxes[k].c.empty() && ((boxes[k].x2 - boxes[k].x1) > 2 * max_font_width || (boxes[k].y2
