@@ -297,7 +297,9 @@ void rotate_coordinate_box(box_t &coordinate_box,double rotation,int width,int h
       coordinate_box.y2 = max(y1,y2);
 }
 
-void split_fragments_and_assemble_structure_record(vector<atom_t> &atom,
+void split_fragments_and_assemble_structure_record(
+            Polymer &polymer,
+            vector<atom_t> &atom,
             int n_atom, 
             vector<bond_t>  &bond, 
             int n_bond, 
@@ -758,6 +760,10 @@ int osra_process_image(
             fclose(stderr);
             OpenBabel::obErrorLog.StopLogging();
 
+            //nick_dev
+            //Declare polymer data type to store relevant information
+            Polymer polymer;
+
             for (int res_iter = 0; res_iter < num_resolutions; res_iter++)
             {
                   int total_boxes = 0;
@@ -974,7 +980,6 @@ int osra_process_image(
                               int real_bonds = count_bonds(bond, n_bond,bond_max_type);
 
                               //nick_dev begin
-                              Polymer polymer;
                               find_intersection(bond,atom,bracketboxes);
                               pair_brackets(polymer, bracketboxes);
                               split_atom(bond, atom, n_atom, n_bond);
@@ -985,7 +990,7 @@ int osra_process_image(
                               if (verbose)
                                     cout << "Final number of atoms: " << real_atoms << ", bonds: " << real_bonds << ", chars: " << n_letters << '.' << endl;
 
-                              split_fragments_and_assemble_structure_record(atom,n_atom,bond,n_bond,boxes,
+                              split_fragments_and_assemble_structure_record(polymer,atom,n_atom,bond,n_bond,boxes,
                                           l,k,resolution,res_iter,output_image_file_prefix,image,orig_box,real_font_width,real_font_height,
                                           thickness,avg_bond_length,superatom,real_atoms,real_bonds,bond_max_type,
                                           box_scale,page_scale,rotation,unpaper_dx,unpaper_dy,output_format,embedded_format,is_reaction,show_confidence,
@@ -1001,6 +1006,7 @@ int osra_process_image(
                   //dbg.write("debug.png");
             }
 
+            cout << polymer.get_degree() << endl;
 
 
 #pragma omp critical

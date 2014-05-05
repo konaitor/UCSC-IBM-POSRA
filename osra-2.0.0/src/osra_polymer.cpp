@@ -1,5 +1,4 @@
-#include "osra_polymer.h"
-
+#include "osra_polymer.h" 
 using namespace std;
 using namespace Magick;
 
@@ -29,7 +28,7 @@ void edit_smiles(string &s) {
 
 void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vector<label_t> labels) {
       // Possible degree characters
-      char possible_letters[] = "nxyXY";
+      char possible_letters[] = "nmxyXY";
       // Somtimes OCRAD misinterprets a number for a character i.e. 50 -> 5O
       map<char, char> misread_numbers;
       misread_numbers['O'] = '0';
@@ -54,9 +53,9 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
                               s.push_back(c); 
                         else {
                               int num;
-                              istringstream iss(string(1L, c));
+                              istringstream iss(string(1L, *itor));
                               iss >> num;
-                              if (num > 0) 
+                              if (num > 0)
                                     s.push_back(*itor);
                               else {
                                     not_number = true;
@@ -77,8 +76,8 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
                   }
             }
       }
-      /*
       // Debug print, need to formalize and associate with a bracket within a polymer
+      /*
       for (vector<string>::iterator degree = degrees.begin(); degree != degrees.end(); ++degree) {
             cout << *degree << endl;
       }
@@ -86,7 +85,7 @@ void  find_degree(Polymer &polymer, const vector<letters_t> letters, const vecto
       // Right now it just takes the first degree that it could be associated with
       if (!degrees.empty()) {
             polymer.set_degree(degrees.front());
-            cout << polymer.get_degree() << endl;
+            //cout << polymer.get_degree() << endl;
       }
 
 }
