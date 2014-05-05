@@ -166,15 +166,17 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
 void find_endpoints(Image detect, vector<pair<int, int> > &potrace_points, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints) {
       const unsigned int SIDE_GROUP_SIZE = 2;
       const unsigned int BRACKET_MIN_SIZE = 5;
-      for (vector<pair<int, int> >::iterator point = potrace_points.begin(); point != potrace_points.end(); ++point) {
-            int i = point->first;
-            int j = point->second; 
-            // Clamp to the image width / height
-            if (i + SIDE_GROUP_SIZE >= width  ||
-                i - SIDE_GROUP_SIZE <  0      ||
-                j + SIDE_GROUP_SIZE >= height ||
-                j - SIDE_GROUP_SIZE <  0)
-                  continue;
+      // for (vector<pair<int, int> >::iterator point = potrace_points.begin(); point != potrace_points.end(); ++point) {
+            // int i = point->first;
+            // int j = point->second; 
+            // // Clamp to the image width / height
+            // if (i + SIDE_GROUP_SIZE >= width  ||
+                // i - SIDE_GROUP_SIZE <  0      ||
+                // j + SIDE_GROUP_SIZE >= height ||
+                // j - SIDE_GROUP_SIZE <  0)
+                  // continue;
+			for (int i = 0; i < width; ++i) {
+				for (int j = 0; j < height; ++j) {
             int adj_groups = 0; // The number of side groups that contain at least 1 non-white pixel
             vector<ColorGray> north, south, east, west;
             vector<vector<ColorGray > > sides;
@@ -216,6 +218,7 @@ void find_endpoints(Image detect, vector<pair<int, int> > &potrace_points, vecto
                         endpoints.push_back(make_pair(i+1,j));
             }
       }
+	  }
 
       // For each endpoint, loop through all other endpoints
       for (int i = 0; i < endpoints.size(); i++) {
@@ -286,8 +289,11 @@ void find_brackets(Image &img, const potrace_path_t *p, vector<Bracket> &bracket
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor) {
             bracketboxes.push_back(Bracket(itor->first, itor->second, img)); 
             // Remove the brackets from the image entirely
-            bracketboxes.back().remove_brackets(img);
+            //bracketboxes.back().remove_brackets(img);
       }
+	  bracketboxes[0].remove_brackets(img);
+	  bracketboxes[1].remove_brackets(img);
+
 }
 
 void plot_points(Image &img, const vector<point> &points) {
