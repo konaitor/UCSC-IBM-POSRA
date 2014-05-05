@@ -671,6 +671,10 @@ int osra_process_image(
       vector<vector<vector<Image> > > array_of_images_page(page,vector<vector<Image> > (num_resolutions));
       vector<vector<vector<box_t> > > array_of_boxes_page(page,vector<vector<box_t> >(num_resolutions));
 
+      //nick_dev
+      //Declare polymer data type to store relevant information
+      Polymer polymer;
+
 #pragma omp parallel for default(shared) private(OCR_JOB,JOB)
       for (int l = 0; l < page; l++)
       {
@@ -759,10 +763,6 @@ int osra_process_image(
             // This will hide the output "Warning: non-positive median line gap" from GOCR. Remove after this is fixed:
             fclose(stderr);
             OpenBabel::obErrorLog.StopLogging();
-
-            //nick_dev
-            //Declare polymer data type to store relevant information
-            Polymer polymer;
 
             for (int res_iter = 0; res_iter < num_resolutions; res_iter++)
             {
@@ -1006,8 +1006,6 @@ int osra_process_image(
                   //dbg.write("debug.png");
             }
 
-            cout << polymer.get_degree() << endl;
-
 
 #pragma omp critical
             {
@@ -1084,6 +1082,9 @@ int osra_process_image(
       ostream &out_stream = outfile.is_open() ? outfile : cout;
 #endif
 
+      //nick_dev
+      out_stream << polymer.get_degree() << endl;
+
 
       // For Andriod version we will find the structure with maximum confidence value, as the common usecase for Andriod is to analyse the
       // image (taken by embedded photo camera) that usually contains just one molecule:
@@ -1110,11 +1111,14 @@ int osra_process_image(
                         {
                               out_stream << pages_of_structures[l][i];
                               // Hans, canonical and z coords
-                              /*
                               if (output_format == "can" || output_format == "smi") { // create 3D sdf representation
                                     OBMol sdfmol;
                                     OBConversion sdfconv;
-                                    if (sdfconv.SetInAndOutFormats("smi", "sdf") && sdfconv.ReadString(&sdfmol, pages_of_structures[l][i])) {
+                                    bool a = sdfconv.SetInAndOutFormats("smi", "sdf");
+                                    bool b = sdfconv.ReadString(&sdfmol, pages_of_structures[l][i]);
+                                    //cout << "Pages: " << pages_of_structures[l][i] << endl;
+                                    //cout << "a: " << a << " b: " << b << endl;
+                                    if (a && b) {
                                           sdfconv.Convert();
                                           sdfmol.AddHydrogens(); // add hydrogen atoms
                                           OBOp* pOp = OBOp::FindType("gen3D"); // locate 3D operations plugin
@@ -1126,7 +1130,6 @@ int osra_process_image(
                                           out_stream  << sdfconv.WriteString(&sdfmol, true) << endl;
                                     }
                               }
-                              */
                         }
                               // Dump this structure into a separate file:
                               if (!output_image_file_prefix.empty())
