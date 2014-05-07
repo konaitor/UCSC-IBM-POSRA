@@ -208,6 +208,8 @@ class Bracket {
             char orientation;
 };
 
+void debug_log(string debug_log_name, double ave_bond_length, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels);
+
 /** Edit Smiles
   *  Take the resulting smiles string from OSRA and splice and format the string
   *  by removing pseudo poloniums and replacing them with respective end group
@@ -255,13 +257,13 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
   *  we can look for symmetries in the diagram as bracket pairs naturally have both
   *  a vertical and horizontal symmetry which is rare on most chemical diagrams.
 */
-void  find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
+void  find_endpoints(Image detect, string debug_name, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints);
 
 /** Find Brackets
   *  The main entry point from OSRA to POSRA.  Encapsulates many of the functions
   *  above.
 */
-void  find_brackets(Image &img, vector<Bracket> &bracketboxes);
+void  find_brackets(Image &img, string debug_name, vector<Bracket> &bracketboxes);
 
 /** The following functions are utility functions for writing images with useful
   * information for debugging.
@@ -274,6 +276,6 @@ void  plot_bonds(Image &img, const vector<bond_t> &bonds, const vector<atom_t> a
 
 void  plot_atoms(Image &img, const vector<atom_t> &atoms, const std::string color);
 
-void  plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels);
+void  plot_all(Image img, string debug_name, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels);
 
 void  print_images(const potrace_path_t *p, int width, int height, const Image &box);

@@ -569,7 +569,6 @@ int osra_process_image(
       string debug_path = "./debug/";
       string file_name = string(basename((char*)input_file.c_str()));
       string debug_name = debug_path + file_name;
-      cout << debug_name << endl;
 
       std::transform(output_format.begin(), output_format.end(), output_format.begin(), ::tolower);
       std::transform(embedded_format.begin(), embedded_format.end(), embedded_format.begin(), ::tolower);
@@ -834,13 +833,14 @@ int osra_process_image(
                                     box = thick_box;
 
                               //nick_dev begin
-                              vector<Bracket> bracketboxes;
-                              find_brackets(box, *(new vector<Bracket>()));
                               ostringstream ss;
                               ss << res_iter;
-                              box.write(debug_name + "_box_removed_pass_" + ss.str() + ".gif");
-                              find_brackets(orig_box, bracketboxes);
+                              orig_box.write(debug_name + "_orig_box_pass_" + ss.str() + ".gif");
+                              vector<Bracket> bracketboxes;
+                              find_brackets(orig_box, debug_name, *(new vector<Bracket>()));
                               orig_box.write(debug_name + "_orig_box_removed_pass_" + ss.str() + ".gif");
+                              find_brackets(box, debug_name, bracketboxes);
+                              box.write(debug_name + "_box_removed_pass_" + ss.str() + ".gif");
                               //nick_dev end
 
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
@@ -990,7 +990,8 @@ int osra_process_image(
                               pair_brackets(polymer, bracketboxes);
                               split_atom(bond, atom, n_atom, n_bond);
                               find_degree(polymer, letters, label);
-                              //plot_all(orig_box, k, "end", atom, bond, letters, label);
+                              plot_all(orig_box, debug_name, k, "end", atom, bond, letters, label);
+                              debug_log(debug_name + "_posra.log", avg_bond_length, atom, bond, letters, label); 
                               //nick_dev end
 
                               if (verbose)

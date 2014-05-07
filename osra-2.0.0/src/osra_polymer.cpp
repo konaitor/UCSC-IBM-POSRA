@@ -2,6 +2,22 @@
 using namespace std;
 using namespace Magick;
 
+void debug_log(string debug_log_name, double ave_bond_length, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels){
+      ofstream debug_file;
+      debug_file.open(debug_log_name.c_str());
+      for(vector<bond_t>::const_iterator bond = bonds.begin(); bond != bonds.end(); ++bond) {
+            if (bond->exists) {
+                  debug_file << "Bond " << (bond - bonds.begin()) << ": ";
+                  debug_file << atoms[bond->a].label << " " << atoms[bond->b].label;
+                  debug_file << endl;
+            }
+      }
+      stringstream ss;
+      ss << ave_bond_length;
+      debug_file << "Average Bond Length: " << ave_bond_length;
+      debug_file.close();
+}
+
 void edit_smiles(string &s) {
       string tmp = s;
       vector<string> pieces;
@@ -148,7 +164,7 @@ void  split_atom(vector<bond_t> &bonds, vector<atom_t> &atoms, int &n_atom, int 
       }
 }
 
-void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints) {
+void find_endpoints(Image detect, string debug_name, vector<pair<int, int> > &endpoints, int width, int height, vector<pair<pair<int, int>, pair<int, int> > > &bracketpoints) {
       const unsigned int SIDE_GROUP_SIZE = 2;
       const unsigned int BRACKET_MIN_SIZE = 5;
       for (int i = 0; i < width; i++) {
@@ -249,14 +265,14 @@ void find_endpoints(Image detect, vector<pair<int, int> > &endpoints, int width,
                   }
             }
       }
-      detect.write("out.png");
+      detect.write(debug_name + "_endpoints_detect.gif");
 }
 
-void find_brackets(Image &img, vector<Bracket> &bracketboxes) { 
+void find_brackets(Image &img, string debug_name, vector<Bracket> &bracketboxes) { 
       vector<pair<int, int> > endpoints;
       vector<pair<pair<int, int>,pair<int, int> > > bracketpoints;
       // Find endpoints in the image
-      find_endpoints(img, endpoints, img.columns(), img.rows(), bracketpoints);
+      find_endpoints(img, debug_name, endpoints, img.columns(), img.rows(), bracketpoints);
       if(bracketpoints.size() != 2) return;
       // Iterate over endpoints and convert them into Brackets
       for(vector<pair<pair<int, int>, pair<int, int> > >::iterator itor = bracketpoints.begin(); itor != bracketpoints.end(); ++itor)
@@ -308,12 +324,12 @@ void plot_labels(Image &img, const vector<label_t> &labels, const std::string co
       }
 }
 
-void plot_all(Image img, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels) {
+void plot_all(Image img, string debug_name, const int boxn, const string id, const vector<atom_t> atoms, const vector<bond_t> bonds, const vector<letters_t> letters, const vector<label_t> labels) {
       plot_atoms(img, atoms, "blue");
       plot_bonds(img, bonds, atoms, "red");
       plot_letters(img, letters, "orange");
       plot_labels(img, labels, "pink");
       ostringstream ss;
       ss << boxn;
-      img.write("plot_all_box_" + ss.str() + "_" + id + ".png");
+      img.write(debug_name + "_atoms_bonds_labels_" + ss.str() + ".gif");
 }
