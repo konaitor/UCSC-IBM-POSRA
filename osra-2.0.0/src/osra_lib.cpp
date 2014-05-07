@@ -19,6 +19,7 @@ St, Fifth Floor, Boston, MA 02110-1301, USA
 
 //nick_dev
 #include <string.h>
+#include <libgen.h>
 #include "osra_polymer.h"
 
 #include <stdio.h> // fclose
@@ -565,7 +566,10 @@ int osra_process_image(
       // return global_init_state;
 
       //nick_dev
-      string debug_path = "./debug/"
+      string debug_path = "./debug/";
+      string file_name = string(basename((char*)input_file.c_str()));
+      string debug_name = debug_path + file_name;
+      cout << debug_name << endl;
 
       std::transform(output_format.begin(), output_format.end(), output_format.begin(), ::tolower);
       std::transform(embedded_format.begin(), embedded_format.end(), embedded_format.begin(), ::tolower);
@@ -578,8 +582,7 @@ int osra_process_image(
 
 #ifdef OSRA_LIB
       Blob blob(image_data, image_length);
-#endif
-
+#endif 
       try
       {
             Image image_typer;
@@ -833,11 +836,12 @@ int osra_process_image(
                               //nick_dev begin
                               vector<Bracket> bracketboxes;
                               find_brackets(box, *(new vector<Bracket>()));
-                              //box.write("removed.png");
+                              ostringstream ss;
+                              ss << res_iter;
+                              box.write(debug_name + "_box_removed_pass_" + ss.str() + ".gif");
                               find_brackets(orig_box, bracketboxes);
-                              //orig_box.write("orig_removed.png");
+                              orig_box.write(debug_name + "_orig_box_removed_pass_" + ss.str() + ".gif");
                               //nick_dev end
-                              cout << input_file << endl;
 
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
