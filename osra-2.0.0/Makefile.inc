@@ -26,8 +26,8 @@ datadir			:= ${prefix}/share
 docdir			:= ${prefix}/share/doc/osra
 mandir			:= ${datarootdir}/man
 
-TARGET_CPU		:= i686
-TARGET_OS		:= cygwin
+TARGET_CPU		:= x86_64
+TARGET_OS		:= linux
 
 CXX			:= g++
 RM			:= /usr/bin/rm
@@ -46,16 +46,16 @@ OSRA_JAVA		:=
 
 # Notes: see "configure --enable-static-linking" to enable static linking; use "configure --enable-profiling" to include extra debug info.
 
-CXXFLAGS		:= -g -O2
-CPPFLAGS		:= -I/usr/include/GraphicsMagick -I/usr/include/openbabel-2.0 -I/usr/local/include/gocr -I/usr/local/include 
+CXXFLAGS		:= -fopenmp -g -O2
+CPPFLAGS		:=  -I/usr/local/include/GraphicsMagick -I/usr/include/openbabel-2.0 -I/usr/local/include/gocr -I/usr/local/include 
 LDFLAGS			:= -L/usr/local/lib 
 # Important that this variable is re-evaluated each time when used: 
-LDSHAREDFLAGS		= -shared -Wl,--kill-at -Wl,--out-implib,$@.a
+LDSHAREDFLAGS		= -shared -Wl,-soname,$@.$(LIB_MAJOR_VERSION)
 
-EXEEXT			:= .exe
-SHAREDEXT		:= .dll
+EXEEXT			:= 
+SHAREDEXT		:= .so
 
-LIBS			:= -lPgm2asc -lnetpbm -lGraphicsMagick -lGraphicsMagick++ -lopenbabel -locrad -lpotrace -lm 
+LIBS			:= -lPgm2asc -lGraphicsMagick -lGraphicsMagick++ -lopenbabel -locrad -lpotrace -lm 
 
 PHONY_TARGETS		:= all install uninstall clean distclean
 

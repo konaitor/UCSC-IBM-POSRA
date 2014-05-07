@@ -564,6 +564,9 @@ int osra_process_image(
       //if (global_init_state != 0)
       // return global_init_state;
 
+      //nick_dev
+      string debug_path = "./debug/"
+
       std::transform(output_format.begin(), output_format.end(), output_format.begin(), ::tolower);
       std::transform(embedded_format.begin(), embedded_format.end(), embedded_format.begin(), ::tolower);
 
@@ -813,14 +816,6 @@ int osra_process_image(
                                     orig_box.pixelColor(x - boxes[k].x1 + FRAME, y - boxes[k].y1 + FRAME, color);
                               }
 
-                              //nick_dev begin
-                              vector<Bracket> bracketboxes;
-                              //find_brackets(box, *(new vector<Bracket>()));
-                              //box.write("removed.png");
-                              find_brackets(orig_box, bracketboxes);
-                              //orig_box.write("orig_removed.png");
-                              //nick_dev end
-
                               int width = orig_box.columns();
                               int height = orig_box.rows();
                               Image thick_box;
@@ -834,9 +829,16 @@ int osra_process_image(
                                     box = thin_image(thick_box, THRESHOLD_BOND, bgColor);
                               else
                                     box = thick_box;
-                              box.write("thinned.gif");
 
-                              //
+                              //nick_dev begin
+                              vector<Bracket> bracketboxes;
+                              find_brackets(box, *(new vector<Bracket>()));
+                              //box.write("removed.png");
+                              find_brackets(orig_box, bracketboxes);
+                              //orig_box.write("orig_removed.png");
+                              //nick_dev end
+                              cout << input_file << endl;
+
                               potrace_state_t * const  st = raster_to_vector(box,bgColor,THRESHOLD_BOND,width,height,working_resolution);
                               potrace_path_t const * const p = st->plist;
 
